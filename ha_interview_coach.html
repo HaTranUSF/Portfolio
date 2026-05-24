@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ha Tran — Interview Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0f14;
+  --bg2: #13161e;
+  --bg3: #1a1e2a;
+  --card: #1e2232;
+  --card2: #252a3a;
+  --border: #2e3448;
+  --border2: #3d4460;
+  --accent: #6c8fff;
+  --accent2: #a78bfa;
+  --green: #34d399;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --orange: #fb923c;
+  --text: #e8eaf2;
+  --text2: #9ba3c0;
+  --text3: #626b88;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+[data-theme="light"] {
+  --bg: #f0f2f8;
+  --bg2: #e8eaf4;
+  --bg3: #dfe2ef;
+  --card: #ffffff;
+  --card2: #f5f6fc;
+  --border: #d1d5e8;
+  --border2: #b8bdd6;
+  --accent: #4a6cf7;
+  --accent2: #7c3aed;
+  --green: #059669;
+  --yellow: #d97706;
+  --red: #dc2626;
+  --orange: #ea580c;
+  --text: #1a1d2e;
+  --text2: #4a4f6a;
+  --text3: #7b82a0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+/* LAYOUT */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 240px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  padding-bottom: 32px;
+  transition: transform 0.3s;
+}
+.sidebar-logo {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.sidebar-logo h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.sidebar-logo span { color: var(--accent); }
+.sidebar-logo p { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.nav-section { padding: 8px 12px 4px; }
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 8px;
+  margin-bottom: 4px;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--text2);
+  transition: all 0.15s;
+  border: none; background: none; width: 100%; text-align: left;
+}
+.nav-item:hover { background: var(--card); color: var(--text); }
+.nav-item.active { background: var(--accent); color: white; }
+.nav-item .icon { font-size: 15px; width: 18px; text-align: center; }
+.main-content { margin-left: 240px; flex: 1; }
+/* TOP BAR */
+.topbar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 28px;
+  display: flex; align-items: center; gap: 16px;
+  position: sticky; top: 0; z-index: 50;
+}
+.search-box {
+  flex: 1; max-width: 440px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+.search-box input {
+  background: none; border: none; outline: none;
+  color: var(--text); font-family: inherit; font-size: 13.5px; width: 100%;
+}
+.search-box input::placeholder { color: var(--text3); }
+.search-icon { color: var(--text3); font-size: 14px; }
+.theme-toggle {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 12px;
+  cursor: pointer; color: var(--text2); font-size: 15px;
+  transition: all 0.15s; line-height: 1;
+}
+.theme-toggle:hover { background: var(--card2); }
+.mobile-menu {
+  display: none; background: none; border: none;
+  color: var(--text2); font-size: 20px; cursor: pointer;
+}
+/* PAGES */
+.page { display: none; padding: 28px; max-width: 1000px; }
+.page.active { display: block; }
+/* TYPOGRAPHY */
+h1 { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1.2; }
+h2 { font-family: 'DM Serif Display', serif; font-size: 1.45rem; margin-bottom: 16px; }
+h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+.page-header { margin-bottom: 28px; }
+.page-header p { color: var(--text2); margin-top: 6px; font-size: 14px; }
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.stat-card .stat-label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.stat-card .stat-value { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1; }
+.stat-card .stat-desc { font-size: 12px; color: var(--text2); margin-top: 4px; }
+/* BADGES */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 100px;
+  font-size: 11.5px; font-weight: 500;
+}
+.badge-blue { background: rgba(108,143,255,0.15); color: var(--accent); border: 1px solid rgba(108,143,255,0.3); }
+.badge-green { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+.badge-yellow { background: rgba(251,191,36,0.12); color: var(--yellow); border: 1px solid rgba(251,191,36,0.25); }
+.badge-red { background: rgba(248,113,113,0.12); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+.badge-purple { background: rgba(167,139,250,0.12); color: var(--accent2); border: 1px solid rgba(167,139,250,0.25); }
+.badge-orange { background: rgba(251,146,60,0.12); color: var(--orange); border: 1px solid rgba(251,146,60,0.25); }
+/* PROGRESS BAR */
+.progress-bar { height: 8px; background: var(--border); border-radius: 100px; overflow: hidden; margin: 8px 0; }
+.progress-fill { height: 100%; border-radius: 100px; transition: width 1s ease; }
+.fill-green { background: var(--green); }
+.fill-yellow { background: var(--yellow); }
+.fill-blue { background: var(--accent); }
+.fill-red { background: var(--red); }
+/* SCORE RING */
+.score-ring-wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.score-ring {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) calc(var(--score,72) * 1%), var(--border) 0);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; flex-shrink: 0;
+}
+.score-ring::after {
+  content: '';
+  position: absolute; inset: 14px;
+  background: var(--card);
+  border-radius: 50%;
+}
+.score-ring .score-num {
+  position: relative; z-index: 1;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem; color: var(--text);
+}
+/* COLLAPSIBLE */
+.collapsible { margin-bottom: 10px; }
+.collapsible-header {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.15s; user-select: none;
+}
+.collapsible-header:hover { border-color: var(--border2); }
+.collapsible-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-color: var(--accent); }
+.collapsible-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  padding: 0;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s;
+}
+.collapsible-body.open { max-height: 2000px; padding: 18px; }
+.chevron { transition: transform 0.2s; color: var(--text3); }
+.chevron.open { transform: rotate(180deg); }
+/* TABS */
+.tab-bar {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.tab-btn {
+  padding: 9px 18px;
+  border: none; border-bottom: 2px solid transparent;
+  background: none; cursor: pointer;
+  color: var(--text2); font-family: inherit;
+  font-size: 13.5px; font-weight: 500;
+  transition: all 0.15s;
+  margin-bottom: -1px;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+/* ANSWER SECTIONS */
+.answer-type {
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+  margin-bottom: 16px;
+}
+.answer-type.conversational { border-color: var(--green); }
+.answer-type.short { border-color: var(--yellow); }
+.answer-type.warning { border-color: var(--red); }
+.answer-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 5px;
+}
+.answer-type.short .answer-label { color: var(--yellow); }
+.answer-type.conversational .answer-label { color: var(--green); }
+.answer-type.warning .answer-label { color: var(--red); }
+/* CHECKLIST */
+.checklist-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item input[type="checkbox"] { display: none; }
+.checkmark {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border2);
+  border-radius: 5px;
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s; font-size: 12px;
+}
+.checklist-item.checked .checkmark {
+  background: var(--green); border-color: var(--green); color: white;
+}
+.checklist-item.checked .check-text { text-decoration: line-through; opacity: 0.5; }
+/* FILTER BAR */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-btn {
+  padding: 6px 14px; border-radius: 100px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--text2); font-family: inherit; font-size: 12.5px;
+  cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--border2); color: var(--text); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+/* SEARCH HIGHLIGHT */
+.search-highlight { background: rgba(108,143,255,0.25); border-radius: 3px; padding: 0 2px; }
+/* STORY CARD */
+.story-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.story-card:hover { border-color: var(--border2); }
+.story-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.story-title { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+/* LIST STYLES */
+ul.styled { list-style: none; padding: 0; }
+ul.styled li { padding: 5px 0; padding-left: 18px; position: relative; color: var(--text2); font-size: 14px; }
+ul.styled li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+ul.styled.green li::before { color: var(--green); }
+ul.styled.red li::before { content: '⚠'; color: var(--red); font-size: 11px; }
+/* QUICK-REF GRID */
+.qref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.qref-card {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.qref-card h4 { font-size: 12px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.qref-card p, .qref-card li { font-size: 13px; color: var(--text2); }
+/* VIBE */
+.vibe-scenario {
+  background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.vibe-scenario .scenario-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.vibe-icon { font-size: 22px; }
+/* ALERT */
+.alert {
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  border-left: 4px solid;
+}
+.alert-yellow { background: rgba(251,191,36,0.08); border-color: var(--yellow); color: var(--text2); }
+.alert-red { background: rgba(248,113,113,0.08); border-color: var(--red); color: var(--text2); }
+.alert-green { background: rgba(52,211,153,0.08); border-color: var(--green); color: var(--text2); }
+.alert-blue { background: rgba(108,143,255,0.08); border-color: var(--accent); color: var(--text2); }
+/* SEARCH RESULT */
+.search-results { display: none; }
+.search-results.visible { display: block; }
+.no-results { padding: 40px; text-align: center; color: var(--text3); }
+/* MOBILE */
+.sidebar-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6); z-index: 99;
+}
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay.open { display: block; }
+  .main-content { margin-left: 0; }
+  .mobile-menu { display: block; }
+  .topbar { padding: 10px 16px; }
+  .page { padding: 16px; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .score-ring-wrap { flex-direction: column; align-items: flex-start; }
+  h1 { font-size: 1.5rem; }
+}
+/* QUESTION COUNT */
+.q-count {
+  font-size: 11px; color: var(--text3);
+  background: var(--bg3); border-radius: 100px;
+  padding: 2px 8px; margin-left: 8px;
+}
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+/* INLINE ICON */
+.inline-icon { display: inline-flex; align-items: center; gap: 6px; }
+/* FOLLOWUP BOX */
+.followup-box {
+  background: var(--bg3);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 12px;
+}
+.followup-box h4 { font-size: 12px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.followup-box ol { padding-left: 18px; }
+.followup-box ol li { color: var(--text2); font-size: 13px; padding: 3px 0; }
+/* PERSONALITY TIP */
+.personality-tip {
+  display: flex; gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.tip-icon { font-size: 22px; flex-shrink: 0; }
+.tip-body h4 { font-weight: 600; margin-bottom: 4px; }
+.tip-body p { font-size: 13.5px; color: var(--text2); }
+/* HIDDEN */
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="layout">
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h2>Ha Tran <span>//</span> Coach</h2>
+    <p>2026 New Grad — Data Roles</p>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Overview</div>
+    <button class="nav-item active" onclick="showPage('dashboard')"><span class="icon">◈</span> Dashboard</button>
+    <button class="nav-item" onclick="showPage('cheatsheet')"><span class="icon">⚡</span> Cheat Sheet</button>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Question Library</div>
+    <button class="nav-item" onclick="showPage('questions')"><span class="icon">💬</span> Common Questions</button>
+    <button class="nav-item" onclick="showPage('behavioral')"><span class="icon">🧠</span> Behavioral</button>
+    <button class="nav-item" onclick="showPage('technical')"><span class="icon">⚙️</span> Technical</button>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Deep Dives</div>
+    <button class="nav-item" onclick="showPage('experience')"><span class="icon">💼</span> Experience Deep Dive</button>
+    <button class="nav-item" onclick="showPage('projects')"><span class="icon">🔬</span> Projects Deep Dive</button>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Coaching</div>
+    <button class="nav-item" onclick="showPage('vibe')"><span class="icon">✨</span> Vibe Check Training</button>
+    <button class="nav-item" onclick="showPage('checklist')"><span class="icon">☑</span> Progress Checklist</button>
+  </div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- MAIN -->
+<div class="main-content">
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <button class="mobile-menu" onclick="openSidebar()">☰</button>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search questions, skills, stories..." oninput="handleSearch(this.value)">
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+  </div>
+
+  <!-- SEARCH RESULTS -->
+  <div class="page active" id="search-page" style="display:none; padding:28px; max-width:1000px;">
+    <div class="page-header">
+      <h2>Search Results</h2>
+      <p id="searchResultsCount"></p>
+    </div>
+    <div id="searchResults"></div>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="page active" id="page-dashboard">
+    <div class="page-header">
+      <h1>Ha Tran — Interview Readiness</h1>
+      <p>2026 New Grad — Data Roles</p>
+    </div>
+
+    <!-- SCORE + STATS -->
+    <div class="card" style="margin-bottom:20px;">
+      <div class="score-ring-wrap">
+        <div class="score-ring" style="--score:72;">
+          <div class="score-num">72</div>
+        </div>
+        <div>
+          <h3>Interview Readiness Score</h3>
+          <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">You have solid technical foundations and real internship stories. The gap is delivery — particularly under pressure and on follow-ups.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="badge badge-green">✓ Technical Content</span>
+            <span class="badge badge-green">✓ Real Stories</span>
+            <span class="badge badge-yellow">⚡ Behavioral Flow</span>
+            <span class="badge badge-red">⚠ Vibe Check</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="stat-card">
+        <div class="stat-label">Technical Depth</div>
+        <div class="stat-value" style="color:var(--green);">Strong</div>
+        <div class="progress-bar"><div class="progress-fill fill-green" style="width:82%"></div></div>
+        <div class="stat-desc">SQL, Python, Tableau, Power BI, cloud DBs — well-rounded for new grad</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Story Bank</div>
+        <div class="stat-value" style="color:var(--green);">6 Stories</div>
+        <div class="progress-bar"><div class="progress-fill fill-green" style="width:75%"></div></div>
+        <div class="stat-desc">Princeton internship, 3 projects, shipping co. — solid breadth</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Behavioral Delivery</div>
+        <div class="stat-value" style="color:var(--yellow);">Medium</div>
+        <div class="progress-bar"><div class="progress-fill fill-yellow" style="width:55%"></div></div>
+        <div class="stat-desc">Stories exist but can sound rehearsed or trail off under follow-ups</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Vibe Check / Personality</div>
+        <div class="stat-value" style="color:var(--red);">Needs Work</div>
+        <div class="progress-bar"><div class="progress-fill fill-red" style="width:40%"></div></div>
+        <div class="stat-desc">Hard to show warmth and humor when nervous — this is the gap</div>
+      </div>
+    </div>
+
+    <!-- STRENGTHS / WEAKNESSES -->
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:16px;">
+      <div class="card">
+        <h3 style="color:var(--green); margin-bottom:12px;">💪 Genuine Strengths</h3>
+        <ul class="styled green">
+          <li>Real Princeton internship with measurable, concrete outcomes (80% dashboard speedup, hours → 5 min automation)</li>
+          <li>Two majors in AI/Business Analytics + Economics — rare combination that signals range</li>
+          <li>Projects come from <em>real curiosity</em> — NextLeg from being stranded, Data Jobs from career planning</li>
+          <li>Built full ETL pipelines end-to-end, not just one-off scripts</li>
+          <li>Worked cross-functionally with International Tax team — shows communication skills</li>
+          <li>3.98 GPA with a real internship means you're credible and reliable</li>
+          <li>Mentored 12+ first-gen students — shows genuine care, not resume padding</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--red); margin-bottom:12px;">⚠ Risk Areas to Watch</h3>
+        <ul class="styled red">
+          <li>Only one internship — interviewers may probe depth. Have specifics ready.</li>
+          <li>Projects are solo/class-based. Ownership is great; "I worked alone" can sound limiting.</li>
+          <li>Numbers like "30% improvement" need context or they sound made-up.</li>
+          <li>Coupon project: $500 savings is modest — frame it as <em>methodology</em>, not the dollar amount.</li>
+          <li>Under follow-ups, you may go quiet or over-explain. Practice short landing answers.</li>
+          <li>If asked "where do you see yourself in 5 years?" without prep, this can derail you.</li>
+          <li>Vibe checks at final rounds — you may freeze if the conversation feels unstructured.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CANDIDATE PROFILE -->
+    <div class="card">
+      <h3 style="margin-bottom:14px;">🧭 Candidate Profile Summary</h3>
+      <div class="alert alert-blue">
+        <strong>How to think about yourself:</strong> You're a new grad who doesn't just run queries — you build systems, automate processes, and communicate what the data actually means. You bridge technical and non-technical teams, and you pick up new tools fast because your foundation is solid.
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:12px; margin-top:12px;">
+        <div class="qref-card"><h4>Role Fit</h4><p>Data Analyst, BI Analyst, Analytics Engineer, Product Analytics, Data Ops</p></div>
+        <div class="qref-card"><h4>Core Stack</h4><p>Python, SQL, Tableau, Power BI, Snowflake, PostgreSQL, scikit-learn</p></div>
+        <div class="qref-card"><h4>Differentiators</h4><p>End-to-end pipeline builder, automation-minded, works across teams</p></div>
+        <div class="qref-card"><h4>Soft Edge</h4><p>First-gen student mentor, curious project origins, low ego, reliable delivery</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <div class="page" id="page-cheatsheet">
+    <div class="page-header"><h1>⚡ Interview Cheat Sheet</h1><p>One-page quick review — study this the morning of</p></div>
+
+    <div class="card" style="border-color:var(--accent);">
+      <h3 style="margin-bottom:10px;">Tell Me About Yourself <span class="badge badge-blue">Memorize this</span></h3>
+      <div class="alert alert-blue" style="margin-bottom:0;">
+        "I graduated from USF in May 2026 with degrees in AI/Business Analytics and Economics — kind of an unusual combination, but it basically means I'm comfortable both building data systems and thinking about what the outputs actually mean for a business. Last summer I interned at Princeton's Office of Finance and Treasury, where I worked on everything from optimizing Tableau dashboards for seven million records to automating an email reporting process that used to take hours and brought it down to about five minutes. Outside of work I've built a few projects on my own — a flight cancellation prediction model, a market analysis on data jobs — mostly things I got curious about and wanted to dig into. I'm looking for a role where I can actually own a problem end-to-end, work with stakeholders to figure out what questions to ask, and build things that get used."
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px;">Why This Role / Company</h3>
+      <p style="color:var(--text2); font-size:14px;">Adapt this formula: <em>"I'm drawn to this role because [specific thing about company/team] — and based on my experience [brief story], I think I'd be able to contribute quickly. The thing I'm most excited to learn is [honest gap]."</em></p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:16px;">
+      <div class="card">
+        <h3 style="color:var(--green); margin-bottom:10px;">Strengths to Lead With</h3>
+        <ul class="styled green">
+          <li>I build things end-to-end, not just the analysis part</li>
+          <li>I translate technical work into plain language for stakeholders</li>
+          <li>I don't wait to be told what tool to use — I research what fits</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--yellow); margin-bottom:10px;">Weakness (honest version)</h3>
+        <p style="color:var(--text2); font-size:14px;">"I can over-engineer solutions when a simpler approach would work. At Princeton I realized mid-project I was building something more complex than needed. Now I try to ask: what's the simplest version that actually solves this?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:12px;">🗂 Top 6 Stories to Remember</h3>
+      <div class="qref-grid">
+        <div class="qref-card"><h4>1. Tableau Dashboard</h4><p>Security + performance problem at Princeton. UNION ALL fix. 80% faster.</p></div>
+        <div class="qref-card"><h4>2. Power Automate</h4><p>Automated email pipeline. Hours → 5 min. Became template for other teams.</p></div>
+        <div class="qref-card"><h4>3. International Tax</h4><p>Cross-functional collab. Met weekly with Tax team. VBA/Power Query automation.</p></div>
+        <div class="qref-card"><h4>4. Flight Cancellation (NextLeg)</h4><p>Personal origin story. 2.5M records. XGBoost + SMOTE. F1 from ~0 → 0.30.</p></div>
+        <div class="qref-card"><h4>5. Data Jobs Market</h4><p>Career curiosity project. 12K job postings → Snowflake → Power BI. DA = 33.5% market.</p></div>
+        <div class="qref-card"><h4>6. Coupon Prediction</h4><p>4-person team. Random Forest, recall-optimized. Focus on methodology, not the $500.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:12px;">❓ Questions to Ask Interviewers</h3>
+      <ul class="styled">
+        <li>"What does success look like for someone in this role at 90 days?"</li>
+        <li>"What does the data stack look like right now, and where's the team hoping to take it?"</li>
+        <li>"What's one thing you wish you'd known about this team before joining?"</li>
+        <li>"How does this team typically hand off insights to stakeholders?"</li>
+        <li>"Is there a specific project or dataset you'd want someone in this role to dig into first?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ COMMON QUESTIONS ============ -->
+  <div class="page" id="page-questions">
+    <div class="page-header"><h1>Common Questions Library</h1><p>Core questions with multiple answer versions</p></div>
+    <div class="filter-bar" id="qFilterBar">
+      <button class="filter-btn active" onclick="filterQ('all', this)">All</button>
+      <button class="filter-btn" onclick="filterQ('intro', this)">Intro</button>
+      <button class="filter-btn" onclick="filterQ('motivation', this)">Motivation</button>
+      <button class="filter-btn" onclick="filterQ('strengths', this)">Strengths</button>
+      <button class="filter-btn" onclick="filterQ('growth', this)">Growth</button>
+    </div>
+
+    <div id="qLibrary">
+
+    <!-- Q1 -->
+    <div class="collapsible" data-tags="intro" data-searchable="tell me about yourself walk me through your background intro">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Tell me about yourself</span>
+          <span class="badge badge-blue" style="margin-left:8px;">Always Asked</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> They want to see how you frame yourself, what you choose to highlight, and whether you're someone they'd want to work with daily.
+        </div>
+        <div class="answer-type short">
+          <div class="answer-label">⚡ 30-Second Version</div>
+          <p style="color:var(--text2); font-size:14px;">"I graduated from USF in May 2026 with two degrees — AI/Analytics and Economics. Last summer I interned at Princeton's finance office, automating reporting workflows and optimizing Tableau dashboards. I also build data projects on the side when something catches my curiosity. I'm looking for a role where I can own something end-to-end."</p>
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Standard Version (~75 sec)</div>
+          <p style="color:var(--text2); font-size:14px;">"I graduated from USF in May 2026 with degrees in AI/Business Analytics and Economics — which sounds like an odd combo, but it basically means I can build data systems and also think about what those outputs mean for a business decision. Last summer I interned at Princeton in their Office of Finance and Treasury, where I got to work on some really varied problems — everything from fixing a row-level security issue in a Tableau dashboard handling seven million records, to building a Power Automate pipeline that automated personalized email reports for ten thousand rows of data. That one actually went from taking hours to five minutes, which felt good. Outside of the internship I've been building projects on things I got genuinely curious about — I did a flight cancellation prediction model after getting stranded during a hurricane, and a market analysis of data job postings to figure out what skills actually matter in this field. I'm looking for a role where I can dig into messy data, work with stakeholders who have real questions, and build things that actually get used."</p>
+        </div>
+        <div class="answer-type conversational">
+          <div class="answer-label">💬 Conversational Version</div>
+          <p style="color:var(--text2); font-size:14px;">"So I just graduated from USF in May — I did two majors, one in AI and analytics and one in economics, which honestly started as a backup plan and ended up being the thing I'm most glad I did because they complement each other really well. Last summer I was at Princeton for an internship in their finance office, which was kind of wild because it was my first real corporate environment and they had me working on actual security and infrastructure problems pretty quickly. Outside of that I just... build stuff. I got stuck at an airport during a hurricane last year and ended up spending the delay thinking about how an airline could predict which flights are about to get canceled — and then I actually built the model. That's kind of how I approach things."</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"What drew you specifically to data analytics?"</li>
+            <li>"Tell me more about the Princeton internship."</li>
+            <li>"Why two majors? Which do you lean on more?"</li>
+          </ol>
+        </div>
+        <div class="answer-type warning" style="margin-top:14px;">
+          <div class="answer-label">⚠ Mistakes to Avoid</div>
+          <ul class="styled red">
+            <li>Don't just recite your resume chronologically — that's boring</li>
+            <li>Don't oversell the GPA or mention it unprompted</li>
+            <li>Don't end without a clear "why I'm here" statement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="collapsible" data-tags="motivation" data-searchable="why data analytics why this field interest passion motivation">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Why data analytics / why this field?</span>
+          <span class="badge badge-purple" style="margin-left:8px;">Motivation</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> They want to know if this is a deliberate choice or just a default. Passion reads on candidates who can name a specific moment or reason.
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Standard Version</div>
+          <p style="color:var(--text2); font-size:14px;">"Honestly, the econometrics side came first — I liked that you could take a real-world question, set up a model, and actually test your assumptions rather than just debating opinions. Data analytics felt like a natural extension: same mindset, but closer to the actual business decisions. And once I got to Princeton and saw how much time teams were losing to manual reporting processes, I realized there was a real gap between the data people have and the way they actually use it. That's the problem I want to work on."</p>
+        </div>
+        <div class="answer-type conversational">
+          <div class="answer-label">💬 Conversational Version</div>
+          <p style="color:var(--text2); font-size:14px;">"I think it started in my econometrics courses — there's something satisfying about having an actual framework to test whether something is true instead of just arguing about it. Data analytics felt like the applied version of that, where the output actually helps someone make a real decision. The internship confirmed it for me, because I could see how much time was being lost to processes that didn't need to be manual. I like finding those gaps."</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"Is there a specific type of data problem you enjoy most?"</li>
+            <li>"Do you see yourself more on the engineering side or the analysis side?"</li>
+          </ol>
+        </div>
+        <div class="answer-type warning" style="margin-top:12px;">
+          <div class="answer-label">⚠ Avoid</div>
+          <ul class="styled red">
+            <li>Don't say "I've always loved math" without connecting it to something specific</li>
+            <li>Don't say "data is the future" — sounds generic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="collapsible" data-tags="strengths" data-searchable="strength greatest strength what are you good at">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">What's your greatest strength?</span>
+          <span class="badge badge-green" style="margin-left:8px;">Strengths</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> Self-awareness. They want to see if you can name something real and back it up, not just list virtues.
+        </div>
+        <div class="answer-type short">
+          <div class="answer-label">⚡ Short Version</div>
+          <p style="color:var(--text2); font-size:14px;">"I'm good at taking something ambiguous — a vague problem or a messy dataset — and figuring out what structure to put around it so it actually becomes useful. That's come up in both my internship and my projects."</p>
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Standard Version</div>
+          <p style="color:var(--text2); font-size:14px;">"I think my strongest thing is taking an ambiguous problem and breaking it into something concrete. At Princeton, the Tableau dashboard issue wasn't clearly defined when I got it — I had to figure out what the actual security requirement was, research the technical options, and then test a solution that worked for seven million records. I do that naturally: I ask 'what problem are we actually solving?' before I start writing code. The projects I build on my own follow the same pattern — I start with a question that genuinely bothers me, and I build until I have an answer I trust."</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"Can you give me another example of that?"</li>
+            <li>"How does that show up in team settings?" — Answer: Princeton tax team collaboration, weekly check-ins</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="collapsible" data-tags="growth" data-searchable="weakness area for improvement growth opportunity what are you bad at">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">What's a weakness or area you're working on?</span>
+          <span class="badge badge-orange" style="margin-left:8px;">Growth</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> Self-awareness and honesty. Bad answers are fake weaknesses ("I work too hard") or catastrophic real ones. The sweet spot: real, bounded, with growth.
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Recommended Answer</div>
+          <p style="color:var(--text2); font-size:14px;">"I have a tendency to want to build the complete, scalable version of something when a simpler version would actually serve the immediate need. I noticed this at Princeton when I was architecting the Power Automate pipeline — I kept thinking about edge cases and reuse scenarios before the core functionality was even proven. The pipeline I built ended up being solid and did get reused, but I spent time on features that weren't necessary at that stage. I'm more deliberate now about scoping to the actual current problem first and building in flexibility only where it's actually needed."</p>
+        </div>
+        <div class="answer-type conversational">
+          <div class="answer-label">💬 Conversational Version</div>
+          <p style="color:var(--text2); font-size:14px;">"Honestly? I over-engineer sometimes. I'll start building something and my brain immediately goes to 'okay, but what if other teams need this too?' or 'what if the data grows?' I did this at Princeton on the automation project — I was designing for flexibility before I'd even validated the core thing worked. I've gotten better at catching myself and asking whether I'm solving the actual problem or the imaginary future problem."</p>
+        </div>
+        <div class="answer-type warning" style="margin-top:12px;">
+          <div class="answer-label">⚠ Avoid</div>
+          <ul class="styled red">
+            <li>"I'm a perfectionist" — overused, sounds fake</li>
+            <li>A weakness that's actually a core job requirement</li>
+            <li>Going vague: "I'm still learning" with no concrete example</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="collapsible" data-tags="motivation" data-searchable="why this company why us why role">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Why do you want to work here / why this role?</span>
+          <span class="badge badge-purple" style="margin-left:8px;">Motivation</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> They want to filter out people who applied to 50 companies and don't care which one calls back. Specificity is everything here.
+        </div>
+        <div class="alert alert-yellow">
+          This is the one question you <em>must</em> customize per company. The template below gives you the structure — fill in specific company details before every interview.
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Template Answer</div>
+          <p style="color:var(--text2); font-size:14px;">"What drew me to [Company] specifically is [1 specific thing about the data team, product, or mission]. That matters to me because [why it connects to your experience or values]. Based on what I've done — building ETL pipelines, working with stakeholders on data questions they couldn't answer before — I think I could contribute pretty quickly. And I'm also honest that I'd be learning a lot, which is exactly what I want in a first role."</p>
+        </div>
+        <div class="followup-box">
+          <h4>Pre-Interview Research Checklist</h4>
+          <ol>
+            <li>What data tools/stack do they use? (check job postings, engineering blog)</li>
+            <li>Any recent product launches or public data work?</li>
+            <li>Who would you report to? Anything about their background on LinkedIn?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="collapsible" data-tags="motivation" data-searchable="5 years where do you see yourself career goals future plans">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Where do you see yourself in 5 years?</span>
+          <span class="badge badge-orange" style="margin-left:8px;">High Risk</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div style="margin-bottom:14px; color:var(--text3); font-size:13px;">
+          <strong style="color:var(--text2);">Why they ask:</strong> They want to know if you're going to leave in 6 months for grad school, and whether your ambitions are realistic. Be honest but grounded.
+        </div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Honest, Grounded Answer</div>
+          <p style="color:var(--text2); font-size:14px;">"Honestly, I try not to over-plan the five-year picture because I think the best path comes from finding work you're actually good at and that matters to someone. Short term, I want to get really good at this role — understanding the business deeply, building things that people actually use, and becoming someone who can take a vague question from a stakeholder and turn it into a real answer. If I do that well, I imagine I'll either grow into a more senior analyst role or potentially into something more engineering-focused, depending on what I enjoy most. I'm genuinely open."</p>
+        </div>
+        <div class="answer-type warning" style="margin-top:12px;">
+          <div class="answer-label">⚠ Avoid</div>
+          <ul class="styled red">
+            <li>"I'd like to be a manager" — too ambitious for a new grad vibe check</li>
+            <li>"I'm thinking about grad school" — flags that you're leaving</li>
+            <li>Vague: "I just want to grow" — everyone says this</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- end qLibrary -->
+  </div>
+
+  <!-- ============ BEHAVIORAL ============ -->
+  <div class="page" id="page-behavioral">
+    <div class="page-header"><h1>Behavioral Questions</h1><p>STAR-format stories using your actual experiences</p></div>
+    <div class="alert alert-blue" style="margin-bottom:20px;">
+      For each story: <strong>Situation → Task → Action → Result</strong>. Keep the Situation short (1-2 sentences). Spend most time on Action. Land the Result clearly, then stop.
+    </div>
+
+    <div class="collapsible" data-searchable="challenge difficult problem solve obstacle">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Tell me about a challenging technical problem you solved</span><span class="badge badge-blue" style="margin-left:8px;">Core Story</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Best Answer — Tableau + Security (Princeton)</div>
+          <p style="color:var(--text2); font-size:14px;"><strong>Situation:</strong> At Princeton, the team needed to move a Tableau dashboard handling seven million records from a live database connection to a Tableau extract for performance reasons.<br><br><strong>Task:</strong> The problem was that when we made that switch, the row-level security that the database enforced stopped working — so users could suddenly see data they weren't authorized to see. I needed to find a way to bring that security back without losing the performance gains.<br><br><strong>Action:</strong> I researched different approaches with my team and tested a few options. The one that worked was a UNION ALL architecture in the underlying SQL — full-access rows for admin users combined with appropriately filtered rows for standard users, so the security logic was baked directly into the extract rather than relying on the live database. I tested this across multiple user scenarios to make sure it was actually working.<br><br><strong>Result:</strong> The extract maintained proper access control and we got the 80% performance improvement we were after. It was a good lesson in the fact that performance and security aren't always in conflict — sometimes you just need to find the right architecture.</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"How did you know which architecture to test first?" → "Research and talking it through with my team — I didn't immediately know the answer."</li>
+            <li>"What would you do differently?" → "Probably document the decision more clearly so the next person understands why UNION ALL was the choice."</li>
+            <li>"Was the security issue caught in QA or in production?" → It was caught during the transition — before it went live.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapsible" data-searchable="ambiguity unclear requirements unclear ask vague">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Tell me about a time you had to work with ambiguous requirements</span><span class="badge badge-yellow" style="margin-left:8px;">Common</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Best Answer — International Tax Automation (Princeton)</div>
+          <p style="color:var(--text2); font-size:14px;"><strong>Situation:</strong> I was assigned to automate the data cleaning process for the International Tax team, who needed employee records cleaned before uploading to their tax system each month.<br><br><strong>Task:</strong> The requirements weren't handed to me as a spec — I had to figure out the actual rules by working with the Tax team, who thought in terms of tax logic, not data logic.<br><br><strong>Action:</strong> I set up regular check-ins with the Tax team to walk through specific cases — what happens when an employee has multiple records, what counts as an edge case, what the downstream system actually needs. I'd take notes, translate the requirements into logic I could build in VBA and Power Query, then come back with questions the next time. It took several cycles to get it right.<br><br><strong>Result:</strong> The template now handles about 200 rows of employee data each month automatically. More importantly, both teams signed off on it, which meant I'd actually understood the requirements correctly — that's usually the hard part.</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"What was the hardest requirement to translate?" → Tax-specific edge cases around employee categories with multiple simultaneous tax statuses.</li>
+            <li>"How did you handle disagreements between what the teams wanted?" → Confirmed the Tax team's logic was the source of truth, then made sure Finance Technology could implement it.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapsible" data-searchable="initiative ownership proactive went above and beyond">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Tell me about a time you took initiative</span><span class="badge badge-green" style="margin-left:8px;">Ownership Story</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Best Answer — Power Automate Pipeline (Princeton)</div>
+          <p style="color:var(--text2); font-size:14px;"><strong>Situation:</strong> One of the finance teams was manually sending personalized email reports from Excel data, which was taking hours each time.<br><br><strong>Task:</strong> I was asked to find a solution — no specific tool requirement, no spec. Just "fix this."<br><br><strong>Action:</strong> I evaluated a few automation tools and landed on Power Automate for its integration with Outlook and Excel. I built a workflow that processed large Excel files, grouped ten thousand-plus rows by recipient, and automatically generated and sent personalized emails with PDF attachments. I also built it to be reusable — not just for this team's specific data format.<br><br><strong>Result:</strong> The process went from hours to about five minutes. But the part I'm most proud of is that it became a template other teams started using for their own reporting workflows, which I hadn't been asked to design for — I just thought about the problem generically enough that it ended up being flexible.</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"Did you have to get approval to build it that way?" → Yes — I checked in with my manager before expanding scope to make it a general template.</li>
+            <li>"How many teams ended up using it?" → I know at least one other team adopted it before I left. I wasn't there long enough to see the full adoption.</li>
+          </ol>
+        </div>
+        <div class="alert alert-yellow" style="margin-top:12px;">Be ready to say "I don't know exactly" if asked for specific numbers you don't have. It's more credible than inventing them.</div>
+      </div>
+    </div>
+
+    <div class="collapsible" data-searchable="failure mistake learn from wrong error setback">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Tell me about a time you failed or made a mistake</span><span class="badge badge-red" style="margin-left:8px;">Tricky</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="alert alert-yellow" style="margin-bottom:14px;">This is where many candidates either pick something too small (looks fake) or too catastrophic (tank themselves). Find a real, bounded, learning-rich story.</div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Recommended Angle — NextLeg / Flight Model</div>
+          <p style="color:var(--text2); font-size:14px;"><strong>Situation:</strong> On the flight cancellation project, I initially tried to build the prediction model before really understanding the class imbalance problem in the data.<br><br><strong>Task:</strong> I needed a model that could actually identify high-risk flights — but flight cancellations are rare events, maybe 2-3% of all flights, which means a naive model will just predict "not canceled" every time and look fine on paper.<br><br><strong>Action:</strong> I trained the initial model, saw it was getting 97% accuracy, and thought I was done. Then I looked at the breakdown and realized the minority class recall was basically zero — it was just predicting the majority class. I had to go back, apply SMOTE for oversampling, re-tune the model, and rebuild my evaluation metrics around F1 on the rare class.<br><br><strong>Result:</strong> The F1 score on cancellations went from near zero to 0.30, which is actually meaningful for a rare-event problem. The lesson was to always look at class distribution before choosing your success metric — accuracy alone is a lie when classes are imbalanced.</p>
+        </div>
+        <div class="followup-box">
+          <h4>Likely Follow-Ups</h4>
+          <ol>
+            <li>"How long did it take you to catch the error?" → A few days. Once I looked at the confusion matrix breakdown it was obvious, but I didn't look closely enough initially.</li>
+            <li>"What changed about how you approach modeling?" → I now look at class distribution and define what "good" means before training anything.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapsible" data-searchable="conflict disagreement team different opinion stakeholder">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Tell me about a time you disagreed with a stakeholder or team member</span><span class="badge badge-orange" style="margin-left:8px;">Interpersonal</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="alert alert-yellow" style="margin-bottom:14px;">You don't have a dramatic conflict story — and that's fine. Use the Tax team collaboration to show how you navigated differing perspectives professionally.</div>
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Best Available Answer</div>
+          <p style="color:var(--text2); font-size:14px;">"I don't have a dramatic conflict story from my experience so far, but I can talk about navigating genuinely different perspectives. At Princeton, the International Tax team and the Finance Technology team often had different ideas about what the data cleaning template needed to do — Tax thought in terms of legal requirements and edge cases, and Finance Technology thought in terms of what was technically feasible to automate. I was sitting in the middle trying to translate between them. There were a few moments where I pushed back on Tax to say 'I don't think we can automate that edge case reliably without risking errors' — and we'd work out a compromise where I'd flag those rows for manual review instead of trying to handle them automatically. It wasn't dramatic, but it required being honest about limitations rather than just saying yes to everything."</p>
+        </div>
+        <div class="alert alert-blue" style="margin-top:12px;">If pushed for something more conflict-driven, be honest: "I haven't had a major conflict yet — I've been in new grad and intern contexts where I'm mostly learning. I imagine that changes as you have more standing in a team."</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ TECHNICAL ============ -->
+  <div class="page" id="page-technical">
+    <div class="page-header"><h1>Technical Questions</h1><p>What interviewers will actually probe on your stack</p></div>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('tech', 'sql', this)">SQL</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'python', this)">Python / ML</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'bi', this)">BI Tools</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'pipeline', this)">Pipelines / Infra</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'stats', this)">Stats / Analytics</button>
+    </div>
+
+    <div class="tab-panel active" id="tech-sql">
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Walk me through how you'd optimize a slow SQL query</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Your Real Experience Angle</div>
+          <p style="color:var(--text2); font-size:14px;">"I actually did this at Princeton on a Tableau dashboard. The dashboard was pulling from seven million records on a live database connection, and performance was terrible. My approach: first, understand what the query is actually doing — look at execution plans, see where the bottlenecks are. In that case, the issue was multiple joins and security filtering happening at query time on a live connection. We moved to a Tableau extract, and then I restructured the SQL using UNION ALL to build the security logic directly into the extract rather than filtering on retrieval. That 80% performance improvement came from the combination of fewer live queries and smarter data structure."</p>
+        </div>
+        <p style="color:var(--text3); font-size:13px; margin-top:10px;"><strong style="color:var(--text2);">General framework to mention:</strong> Indexes, query execution plans, avoiding SELECT *, reducing joins where possible, using CTEs for readability, partitioning for large tables.</p>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Explain window functions — when would you use them?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">"Window functions let you perform calculations across a set of rows related to the current row without collapsing the result into a single value like GROUP BY would. Classic use cases: running totals, ranking within a group, calculating a moving average, or comparing each row to the average of its partition."</p>
+        <p style="color:var(--text2); font-size:14px;"><strong>Tie to your experience:</strong> "In the Data Jobs project, I used window functions to rank skills by frequency within each job category — so I could see not just that SQL was popular overall, but that it was the #1 skill specifically within Data Analyst postings."</p>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">What's the difference between WHERE and HAVING?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"WHERE filters rows before aggregation — it applies to individual records. HAVING filters after aggregation — it applies to groups. So if you want only customers who placed more than 5 orders, you'd GROUP BY customer, then use HAVING COUNT(order_id) > 5. You can't use WHERE there because the count doesn't exist until after grouping."</p>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" id="tech-python">
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">How did you handle class imbalance in your ML projects?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Direct from Your Experience</div>
+          <p style="color:var(--text2); font-size:14px;">"In the flight cancellation project, cancellations were rare — maybe 2-3% of all flights. A naive model will just predict 'not canceled' every time and still look like it has 97% accuracy, which is totally useless. I used SMOTE — Synthetic Minority Over-sampling Technique — to generate synthetic examples of the minority class during training. More importantly, I changed the evaluation metric: accuracy doesn't mean anything in this situation. I optimized for F1 score on the cancellation class specifically. The minority-class F1 went from near zero to 0.30, which actually means the model is detecting real patterns."</p>
+        </div>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Why did you choose Random Forest for the coupon project?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"Random Forest was a good fit because the dataset had a mix of categorical and numerical features, and I didn't want to have to make strong assumptions about the distribution. It handles feature interactions well and is fairly robust to outliers. I also optimized for recall specifically — I wanted to minimize missed coupon acceptors, since failing to give a coupon to someone who would have used it was more costly than giving one to someone who wouldn't. Random Forest let me tune the classification threshold to favor recall without completely destroying precision."</p>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Walk me through your typical Python data cleaning workflow</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"I start by loading the data and doing a quick audit — shape, dtypes, null counts, basic descriptive stats. Then I look at distributions for numerical columns and value counts for categorical ones to spot anything obviously wrong. Missing values I handle case by case: if it's clearly structural (a column that's null because a field doesn't apply), I document that and leave it. If it's random missingness, I impute based on what makes sense — median for skewed numerical, mode for categorical. Then I handle outliers, encode categoricals, and do any feature engineering before splitting. I always keep a copy of the raw data untouched."</p>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" id="tech-bi">
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">What's the difference between a live connection and an extract in Tableau?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"A live connection queries the data source every time the dashboard is loaded or refreshed — you get real-time data but it can be slow for large datasets, and it depends on the database being available. An extract pulls data into Tableau's own compressed format, which is much faster for analysis, can be scheduled to refresh, and works offline. The tradeoff is that you lose the real-time nature and any server-side security features like row-level security stop working, which was exactly the problem I had to solve at Princeton."</p>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">How do you decide when to use Tableau vs Power BI?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"From my experience using both: Tableau is stronger for exploration and visual analysis — it's faster to prototype a viz and the drag-and-drop is more intuitive for ad-hoc questions. Power BI integrates more naturally with the Microsoft ecosystem, which made it the obvious choice for the Data Jobs project where I was already using Excel and Azure. Power BI also has Power Automate integration and the pricing is generally friendlier for enterprise deployments. I don't have a strong preference — I pick based on what the team is already using."</p>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" id="tech-pipeline">
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Walk me through an ETL pipeline you built</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <div class="answer-type" style="border-color:var(--accent);">
+          <div class="answer-label">🎯 Flight Cancellation Pipeline</div>
+          <p style="color:var(--text2); font-size:14px;">"For the NextLeg project, I built an end-to-end pipeline for 2.5 million flight records. The Extract step pulled raw CSVs. Transform was done in Python with pandas — handling nulls, standardizing date formats, engineering features like day-of-week and route frequency, and separating categorical encoding. The Load step brought the clean data into PostgreSQL, where I designed the schema to support both exploratory queries and joining to weather data. From there, the ML model could query directly. The whole pipeline was designed so I could re-run it with new data without touching the modeling code."</p>
+        </div>
+        <div class="answer-type" style="border-color:var(--accent2); margin-top:12px;">
+          <div class="answer-label" style="color:var(--accent2);">🎯 Data Jobs Pipeline (Snowflake)</div>
+          <p style="color:var(--text2); font-size:14px;">"For the Data Jobs analysis: ingested 12,000+ job posting records via Python, cleaned and normalized the text fields using pandas and regex — things like extracting skill keywords from unstructured job description paragraphs. Loaded into Snowflake for queryability and then connected Power BI for visualization. The regex work was actually the most interesting part because the skill extraction from free-text descriptions required a lot of iteration to avoid false positives."</p>
+        </div>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">What's your experience with cloud data warehouses?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"I've used Snowflake on the Data Jobs project — primarily loading structured data and writing analytical queries against it. I've also worked with PostgreSQL hands-on for the flight cancellation project, which was self-hosted. I have academic exposure to BigQuery and Oracle, and I understand the conceptual differences between row-oriented and columnar storage. I'm comfortable learning whatever warehouse a team uses — the SQL concepts transfer and the platform-specific parts come from documentation and practice."</p>
+      </div></div>
+    </div>
+
+    <div class="tab-panel" id="tech-stats">
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">How would you explain A/B testing to a non-technical stakeholder?</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"I'd say something like: imagine you're trying to figure out if a new checkout button color increases sales. Instead of changing it for everyone and hoping for the best, you randomly split your users into two groups — one sees the old button, one sees the new one. After enough time and users, you compare the conversion rates. If the difference is big enough that it's unlikely to just be luck — that's statistical significance — then you have actual evidence the change works, not just a hunch. The key is that the randomization removes other explanations for the difference."</p>
+      </div></div>
+      <div class="collapsible"><div class="collapsible-header" onclick="toggleCollapse(this)"><span style="font-weight:600;">Explain precision vs recall in plain language</span><span class="chevron">▾</span></div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px;">"Precision is: of all the things I flagged as positive, how many were actually positive? Recall is: of all the actual positives that exist, how many did I catch? The flight cancellation project is a good example — I cared much more about recall. If I miss a flight that's about to get canceled, a passenger doesn't get proactively rebooked. That's a bad outcome. If I falsely flag a flight as high-risk and it's fine, it wastes some resources but isn't catastrophic. So I tuned the model to favor recall over precision."</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- ============ EXPERIENCE DEEP DIVE ============ -->
+  <div class="page" id="page-experience">
+    <div class="page-header"><h1>Experience Deep Dive</h1><p>Princeton internship + Intercontinental Shipping Co.</p></div>
+
+    <div class="story-card">
+      <div class="story-meta">
+        <span class="badge badge-blue">Princeton University</span>
+        <span class="badge badge-purple">Data Analyst Intern — BI</span>
+        <span class="badge badge-green">Summer 2024</span>
+      </div>
+      <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">Your strongest experience. Four distinct deliverables, each with a real outcome. This is where most technical and behavioral questions will point.</p>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('princeton', 'key', this)">Key Points</button>
+        <button class="tab-btn" onclick="switchTab('princeton', 'tech', this)">Technical Qs</button>
+        <button class="tab-btn" onclick="switchTab('princeton', 'behav', this)">Behavioral Qs</button>
+        <button class="tab-btn" onclick="switchTab('princeton', 'weak', this)">Weak Spots</button>
+      </div>
+
+      <div class="tab-panel active" id="princeton-key">
+        <h3 style="margin-bottom:10px;">What to emphasize</h3>
+        <ul class="styled green">
+          <li><strong>Scope:</strong> You handled real infrastructure (7M records, Row-Level Security, 10K+ row pipeline) — not toy data</li>
+          <li><strong>Cross-functional:</strong> You worked with International Tax, Finance Technology, different stakeholder types</li>
+          <li><strong>Outcomes measured:</strong> 80% faster dashboard, hours → 5 min automation, 200 rows/month automated</li>
+          <li><strong>Initiative:</strong> Power Automate pipeline became a reusable template — you went beyond the brief</li>
+          <li><strong>Communication:</strong> You wrote a Generative AI usage guide for 150+ staff — shows writing and clarity</li>
+        </ul>
+        <div class="alert alert-yellow" style="margin-top:14px;"><strong>Don't say:</strong> "I worked on a lot of projects." Say: "I had four main deliverables. Let me walk you through the one most relevant to your question."</div>
+      </div>
+
+      <div class="tab-panel" id="princeton-tech">
+        <ul class="styled">
+          <li>"What SQL approach did you use to maintain row-level security in a Tableau extract?" → UNION ALL architecture</li>
+          <li>"How does Power Automate work? Walk me through how you structured the workflow." → Excel trigger → loop groups → generate PDFs → send via Outlook</li>
+          <li>"Why VBA + Power Query for the tax template — why not Python?" → The tax team lived in Excel; automation had to be in-place for them to adopt it</li>
+          <li>"How did you test the row-level security solution?" → Multiple test user accounts, verified what each role could and couldn't see</li>
+          <li>"What's Row-Level Security and why does it matter?" → Data access control per user/role, critical for financial data with different authorization levels</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="princeton-behav">
+        <ul class="styled">
+          <li>"Tell me about a time you worked with a non-technical stakeholder." → International Tax team collaboration</li>
+          <li>"Give an example of building something that got reused by others." → Power Automate template</li>
+          <li>"Tell me about a time you automated a manual process." → Either Power Automate or VBA/Power Query</li>
+          <li>"Describe a time you had to learn something new quickly." → Power Automate was new — researched, tested, delivered</li>
+          <li>"Tell me about a time you had to balance technical and business constraints." → Security vs. performance in the Tableau dashboard</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="princeton-weak">
+        <div class="alert alert-red" style="margin-bottom:12px;"><strong>Risk:</strong> "Only one internship" — If asked, be direct: "It was one internship but I worked on four distinct deliverables and had real ownership of each one."</div>
+        <div class="alert alert-red" style="margin-bottom:12px;"><strong>Risk:</strong> "Did you work alone or with a team?" — Be honest: some was solo, some was collaborative. Don't overstate teamwork or solo ownership.</div>
+        <div class="alert alert-yellow"><strong>Watch for:</strong> If asked for exact timelines or team sizes you don't remember, it's fine to say "I don't recall the exact number but..." and give what you do know.</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-meta">
+        <span class="badge badge-orange">Intercontinental Shipping Co.</span>
+        <span class="badge badge-purple">Data Analyst Intern</span>
+        <span class="badge badge-green">Summer 2023</span>
+      </div>
+      <p style="color:var(--text2); font-size:14px; margin-bottom:14px;">Your earlier role. Less technical depth than Princeton, but shows initiative, international context, and consistent analytical mindset going back to your sophomore year.</p>
+      <div class="alert alert-blue" style="margin-bottom:12px;"><strong>Frame it as:</strong> "My first real data role. I was validating international shipping records and doing process analysis. It's where I realized data quality is the foundation — if the records aren't clean, the analysis is meaningless."</div>
+      <ul class="styled">
+        <li><strong>Key metric:</strong> 25% reduction in documentation errors — know how this was measured if asked</li>
+        <li><strong>Key metric:</strong> 20% increase in export operational efficiency — this was from your bottleneck analysis</li>
+        <li><strong>Context:</strong> International setting (Vietnam) — shows adaptability and cultural range</li>
+        <li><strong>Watch for:</strong> Don't oversell this internship's technical depth — it was Excel-based validation, not pipeline work. That's fine. Be accurate.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ PROJECTS DEEP DIVE ============ -->
+  <div class="page" id="page-projects">
+    <div class="page-header"><h1>Projects Deep Dive</h1><p>Using your own stories — no invented details</p></div>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">NextLeg — Flight Cancellation Risk Modeling</span>
+          <span class="badge badge-blue" style="margin-left:8px;">Best Story Origin</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="alert alert-green" style="margin-bottom:14px;"><strong>Origin story (use this!):</strong> "I got stranded during hurricane season. Spent hours at the airport with no clear information. That's where the idea came from."</div>
+        <div class="tab-bar" style="margin-bottom:14px;">
+          <button class="tab-btn active" onclick="switchTab('nextleg', 'overview', this)">Overview</button>
+          <button class="tab-btn" onclick="switchTab('nextleg', 'technical', this)">Technical Qs</button>
+          <button class="tab-btn" onclick="switchTab('nextleg', 'weak', this)">Weak Spots</button>
+        </div>
+        <div class="tab-panel active" id="nextleg-overview">
+          <ul class="styled green">
+            <li>2.5M flight records → PostgreSQL ETL pipeline</li>
+            <li>XGBoost classifier, SMOTE for class imbalance</li>
+            <li>Minority class F1: ~0 → 0.30 (meaningful for rare-event detection)</li>
+            <li>Connected to a real product concept (NextLeg rebooking tool)</li>
+            <li>Shows: personal curiosity, full-stack data thinking, business framing</li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="nextleg-technical">
+          <ul class="styled">
+            <li>"Why XGBoost over Random Forest here?" → Gradient boosting tends to handle rare events better with proper tuning; also wanted to experiment with a different approach from the coupon project</li>
+            <li>"What features did you engineer?" → Day of week, route frequency, historical cancellation rate for that carrier/airport pair, weather severity proxy</li>
+            <li>"What does SMOTE actually do under the hood?" → Generates synthetic minority-class samples by interpolating between existing minority examples in feature space — not just duplicating</li>
+            <li>"How would you deploy this?" → API endpoint that takes flight ID, queries features from the database, runs the model, returns a risk score with an alert threshold</li>
+            <li>"What would you improve?" → More weather data (I used proxies), real-time data integration, and a more rigorous train/test split by time period instead of random</li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="nextleg-weak">
+          <div class="alert alert-yellow" style="margin-bottom:10px;"><strong>F1 of 0.30 sounds low</strong> — Reframe it: "For a rare event problem where the baseline is near zero, 0.30 is a meaningful signal that the model is actually learning patterns. The comparison is the baseline model, not a theoretical perfect score."</div>
+          <div class="alert alert-red"><strong>If asked "did this get used anywhere?"</strong> — Be honest: "It's a portfolio project, not deployed. The NextLeg concept is what I'd build into a real product if this were a startup." Don't oversell.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Data Jobs Market Analysis</span>
+          <span class="badge badge-purple" style="margin-left:8px;">Career Curiosity</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="alert alert-green" style="margin-bottom:12px;"><strong>Origin story:</strong> "I was trying to figure out what skills I should focus on while still in school. Instead of guessing, I analyzed the actual market."</div>
+        <ul class="styled green" style="margin-bottom:14px;">
+          <li>12K+ job postings → Python ETL → Snowflake → Power BI dashboard</li>
+          <li>Key finding: Data Analyst = 33.5% of market; SQL + Python most in demand</li>
+          <li>Regex for keyword extraction from unstructured text</li>
+          <li>Shows: full pipeline ownership, BI skills, business curiosity</li>
+        </ul>
+        <div class="answer-type warning">
+          <div class="answer-label">⚠ Weak Spots</div>
+          <ul class="styled red">
+            <li>"How did you source 12K job postings?" → Be specific. If it was web scraping or a dataset, say so. Don't be vague.</li>
+            <li>The 33.5% stat is specific — if asked how you calculated it, you need to know</li>
+            <li>Don't present this as predictive modeling — it's descriptive analysis and pipeline work</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div>
+          <span style="font-weight:600;">Coupon Acceptance Prediction</span>
+          <span class="badge badge-green" style="margin-left:8px;">Team Project</span>
+        </div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="alert alert-yellow" style="margin-bottom:12px;"><strong>Key framing note:</strong> The $500 savings sounds small. Lead with the <em>methodology</em>, not the dollar amount: "The value was in the targeted approach — instead of spray-and-pray, we could identify likely acceptors and focus resources there."</div>
+        <ul class="styled green" style="margin-bottom:14px;">
+          <li>13K customer records, end-to-end pipeline</li>
+          <li>4-person team — shows collaboration (rare for your solo projects)</li>
+          <li>Random Forest with recall optimization — intentional metric choice</li>
+          <li>Environmental factors: time of day, weather, distance, coupon type</li>
+        </ul>
+        <div class="answer-type">
+          <div class="answer-label">🎯 Best Angle for Interviewers</div>
+          <p style="color:var(--text2); font-size:14px;">"What I'm most proud of on this project isn't the dollar number — it's that we thought about the problem correctly. We defined 'success' as recall over precision because missing a likely coupon user was more costly than a false alarm. That framing changed how we built the model. Most people default to accuracy; we thought about what kind of errors we could actually afford to make."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ VIBE CHECK ============ -->
+  <div class="page" id="page-vibe">
+    <div class="page-header"><h1>✨ Vibe Check Training</h1><p>How to sound like yourself, not a scripted robot</p></div>
+
+    <div class="alert alert-blue" style="margin-bottom:20px;">
+      Vibe check = the interviewer asking themselves "would I want to work with this person every day?" Your technical answers get you to final rounds. This is what decides them.
+    </div>
+
+    <h2 style="margin-bottom:16px;">Showing Personality Naturally</h2>
+
+    <div class="personality-tip">
+      <div class="tip-icon">🌀</div>
+      <div class="tip-body">
+        <h4>Let the origin stories do the work</h4>
+        <p>You built NextLeg because you got stranded in a hurricane. You built the Data Jobs analysis to figure out your own career. These are <em>human</em> reasons. Lead with the why before the what. "I was sitting in an airport with no useful information and started thinking..." lands so much better than "I built an ETL pipeline for 2.5M records."</p>
+      </div>
+    </div>
+
+    <div class="personality-tip">
+      <div class="tip-icon">🔍</div>
+      <div class="tip-body">
+        <h4>Curiosity is your personality, not a trait to claim</h4>
+        <p>Don't say "I'm a curious person." Just demonstrate it: "That class imbalance bug bothered me enough that I went back and rebuilt the whole evaluation framework." Showing beats telling every time.</p>
+      </div>
+    </div>
+
+    <div class="personality-tip">
+      <div class="tip-icon">😅</div>
+      <div class="tip-body">
+        <h4>Admit when something surprised you</h4>
+        <p>"I thought I was done — 97% accuracy! And then I looked at the confusion matrix and realized I'd basically built a 'predict nothing' machine." Self-deprecating honesty about mistakes is one of the most likeable things a candidate can do.</p>
+      </div>
+    </div>
+
+    <div class="personality-tip">
+      <div class="tip-icon">🧠</div>
+      <div class="tip-body">
+        <h4>The "thinking out loud" move</h4>
+        <p>When asked something open-ended, it's okay to say "Let me think about that for a second" and actually think. Interviewers respond well to seeing someone reason in real time rather than firing a memorized answer. You can narrate: "My instinct is X, but there's also the case for Y..."</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <h2 style="margin-bottom:16px;">Recovering When You Get Stuck</h2>
+
+    <div class="vibe-scenario">
+      <div class="scenario-header">
+        <div class="vibe-icon">😶</div>
+        <h3>Scenario: You go blank mid-answer</h3>
+      </div>
+      <p style="color:var(--text2); font-size:14px; margin-bottom:10px;"><strong>What not to do:</strong> Panic, ramble, or apologize excessively.</p>
+      <div class="alert alert-green">
+        <strong>Recovery:</strong> "Actually, let me back up for a second." — Then re-anchor to something specific you do know. Redirect to a concrete story. "What I can say with confidence is that in the Princeton context, this came up as..." You'll sound more thoughtful, not weaker.
+      </div>
+    </div>
+
+    <div class="vibe-scenario">
+      <div class="scenario-header">
+        <div class="vibe-icon">❓</div>
+        <h3>Scenario: A follow-up question catches you off guard</h3>
+      </div>
+      <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">You gave a great answer and they drill down on something specific you glossed over.</p>
+      <div class="alert alert-green">
+        <strong>Recovery:</strong> "Good question — that's something I'd want to double-check rather than guess. What I remember is [what you do know]. I'd be happy to follow up after this conversation if there's a specific detail you need." Honesty > bluffing. They're testing how you handle not knowing, not whether you know everything.
+      </div>
+    </div>
+
+    <div class="vibe-scenario">
+      <div class="scenario-header">
+        <div class="vibe-icon">🤐</div>
+        <h3>Scenario: The conversation gets unstructured / small talk</h3>
+      </div>
+      <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">The interviewer stops asking formal questions and just starts chatting.</p>
+      <div class="alert alert-green">
+        <strong>Strategy:</strong> Stay curious. Ask them a real question about their work. "What does your team's data stack actually look like day-to-day?" or "What's the messiest data problem your team has dealt with lately?" People love talking about their own work. You'll come across as engaged and interested — which is exactly what a vibe check is testing.
+      </div>
+    </div>
+
+    <hr class="divider">
+    <h2 style="margin-bottom:16px;">Natural Follow-Up Answers</h2>
+    <p style="color:var(--text2); font-size:14px; margin-bottom:14px;">The problem: you give a good answer, they follow up, and you either repeat yourself or go silent. Here's how to handle the most common follow-up patterns.</p>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Follow-up: "Can you give me another example of that?"</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">They want to see if the first story was a one-time thing or a genuine pattern.</p>
+        <div class="alert alert-green"><strong>Your move:</strong> Cross from a different context. If you used Tableau for the first example, pivot to the coupon project's model design. "I see the same instinct in how I approached the coupon project — instead of defaulting to accuracy as the metric, I thought about what kind of errors we could actually afford to make."</div>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Follow-up: "What would you have done differently?"</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">They're testing self-reflection. Don't say "nothing" and don't say something devastating.</p>
+        <div class="alert alert-green"><strong>Your move:</strong> Pick something real and bounded. "On the flight model, I'd build stricter time-based train/test splits from the start — I used random splits which could create data leakage. I know that now." Specific, honest, forward-looking.</div>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+        <div><span style="font-weight:600;">Follow-up: "How did that make you feel?" / "What did you learn from that?"</span></div>
+        <span class="chevron">▾</span>
+      </div>
+      <div class="collapsible-body">
+        <p style="color:var(--text2); font-size:14px; margin-bottom:10px;">Vibe check interviewers love the "how did that make you feel" prompt. Many candidates freeze because it feels like a therapy session.</p>
+        <div class="alert alert-green"><strong>Your move:</strong> Be brief and honest. "Honestly? Pretty embarrassed at first — I thought I had a working model. But catching it myself felt better than someone else pointing it out. And it made me way more careful about evaluation metrics going forward." Emotion + lesson + forward momentum.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CHECKLIST ============ -->
+  <div class="page" id="page-checklist">
+    <div class="page-header">
+      <h1>☑ Progress Checklist</h1>
+      <p>Track what you've studied. Progress saves automatically.</p>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3>Overall Progress</h3>
+        <button onclick="resetChecklist()" style="font-size:12px; color:var(--text3); background:none; border:1px solid var(--border); border-radius:6px; padding:4px 10px; cursor:pointer;">Reset All</button>
+      </div>
+      <div id="checklistProgress" style="color:var(--text2); font-size:14px; margin-bottom:8px;"></div>
+      <div class="progress-bar"><div class="progress-fill fill-blue" id="checklistBar" style="width:0%"></div></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:14px;">Core Stories</h3>
+      <div id="storyChecklist">
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-tableau"><div class="checkmark">✓</div><div class="check-text">Tableau Dashboard (Princeton) — UNION ALL, RLS, 80% speedup</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-power-automate"><div class="checkmark">✓</div><div class="check-text">Power Automate Pipeline — hours → 5 min, 10K+ rows, reusable template</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-tax"><div class="checkmark">✓</div><div class="check-text">International Tax Automation — VBA/Power Query, cross-functional collab</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-nextleg"><div class="checkmark">✓</div><div class="check-text">NextLeg / Flight Cancellation — 2.5M records, XGBoost, SMOTE, F1 story</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-datajobs"><div class="checkmark">✓</div><div class="check-text">Data Jobs Analysis — 12K postings, Snowflake, regex, Power BI</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="story-coupon"><div class="checkmark">✓</div><div class="check-text">Coupon Acceptance — Random Forest, recall optimization, 4-person team</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:14px;">Common Questions</h3>
+      <div id="questionChecklist">
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-about"><div class="checkmark">✓</div><div class="check-text">Tell me about yourself — practiced all 3 versions</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-why"><div class="checkmark">✓</div><div class="check-text">Why data analytics — have a specific, honest answer</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-strength"><div class="checkmark">✓</div><div class="check-text">Greatest strength — with a concrete example</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-weakness"><div class="checkmark">✓</div><div class="check-text">Weakness — using the over-engineering story</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-5yr"><div class="checkmark">✓</div><div class="check-text">Where do you see yourself in 5 years — honest, grounded</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-challenge"><div class="checkmark">✓</div><div class="check-text">Challenging problem — Tableau security story</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-failure"><div class="checkmark">✓</div><div class="check-text">Failure/mistake — class imbalance story</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="q-conflict"><div class="checkmark">✓</div><div class="check-text">Conflict/disagreement — Tax team navigation</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:14px;">Technical Readiness</h3>
+      <div id="technicalChecklist">
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="t-sql"><div class="checkmark">✓</div><div class="check-text">SQL: window functions, WHERE vs HAVING, optimization approach</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="t-ml"><div class="checkmark">✓</div><div class="check-text">ML: class imbalance, SMOTE, recall vs precision tradeoff</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="t-bi"><div class="checkmark">✓</div><div class="check-text">BI: Tableau live vs extract, Power BI vs Tableau tradeoffs</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="t-etl"><div class="checkmark">✓</div><div class="check-text">Pipelines: can walk through both ETL projects in detail</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="t-ab"><div class="checkmark">✓</div><div class="check-text">Stats: A/B testing explanation for non-technical audience</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:14px;">Vibe Check Prep</h3>
+      <div id="vibeChecklist">
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="v-origins"><div class="checkmark">✓</div><div class="check-text">Practiced using origin stories naturally (hurricane, career curiosity)</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="v-stuck"><div class="checkmark">✓</div><div class="check-text">Have a recovery phrase ready when I go blank</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="v-followups"><div class="checkmark">✓</div><div class="check-text">Practiced "what would you do differently?" follow-ups</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="v-questions"><div class="checkmark">✓</div><div class="check-text">Have 3-5 genuine questions ready to ask interviewers</div></div>
+        <div class="checklist-item" onclick="toggleCheck(this)" data-key="v-company"><div class="checkmark">✓</div><div class="check-text">Researched company-specific "why us" for each upcoming interview</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-content -->
+</div><!-- end layout -->
+
+<script>
+// ===== NAVIGATION =====
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
+  if (page) page.classList.add('active');
+  const navBtns = document.querySelectorAll('.nav-item');
+  navBtns.forEach(btn => {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + pageId + "'")) {
+      btn.classList.add('active');
+    }
+  });
+  document.getElementById('searchInput').value = '';
+  document.getElementById('search-page').style.display = 'none';
+  closeSidebar();
+}
+
+// ===== COLLAPSIBLE =====
+function toggleCollapse(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  header.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+
+// ===== TABS =====
+function switchTab(group, tabId, btn) {
+  const allPanels = document.querySelectorAll(`[id^="${group}-"]`);
+  allPanels.forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(`${group}-${tabId}`);
+  if (target) target.classList.add('active');
+  const allBtns = btn.closest('.tab-bar').querySelectorAll('.tab-btn');
+  allBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ===== THEME =====
+function toggleTheme() {
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  localStorage.setItem('theme', html.getAttribute('data-theme'));
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ===== FILTER =====
+function filterQ(tag, btn) {
+  document.querySelectorAll('#qFilterBar .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#qLibrary .collapsible').forEach(el => {
+    if (tag === 'all' || (el.dataset.tags && el.dataset.tags.includes(tag))) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+// ===== SEARCH =====
+function handleSearch(query) {
+  if (!query.trim()) {
+    document.getElementById('search-page').style.display = 'none';
+    const activePage = document.querySelector('.page.active');
+    if (!activePage || activePage.id === 'search-page') {
+      document.getElementById('page-dashboard').classList.add('active');
+    }
+    return;
+  }
+  const q = query.toLowerCase();
+  const results = [];
+  document.querySelectorAll('[data-searchable]').forEach(el => {
+    const text = (el.dataset.searchable || '') + ' ' + (el.innerText || '');
+    if (text.toLowerCase().includes(q)) {
+      const header = el.querySelector('.collapsible-header') || el;
+      const title = header.querySelector('span:first-child')?.innerText || el.innerText.slice(0,80);
+      results.push({ title, el });
+    }
+  });
+  const container = document.getElementById('searchResults');
+  document.getElementById('searchResultsCount').textContent = `${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`;
+  if (results.length === 0) {
+    container.innerHTML = '<div class="no-results">No results found. Try different keywords.</div>';
+  } else {
+    container.innerHTML = results.map((r, i) => `
+      <div class="card" style="cursor:pointer; margin-bottom:10px;" onclick="scrollToResult('result-${i}')">
+        <div style="font-weight:600;">${r.title.slice(0,100)}</div>
+        <div style="font-size:12px; color:var(--text3); margin-top:4px;">Click to jump to this section</div>
+      </div>`).join('');
+  }
+  document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); p.style.display = ''; });
+  document.getElementById('search-page').style.display = 'block';
+}
+
+function scrollToResult(id) {
+  // just close search and go to dashboard for now
+  document.getElementById('searchInput').value = '';
+  handleSearch('');
+  showPage('dashboard');
+}
+
+// ===== CHECKLIST =====
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  const key = item.dataset.key;
+  if (key) localStorage.setItem('check-' + key, item.classList.contains('checked') ? '1' : '0');
+  updateChecklistProgress();
+}
+
+function resetChecklist() {
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    item.classList.remove('checked');
+    const key = item.dataset.key;
+    if (key) localStorage.removeItem('check-' + key);
+  });
+  updateChecklistProgress();
+}
+
+function updateChecklistProgress() {
+  const items = document.querySelectorAll('.checklist-item');
+  const checked = document.querySelectorAll('.checklist-item.checked').length;
+  const pct = items.length ? Math.round(checked / items.length * 100) : 0;
+  const bar = document.getElementById('checklistBar');
+  const label = document.getElementById('checklistProgress');
+  if (bar) bar.style.width = pct + '%';
+  if (label) label.textContent = `${checked} of ${items.length} items studied (${pct}%)`;
+}
+
+function loadChecklist() {
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    const key = item.dataset.key;
+    if (key && localStorage.getItem('check-' + key) === '1') {
+      item.classList.add('checked');
+    }
+  });
+  updateChecklistProgress();
+}
+
+// ===== MOBILE SIDEBAR =====
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+
+// ===== INIT =====
+window.addEventListener('DOMContentLoaded', () => {
+  loadChecklist();
+});
+</script>
+</body>
+</html>
