@@ -1,180 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ha Tran | Analytics Enineer</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ha Tran | Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <div class="bubble-container">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+ 
+  <!-- Floating bubbles -->
+  <div class="bubble-container" aria-hidden="true">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+ 
+  <!-- Sticky nav -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">HT</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-
-    <header>
-        <h1>Ha Tran</h1>
-        <p>Analytics Engineer | AI & Business Analytics and Econometrics @ USF | AI Enthusiast</p>
-        <div class="contact">
-            <a class="btn" href="tel:+18133379600">📞 +1 (813) 337-9600</a>
-            <a class="btn" href="mailto:mhaftran@gmail.com">✉️ mhaftran@gmail.com</a>
-            <a class="btn" href="https://www.linkedin.com/in/mhatran" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-            <a class="btn" href="https://github.com/HaTranUSF" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-            <a class="btn" href="Ha_Tran_Resume_26_.pdf" download>📄 Resume</a>
+  </nav>
+ 
+  <!-- Hero -->
+  <header id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Hi, I'm</p>
+      <h1 class="hero-name">Ha Tran</h1>
+      <p class="hero-tagline">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </p>
+      <p class="hero-bio">
+        Recent USF grad passionate about turning messy data into stories that actually mean something.
+        Built dashboards, pipelines, and ML models that people actually use.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="Ha_Tran_Resume_26_.pdf" download>Download Resume</a>
+        <a class="btn-ghost" href="#projects">See My Work</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">GPA 3.98</span>
+        <span class="badge">2x Internships</span>
+        <span class="badge">6+ ML Projects</span>
+        <span class="badge">Open to Work</span>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span></span>
+    </div>
+  </header>
+ 
+  <!-- About -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <p class="section-label">About Me</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>I make data <span class="accent">useful</span>.</h2>
+          <p>
+            I graduated from the University of South Florida with double degrees in AI and Business Analytics and Econometrics. 
+            During my internship at Princeton University's Office of Finance and Treasury, I built Tableau dashboards, 
+            automated reporting pipelines, and helped 150+ finance staff adopt AI tools, all in a single summer.
+          </p>
+          <p>
+            I care about the full journey from raw, messy data to a clean insight someone can actually act on. 
+            Whether that's an ETL pipeline, a predictive model, or a dashboard that finally loads fast, I want to build things that make people's jobs easier.
+          </p>
         </div>
-    </header>
-
-    <section>
-        <h2>About Me</h2>
- <p>Hi, I'm Ha, a recent graduate from the University of South Florida with degrees in Artificial Intelligence & Business Analytics and Econometrics & Quantitative Economics. I love turning messy data into stories that actually make sense. During my internship with Princeton University's Business Intelligence team, I built tools and dashboards that made data less scary and people's jobs a little easier, which felt pretty awesome. I'm now looking for full-time opportunities where I can keep learning, building cool things with data and AI, and maybe make a few spreadsheets smile along the way.</p>
-    </section>
-
-    <section>
-        <h2>Education</h2>
-        <h3>🐂 University of South Florida</h3>
-        <div class="education-columns">
-            <div>
-                <p><strong>Bachelor of Science</strong> in Artificial Intelligence and Business Analytics</p>
-                <p><strong>Bachelor of Science</strong> in Econometrics and Quantitative Economics</p>
-                <p>GPA: 3.98</p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">7M+</span>
+            <span class="stat-label">Records processed at Princeton</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">80%</span>
+            <span class="stat-label">Dashboard performance boost</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">150+</span>
+            <span class="stat-label">Staff reached with AI guide</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2.5M+</span>
+            <span class="stat-label">Flight records modeled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Education -->
+  <section id="education" class="reveal">
+    <div class="wrap">
+      <p class="section-label">Education</p>
+      <div class="edu-card">
+        <div class="edu-left">
+          <p class="edu-emoji">🐂</p>
+          <p class="edu-school">University of South Florida</p>
+          <p class="edu-location">Tampa, FL</p>
+          <span class="gpa-badge">GPA: 3.98</span>
+        </div>
+        <div class="edu-right">
+          <p class="edu-date">Aug 2022 — May 2026</p>
+          <p class="edu-degree">B.S. Artificial Intelligence and Business Analytics</p>
+          <p class="edu-degree">B.S. Econometrics and Quantitative Economics</p>
+          <div class="coursework">
+            <span class="tag">Applied Data Science</span>
+            <span class="tag">Data Mining</span>
+            <span class="tag">Big Data Analytics</span>
+            <span class="tag">Time Series Analysis</span>
+            <span class="tag">Intro to Econometrics</span>
+            <span class="tag">Statistical Programming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Experience -->
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <p class="section-label">Experience</p>
+      <div class="timeline">
+ 
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div>
+                <p class="tl-role">Data Analyst Intern</p>
+                <p class="tl-company">🐯 Princeton University · Office of Finance and Treasury · Princeton, NJ</p>
+              </div>
+              <span class="tl-date">Jun 2024 — Aug 2024</span>
             </div>
-            <div>
-                <p><em>🎓 Aug 2022 - May 2026</em></p>
-                <p>📍 Tampa, FL</p>
+            <ul>
+              <li>Restored Row-Level Security on a 7M+ record Tableau extract via UNION ALL SQL, boosting dashboard load performance by <strong>80%</strong> and enforcing data governance across stakeholders</li>
+              <li>Cut reporting time from hours to <strong>5 minutes</strong> by building a Power Automate pipeline that parsed 10K+ rows and automated personalized email delivery with PDF attachments</li>
+              <li>Automated <strong>200+ monthly</strong> employee record cleanses with an Excel/VBA and Power Query template built with the International Tax team</li>
+              <li>Developed a Generative AI usage guide adopted by <strong>150+ finance staff</strong>, standardizing prompt engineering practices for workflow automation</li>
+            </ul>
+            <div class="tl-tools">
+              <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Power Automate</span><span class="tag">Excel/VBA</span><span class="tag">Power Query</span>
             </div>
+          </div>
         </div>
-        <h4>📘 Relevant Coursework</h4>
-        <ul class="coursework-list">
-            <li>Python for Business Analytics</li>
-            <li>Big Data for AI and Analytics </li>
-            <li>Statistical Programming for Business Analytics</li>
-            <li>Data Mining</li>
-            <li>Applied Data Science</li>
-            <li>Time Series Analysis</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Experience</h2>
-        <div class="project">
-            <h3>🐯 Data Analyst Intern (Business Intelligence team) — Princeton University's Office of Finance and Treasury</h3>
-            <p><em>Jun 2024 – Aug 2024 | Princeton, NJ</em></p>
-            <ul>
-                <li>Boosted dashboard insights by 80% with Tableau and RLS on 7M+ rows</li>
-                <li>Automated Excel report distribution using Power Automate (10K+ rows)</li>
-                <li>Created VBA-driven templates to speed monthly reporting</li>
-            </ul>
-        </div>
-        <div class="project">
-            <h3>🤝 General Field Staff — USF Safe Team</h3>
-            <p><em>May 2024 – Present | Tampa, FL</em></p>
-            <ul>
-                <li>Promoted Safe Team services at campus events, engaging with students and staff to increase program awareness and community safety</li>
-                <li>Patrolled designated campus zones nightly, providing security and safe escorts while serving as a visible point of contact</li>
-                <li>Responded to an average of 15+ student requests per shift, ensuring timely and safe transport and maintaining a consistent security presence</li>
-            </ul>
-        </div>
-        <div class="project">
-            <h3>🍴 Student Worker — USF Catering Team</h3>
-            <p><em>Dec 2023 – Mar 2024 | Tampa, FL</em></p>
-            <ul>
-                <li>Managed event setup and breakdown for a variety of campus functions, ensuring timely and professional execution for an average of 16 events per month</li>
-                <li>Provided exceptional guest service by serving food and beverages, anticipating guest needs, and resolving issues to ensure a positive dining experience</li>
-                <li>Maintained adherence to all food safety and sanitation standards, including proper food handling, temperature checks, and kitchen cleanliness</li>
-            </ul>
-        </div>
-        <div class="project">
-            <h3>🚢 Data Analyst Intern — Intercontinental Shipping Co.,Ltd.</h3>
-            <p><em>Jun 2023 – Aug 2023 | Haiphong, Vietnam</em></p>
-            <ul>
-                <li>Reduced processing errors by 25% via improved data validation</li>
-                <li>Contributed to 40% of monthly deals using digitized workflows</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Projects</h2>
-        <div class="project">
-            <h3><a href="https://github.com/hquantran/coupon-acceptance-prediction">🎟️ Coupon Acceptance Prediction</a></h3>
-            <p><em>Oct 2025 – Nov 2025</em></p>
-            <p>Architected an end-to-end Python pipeline to clean, impute, and engineer features on 13K raw records. Built a Random Forest classifier with recall optimization to reduce coupon distribution cost by $500 and improve targeting efficiency over untargeted approaches.</p>
-        </div>
-        <div class="project">
-            <h3>📊 Data Jobs Market Analysis</h3>
-            <p><em>Jul 2025 – Aug 2025</em></p>
-            <p>Engineered a Python-based ETL pipeline to centralize 10K+ job postings into a Snowflake data warehouse. Built a Power BI dashboard mapping the data job landscape, quantifying a 33.5% market share for Data Analysts and pinpointing the most critical industry-standard tools.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://github.com/HaTranUSF/NextLeg/tree/main">✈️ Next Leg (Flight Cancellation Risk Modeling)</a></h3>
-            <p><em>Jun 2025 – Aug 2025</em></p>
-            <p>Designed a scalable ETL pipeline to ingest 2.5M+ flight records into PostgreSQL. Trained and tuned an XGBoost classifier with SMOTE to address class imbalance, improving rare-event (cancellation) detection by 30%.</p>
-        </div>
-        <div class="project">
-            <h3>
-                <a href="Predicting Apple Quality -A Comparative Analysis Using Data Mining.pptx" download>
-                    🍏 Apple Quality Classification
-                </a>
-            </h3>
-            <p><em>Apr 2025 – May 2025</em></p>
-            <p>Compared Decision Tree and Neural Network models on 4,000 records, achieving 88.1% accuracy and 0.957 AUC.</p>
-        </div>
-        <div class="project">
-            <h3>
-                <a href="Hospital_Administrator_HT.pdf" download>🏥 Hospital Administrator's Database</a>
-            </h3>
-            <p><em>Aug 2024 – Dec 2024</em></p>
-            <p>Designed a SQL database with ERD/EERD to manage 10K+ records and automated SQL reporting.</p>
-        </div>
-        <div class="project">
-            <h3>
-                <a href="Electronics Sales Transaction Analysis.pptx" download>📊 Electronics Sales Analysis</a>
-            </h3>
-            <p><em>Oct 2024 – Nov 2024</em></p>
-            <p>Performed EDA on 20K transactions. Built SVC models (83–87% accuracy) to predict customer behavior.</p>
-        </div>
-    </section>
  
-    <section>
-        <h2>Extracurricular Activities</h2>
-        <div class="project">
-            <h3>🤝 Peer Leader — Corporate Mentor Program, University of South Florida</h3>
-            <p><em>Aug 2024 – May 2025 | Tampa, FL</em></p>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div>
+                <p class="tl-role">Data Analyst Intern</p>
+                <p class="tl-company">🚢 Intercontinental Shipping Co., Ltd. · Haiphong, Vietnam</p>
+              </div>
+              <span class="tl-date">Jun 2023 — Aug 2023</span>
+            </div>
             <ul>
-                <li>Strengthened mentorship outcomes for 12+ first-generation students through structured check-ins and support</li>
-                <li>Co-led career development events for 120+ students, improving engagement and peer feedback processes</li>
-                <li>Provided feedback to enhance peer support initiatives</li>
-                <li>Promoted inclusion and student success as a role model</li>
+              <li>Validated and standardized monthly international shipping records using advanced Excel, reducing documentation errors by <strong>25%</strong></li>
+              <li>Analyzed export deal workflows to identify bottlenecks, contributing to a <strong>20% increase</strong> in operational efficiency</li>
             </ul>
+            <div class="tl-tools">
+              <span class="tag">Excel</span><span class="tag">Data Validation</span><span class="tag">Process Analysis</span>
+            </div>
+          </div>
         </div>
-    </section>
  
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Python, SQL, R, HTML, C/C++</li>
-            <li><strong>Analytics & BI Tools:</strong> Tableau, Power BI, Power Automate, Visio, Excel (VBA), Orange</li>
-            <li><strong>Data Engineering:</strong> PostgreSQL, SQL Server, MySQL, Snowflake, BigQuery, Oracle, MongoDB, Airflow, dbt</li>
-            <li><strong>Concepts:</strong> A/B Testing, Feature Engineering, Data Modeling, Machine Learning, ETL/ELT, Non-relational Databases, Visualization</li>
-        </ul>
-    </section>
+      </div>
+    </div>
+  </section>
  
-    <section>
-        <h2>Certifications</h2>
-        <ul>
-            <li>Google Data Analytics Professional Certificate</li>
-            <li>USF Muma Citizen Data Science Certificate</li>
-        </ul>
-    </section>
+  <!-- Projects -->
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <p class="section-label">Projects</p>
+      <div class="proj-grid">
  
-    <footer>
-        <p>© 2025 Ha Tran | Built with 💻 and ☕</p>
-    </footer>
+        <div class="proj-card featured">
+          <div class="proj-card-inner">
+            <div class="proj-top">
+              <span class="proj-icon">🎟️</span>
+              <div class="proj-links">
+                <a href="https://github.com/hquantran/coupon-acceptance-prediction" target="_blank" class="proj-link-btn">GitHub →</a>
+              </div>
+            </div>
+            <h3>Coupon Acceptance Prediction</h3>
+            <p class="proj-date">Oct 2025 — Nov 2025</p>
+            <p class="proj-desc">End-to-end Python pipeline to clean, impute, and engineer features on 13K raw records. Recall-optimized Random Forest classifier reduced estimated coupon distribution cost by $500 over untargeted baseline.</p>
+            <div class="proj-tools">
+              <span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="proj-card featured">
+          <div class="proj-card-inner">
+            <div class="proj-top">
+              <span class="proj-icon">📊</span>
+              <div class="proj-links"></div>
+            </div>
+            <h3>Data Jobs Market Analysis</h3>
+            <p class="proj-date">Jul 2025 — Aug 2025</p>
+            <p class="proj-desc">Python ETL pipeline centralizing 10K+ job postings into Snowflake. Built a Power BI dashboard quantifying a 33.5% market share for Data Analyst roles and surfacing the most in-demand tools.</p>
+            <div class="proj-tools">
+              <span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">Power BI</span><span class="tag">pandas</span><span class="tag">regex</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="proj-card featured">
+          <div class="proj-card-inner">
+            <div class="proj-top">
+              <span class="proj-icon">✈️</span>
+              <div class="proj-links">
+                <a href="https://github.com/HaTranUSF/NextLeg/tree/main" target="_blank" class="proj-link-btn">GitHub →</a>
+              </div>
+            </div>
+            <h3>Flight Cancellation Risk Modeling</h3>
+            <p class="proj-date">Jun 2025 — Aug 2025</p>
+            <p class="proj-desc">Scalable ETL pipeline ingesting 2.5M+ flight records into PostgreSQL. XGBoost with SMOTE improved minority-class F1 by 0.30, making rare cancellation events actionable for rebooking decisions.</p>
+            <div class="proj-tools">
+              <span class="tag">PostgreSQL</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">scikit-learn</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="proj-card">
+          <div class="proj-card-inner">
+            <div class="proj-top"><span class="proj-icon">🍏</span></div>
+            <h3>Apple Quality Classification</h3>
+            <p class="proj-date">Apr 2025 — May 2025</p>
+            <p class="proj-desc">Compared Decision Tree and Neural Network models on 4,000 records, achieving 88.1% accuracy and 0.957 AUC.</p>
+            <div class="proj-tools">
+              <span class="tag">Python</span><span class="tag">scikit-learn</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="proj-card">
+          <div class="proj-card-inner">
+            <div class="proj-top"><span class="proj-icon">🏥</span></div>
+            <h3>Hospital Administrator's Database</h3>
+            <p class="proj-date">Aug 2024 — Dec 2024</p>
+            <p class="proj-desc">SQL database designed with ERD/EERD to manage 10K+ records with automated reporting.</p>
+            <div class="proj-tools">
+              <span class="tag">SQL</span><span class="tag">ERD/EERD</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="proj-card">
+          <div class="proj-card-inner">
+            <div class="proj-top"><span class="proj-icon">📈</span></div>
+            <h3>Electronics Sales Analysis</h3>
+            <p class="proj-date">Oct 2024 — Nov 2024</p>
+            <p class="proj-desc">EDA on 20K transactions. SVC models achieved 83 to 87% accuracy predicting customer behavior.</p>
+            <div class="proj-tools">
+              <span class="tag">Python</span><span class="tag">SVC</span><span class="tag">EDA</span>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Skills -->
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <p class="section-label">Skills</p>
+      <div class="skills-layout">
+        <div class="skill-group">
+          <h4 class="skill-group-label">Languages</h4>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <span>Python</span>
+              <div class="bar"><div class="bar-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>SQL</span>
+              <div class="bar"><div class="bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>R</span>
+              <div class="bar"><div class="bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <span>HTML</span>
+              <div class="bar"><div class="bar-fill" data-width="65"></div></div>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="skill-group">
+          <h4 class="skill-group-label">Analytics and BI</h4>
+          <div class="tags-block">
+            <span class="tag bright">Tableau</span>
+            <span class="tag bright">Power BI</span>
+            <span class="tag bright">Power Automate</span>
+            <span class="tag bright">Excel / VBA</span>
+            <span class="tag bright">Qlik</span>
+            <span class="tag bright">Power Query</span>
+          </div>
+        </div>
+ 
+        <div class="skill-group">
+          <h4 class="skill-group-label">Data Engineering</h4>
+          <div class="tags-block">
+            <span class="tag bright">PostgreSQL</span>
+            <span class="tag bright">Snowflake</span>
+            <span class="tag bright">BigQuery</span>
+            <span class="tag bright">dbt</span>
+            <span class="tag bright">Airflow</span>
+            <span class="tag bright">MongoDB</span>
+            <span class="tag bright">Oracle</span>
+            <span class="tag bright">DuckDB</span>
+          </div>
+        </div>
+ 
+        <div class="skill-group">
+          <h4 class="skill-group-label">Libraries</h4>
+          <div class="tags-block">
+            <span class="tag bright">pandas</span>
+            <span class="tag bright">NumPy</span>
+            <span class="tag bright">scikit-learn</span>
+            <span class="tag bright">Matplotlib</span>
+            <span class="tag bright">Seaborn</span>
+            <span class="tag bright">XGBoost</span>
+          </div>
+        </div>
+ 
+        <div class="skill-group">
+          <h4 class="skill-group-label">Concepts</h4>
+          <div class="tags-block">
+            <span class="tag bright">Machine Learning</span>
+            <span class="tag bright">ETL / ELT</span>
+            <span class="tag bright">A/B Testing</span>
+            <span class="tag bright">Data Modeling</span>
+            <span class="tag bright">KPI Reporting</span>
+            <span class="tag bright">Feature Engineering</span>
+          </div>
+        </div>
+ 
+        <div class="skill-group">
+          <h4 class="skill-group-label">Developer Tools</h4>
+          <div class="tags-block">
+            <span class="tag bright">Git / GitHub</span>
+            <span class="tag bright">VS Code</span>
+            <span class="tag bright">Jupyter</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="certs">
+        <p class="skill-group-label" style="margin-bottom:12px;">Certifications</p>
+        <div class="cert-row">
+          <span class="cert-pill">🏅 Google Data Analytics Professional Certificate</span>
+          <span class="cert-pill">🏅 USF Muma Citizen Data Science Certificate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Contact -->
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <p class="section-label">Get in Touch</p>
+      <div class="contact-block">
+        <h2>Let's work together.</h2>
+        <p>I'm actively looking for Data Analyst roles. If you think we'd be a good fit, I'd love to chat!</p>
+        <div class="contact-row">
+          <a class="contact-btn" href="mailto:mhaftran@gmail.com">
+            <span>✉️</span> mhaftran@gmail.com
+            <button class="copy-btn" onclick="copyEmail(event)" title="Copy email">📋</button>
+          </a>
+          <a class="contact-btn" href="tel:+18133379600"><span>📞</span> (813) 337-9600</a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/mhatran" target="_blank"><span>💼</span> LinkedIn</a>
+          <a class="contact-btn" href="https://github.com/HaTranUSF" target="_blank"><span>🐙</span> GitHub</a>
+        </div>
+        <p id="copy-toast" class="copy-toast">Email copied!</p>
+      </div>
+    </div>
+  </section>
+ 
+  <footer>
+    <p>© 2026 Ha Tran &nbsp;·&nbsp; Built with 💻 and ☕</p>
+  </footer>
+ 
+  <script src="main.js"></script>
 </body>
 </html>
