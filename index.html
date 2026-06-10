@@ -11,23 +11,15 @@
 </head>
 <body>
  
-  <!-- Floating bubbles -->
   <div class="bubble-container" aria-hidden="true">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
   </div>
  
-  <!-- Sticky nav -->
   <nav id="navbar">
     <div class="nav-inner">
-      <span class="nav-logo">HT</span>
+      <span class="nav-logo">Ha Tran</span>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -35,89 +27,94 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
+      <a class="nav-resume" href="Ha_Tran_Resume_26_.pdf" download>Resume</a>
     </div>
   </nav>
  
-  <!-- Hero -->
   <header id="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Hi, I'm</p>
+      <div class="hero-available"><span class="dot"></span> Open to work</div>
       <h1 class="hero-name">Ha Tran</h1>
-      <p class="hero-tagline">
-        <span id="typed-text"></span><span class="cursor">|</span>
-      </p>
+      <p class="hero-tagline">Data Analyst</p>
       <p class="hero-bio">
-        Recent USF grad passionate about turning messy data into stories that actually mean something.
-        Built dashboards, pipelines, and ML models that people actually use.
+        I turn messy data into things people can actually use.
+        From Tableau dashboards at Princeton to ML pipelines processing millions of records,
+        I focus on work that makes a real difference.
       </p>
       <div class="hero-cta">
-        <a class="btn-primary" href="Ha_Tran_Resume_26_.pdf" download>Download Resume</a>
-        <a class="btn-ghost" href="#projects">See My Work</a>
-      </div>
-      <div class="hero-badges">
-        <span class="badge">GPA 3.98</span>
-        <span class="badge">2x Internships</span>
-        <span class="badge">6+ ML Projects</span>
-        <span class="badge">Open to Work</span>
+        <a class="btn-primary" href="#projects">See My Work</a>
+        <a class="btn-ghost" href="Ha_Tran_Resume_26_.pdf" download>Download Resume</a>
       </div>
     </div>
-    <div class="scroll-hint" aria-hidden="true">
-      <span></span>
-    </div>
+    <div class="scroll-hint" aria-hidden="true"><span></span></div>
   </header>
  
-  <!-- About -->
   <section id="about" class="reveal">
     <div class="wrap">
-      <p class="section-label">About Me</p>
+      <p class="section-label">About</p>
       <div class="about-grid">
         <div class="about-text">
           <h2>I make data <span class="accent">useful</span>.</h2>
           <p>
-            I graduated from the University of South Florida with double degrees in AI and Business Analytics and Econometrics. 
-            During my internship at Princeton University's Office of Finance and Treasury, I built Tableau dashboards, 
-            automated reporting pipelines, and helped 150+ finance staff adopt AI tools, all in a single summer.
+            I'm a recent USF grad with double degrees in AI and Business Analytics and Econometrics.
+            Last summer at Princeton's Office of Finance and Treasury, I built dashboards, automated reporting pipelines,
+            and helped 150+ finance staff start using AI tools for the first time.
           </p>
           <p>
-            I care about the full journey from raw, messy data to a clean insight someone can actually act on. 
-            Whether that's an ETL pipeline, a predictive model, or a dashboard that finally loads fast, I want to build things that make people's jobs easier.
+            I care about the full journey from raw, messy data to a clean insight someone can act on.
+            Whether that's an ETL pipeline, a predictive model, or a dashboard that finally loads fast,
+            I want to build things that make people's jobs easier.
           </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="hi-num">3.98</span>
+              <span class="hi-label">GPA</span>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-num">2</span>
+              <span class="hi-label">Internships</span>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-num">7M+</span>
+              <span class="hi-label">Records processed</span>
+            </div>
+            <div class="highlight-item">
+              <span class="hi-num">150+</span>
+              <span class="hi-label">Staff reached</span>
+            </div>
+          </div>
         </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <span class="stat-num">7M+</span>
-            <span class="stat-label">Records processed at Princeton</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">80%</span>
-            <span class="stat-label">Dashboard performance boost</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">150+</span>
-            <span class="stat-label">Staff reached with AI guide</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">2.5M+</span>
-            <span class="stat-label">Flight records modeled</span>
+        <div class="about-img-col">
+          <div class="about-card-stack">
+            <div class="float-card fc1">
+              <span class="fc-icon">📊</span>
+              <span class="fc-text">Dashboard load time cut by <strong>80%</strong></span>
+            </div>
+            <div class="float-card fc2">
+              <span class="fc-icon">⚡</span>
+              <span class="fc-text">Reporting time: hours → <strong>5 min</strong></span>
+            </div>
+            <div class="float-card fc3">
+              <span class="fc-icon">🤖</span>
+              <span class="fc-text">AI guide adopted by <strong>150+ staff</strong></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
  
-  <!-- Education -->
-  <section id="education" class="reveal">
+  <section id="education" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Education</p>
       <div class="edu-card">
         <div class="edu-left">
           <p class="edu-emoji">🐂</p>
           <p class="edu-school">University of South Florida</p>
-          <p class="edu-location">Tampa, FL</p>
-          <span class="gpa-badge">GPA: 3.98</span>
+          <p class="edu-location">Tampa, FL · Aug 2022 — May 2026</p>
+          <span class="gpa-badge">GPA 3.98</span>
         </div>
         <div class="edu-right">
-          <p class="edu-date">Aug 2022 — May 2026</p>
           <p class="edu-degree">B.S. Artificial Intelligence and Business Analytics</p>
           <p class="edu-degree">B.S. Econometrics and Quantitative Economics</p>
           <div class="coursework">
@@ -133,7 +130,6 @@
     </div>
   </section>
  
-  <!-- Experience -->
   <section id="experience" class="reveal">
     <div class="wrap">
       <p class="section-label">Experience</p>
@@ -145,18 +141,18 @@
             <div class="tl-header">
               <div>
                 <p class="tl-role">Data Analyst Intern</p>
-                <p class="tl-company">🐯 Princeton University · Office of Finance and Treasury · Princeton, NJ</p>
+                <p class="tl-company">Princeton University · Office of Finance and Treasury · Princeton, NJ</p>
               </div>
               <span class="tl-date">Jun 2024 — Aug 2024</span>
             </div>
             <ul>
-              <li>Restored Row-Level Security on a 7M+ record Tableau extract via UNION ALL SQL, boosting dashboard load performance by <strong>80%</strong> and enforcing data governance across stakeholders</li>
+              <li>Restored Row-Level Security on a <strong>7M+ record</strong> Tableau extract via UNION ALL SQL, improving dashboard load performance by <strong>80%</strong> and enforcing data governance across stakeholders</li>
               <li>Cut reporting time from hours to <strong>5 minutes</strong> by building a Power Automate pipeline that parsed 10K+ rows and automated personalized email delivery with PDF attachments</li>
-              <li>Automated <strong>200+ monthly</strong> employee record cleanses with an Excel/VBA and Power Query template built with the International Tax team</li>
+              <li>Automated <strong>200+ monthly</strong> employee record cleanses using an Excel template with VBA and Power Query, built with the International Tax team</li>
               <li>Developed a Generative AI usage guide adopted by <strong>150+ finance staff</strong>, standardizing prompt engineering practices for workflow automation</li>
             </ul>
             <div class="tl-tools">
-              <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Power Automate</span><span class="tag">Excel/VBA</span><span class="tag">Power Query</span>
+              <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Power Automate</span><span class="tag">Excel / VBA</span><span class="tag">Power Query</span>
             </div>
           </div>
         </div>
@@ -167,7 +163,7 @@
             <div class="tl-header">
               <div>
                 <p class="tl-role">Data Analyst Intern</p>
-                <p class="tl-company">🚢 Intercontinental Shipping Co., Ltd. · Haiphong, Vietnam</p>
+                <p class="tl-company">Intercontinental Shipping Co., Ltd. · Haiphong, Vietnam</p>
               </div>
               <span class="tl-date">Jun 2023 — Aug 2023</span>
             </div>
@@ -185,94 +181,82 @@
     </div>
   </section>
  
-  <!-- Projects -->
-  <section id="projects" class="reveal">
+  <section id="projects" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Projects</p>
       <div class="proj-grid">
  
-        <div class="proj-card featured">
+        <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
               <span class="proj-icon">🎟️</span>
-              <div class="proj-links">
-                <a href="https://github.com/hquantran/coupon-acceptance-prediction" target="_blank" class="proj-link-btn">GitHub →</a>
-              </div>
+              <a href="https://github.com/hquantran/coupon-acceptance-prediction" target="_blank" class="proj-link-btn">GitHub →</a>
             </div>
             <h3>Coupon Acceptance Prediction</h3>
             <p class="proj-date">Oct 2025 — Nov 2025</p>
-            <p class="proj-desc">End-to-end Python pipeline to clean, impute, and engineer features on 13K raw records. Recall-optimized Random Forest classifier reduced estimated coupon distribution cost by $500 over untargeted baseline.</p>
+            <p class="proj-desc">Built an end-to-end Python pipeline to clean and engineer features on 13K raw records. Trained a recall-optimized Random Forest classifier that cut estimated coupon distribution cost by $500 over untargeted baseline.</p>
             <div class="proj-tools">
               <span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
             </div>
           </div>
         </div>
  
-        <div class="proj-card featured">
+        <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
               <span class="proj-icon">📊</span>
-              <div class="proj-links"></div>
             </div>
             <h3>Data Jobs Market Analysis</h3>
             <p class="proj-date">Jul 2025 — Aug 2025</p>
-            <p class="proj-desc">Python ETL pipeline centralizing 10K+ job postings into Snowflake. Built a Power BI dashboard quantifying a 33.5% market share for Data Analyst roles and surfacing the most in-demand tools.</p>
+            <p class="proj-desc">Python ETL pipeline centralizing 10K+ job postings into Snowflake. Built a Power BI dashboard that quantified a 33.5% market share for Data Analyst roles and surfaced the most in-demand tools across the industry.</p>
             <div class="proj-tools">
-              <span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">Power BI</span><span class="tag">pandas</span><span class="tag">regex</span>
+              <span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">Power BI</span><span class="tag">regex</span>
             </div>
           </div>
         </div>
  
-        <div class="proj-card featured">
+        <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
               <span class="proj-icon">✈️</span>
-              <div class="proj-links">
-                <a href="https://github.com/HaTranUSF/NextLeg/tree/main" target="_blank" class="proj-link-btn">GitHub →</a>
-              </div>
+              <a href="https://github.com/HaTranUSF/NextLeg/tree/main" target="_blank" class="proj-link-btn">GitHub →</a>
             </div>
             <h3>Flight Cancellation Risk Modeling</h3>
             <p class="proj-date">Jun 2025 — Aug 2025</p>
-            <p class="proj-desc">Scalable ETL pipeline ingesting 2.5M+ flight records into PostgreSQL. XGBoost with SMOTE improved minority-class F1 by 0.30, making rare cancellation events actionable for rebooking decisions.</p>
+            <p class="proj-desc">ETL pipeline ingesting 2.5M+ flight records into PostgreSQL. XGBoost with SMOTE tackled severe class imbalance, improving minority-class F1 by 0.30 and making rare cancellation events actionable for rebooking.</p>
             <div class="proj-tools">
               <span class="tag">PostgreSQL</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">scikit-learn</span>
             </div>
           </div>
         </div>
  
-        <div class="proj-card">
+        <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🍏</span></div>
             <h3>Apple Quality Classification</h3>
             <p class="proj-date">Apr 2025 — May 2025</p>
-            <p class="proj-desc">Compared Decision Tree and Neural Network models on 4,000 records, achieving 88.1% accuracy and 0.957 AUC.</p>
-            <div class="proj-tools">
-              <span class="tag">Python</span><span class="tag">scikit-learn</span>
-            </div>
+            <p class="proj-desc">Compared Decision Tree and Neural Network models on 4,000 records. Achieved 88.1% accuracy and 0.957 AUC.</p>
+            <div class="proj-tools"><span class="tag">Python</span><span class="tag">scikit-learn</span></div>
           </div>
         </div>
  
-        <div class="proj-card">
+        <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🏥</span></div>
             <h3>Hospital Administrator's Database</h3>
             <p class="proj-date">Aug 2024 — Dec 2024</p>
-            <p class="proj-desc">SQL database designed with ERD/EERD to manage 10K+ records with automated reporting.</p>
-            <div class="proj-tools">
-              <span class="tag">SQL</span><span class="tag">ERD/EERD</span>
-            </div>
+            <p class="proj-desc">Designed a SQL database with ERD/EERD managing 10K+ records with automated reporting pipelines.</p>
+            <div class="proj-tools"><span class="tag">SQL</span><span class="tag">ERD / EERD</span></div>
           </div>
         </div>
  
-        <div class="proj-card">
+        <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">📈</span></div>
             <h3>Electronics Sales Analysis</h3>
             <p class="proj-date">Oct 2024 — Nov 2024</p>
-            <p class="proj-desc">EDA on 20K transactions. SVC models achieved 83 to 87% accuracy predicting customer behavior.</p>
-            <div class="proj-tools">
-              <span class="tag">Python</span><span class="tag">SVC</span><span class="tag">EDA</span>
-            </div>
+            <p class="proj-desc">EDA on 20K transactions. SVC models hit 83 to 87% accuracy predicting customer behavior.</p>
+            <div class="proj-tools"><span class="tag">Python</span><span class="tag">SVC</span><span class="tag">EDA</span></div>
           </div>
         </div>
  
@@ -280,11 +264,11 @@
     </div>
   </section>
  
-  <!-- Skills -->
   <section id="skills" class="reveal">
     <div class="wrap">
       <p class="section-label">Skills</p>
       <div class="skills-layout">
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Languages</h4>
           <div class="skill-bars">
@@ -302,7 +286,7 @@
             </div>
             <div class="skill-bar-item">
               <span>HTML</span>
-              <div class="bar"><div class="bar-fill" data-width="65"></div></div>
+              <div class="bar"><div class="bar-fill" data-width="60"></div></div>
             </div>
           </div>
         </div>
@@ -315,45 +299,42 @@
             <span class="tag bright">Power Automate</span>
             <span class="tag bright">Excel / VBA</span>
             <span class="tag bright">Qlik</span>
-            <span class="tag bright">Power Query</span>
           </div>
         </div>
  
         <div class="skill-group">
-          <h4 class="skill-group-label">Data Engineering</h4>
+          <h4 class="skill-group-label">Data Stack</h4>
           <div class="tags-block">
-            <span class="tag bright">PostgreSQL</span>
             <span class="tag bright">Snowflake</span>
+            <span class="tag bright">PostgreSQL</span>
             <span class="tag bright">BigQuery</span>
             <span class="tag bright">dbt</span>
             <span class="tag bright">Airflow</span>
             <span class="tag bright">MongoDB</span>
-            <span class="tag bright">Oracle</span>
             <span class="tag bright">DuckDB</span>
           </div>
         </div>
  
         <div class="skill-group">
-          <h4 class="skill-group-label">Libraries</h4>
+          <h4 class="skill-group-label">ML and Modeling</h4>
           <div class="tags-block">
-            <span class="tag bright">pandas</span>
-            <span class="tag bright">NumPy</span>
             <span class="tag bright">scikit-learn</span>
-            <span class="tag bright">Matplotlib</span>
-            <span class="tag bright">Seaborn</span>
             <span class="tag bright">XGBoost</span>
+            <span class="tag bright">Random Forest</span>
+            <span class="tag bright">Feature Engineering</span>
+            <span class="tag bright">A/B Testing</span>
+            <span class="tag bright">Time Series</span>
           </div>
         </div>
  
         <div class="skill-group">
           <h4 class="skill-group-label">Concepts</h4>
           <div class="tags-block">
-            <span class="tag bright">Machine Learning</span>
             <span class="tag bright">ETL / ELT</span>
-            <span class="tag bright">A/B Testing</span>
             <span class="tag bright">Data Modeling</span>
+            <span class="tag bright">Data Warehousing</span>
+            <span class="tag bright">Data Governance</span>
             <span class="tag bright">KPI Reporting</span>
-            <span class="tag bright">Feature Engineering</span>
           </div>
         </div>
  
@@ -365,10 +346,11 @@
             <span class="tag bright">Jupyter</span>
           </div>
         </div>
+ 
       </div>
  
       <div class="certs">
-        <p class="skill-group-label" style="margin-bottom:12px;">Certifications</p>
+        <p class="skill-group-label" style="margin-bottom:12px">Certifications</p>
         <div class="cert-row">
           <span class="cert-pill">🏅 Google Data Analytics Professional Certificate</span>
           <span class="cert-pill">🏅 USF Muma Citizen Data Science Certificate</span>
@@ -377,52 +359,50 @@
     </div>
   </section>
  
-  <!-- Contact -->
-  <section id="contact" class="reveal">
+  <section id="contact" class="reveal alt-bg">
     <div class="wrap">
-      <p class="section-label">Get in Touch</p>
       <div class="contact-block">
-        <h2>Let's work together.</h2>
-        <p>I'm actively looking for Data Analyst roles. If you think we'd be a good fit, I'd love to chat!</p>
+        <p class="section-label">Contact</p>
+        <h2>Let's talk.</h2>
+        <p>I'm actively looking for Data Analyst roles. If you think we'd be a good fit, reach out.</p>
         <div class="contact-row">
           <a class="contact-btn" href="mailto:mhaftran@gmail.com">
-            <span>✉️</span> mhaftran@gmail.com
+            ✉️ mhaftran@gmail.com
             <button class="copy-btn" onclick="copyEmail(event)" title="Copy email">📋</button>
           </a>
-          <a class="contact-btn" href="tel:+18133379600"><span>📞</span> (813) 337-9600</a>
-          <a class="contact-btn" href="https://www.linkedin.com/in/mhatran" target="_blank"><span>💼</span> LinkedIn</a>
-          <a class="contact-btn" href="https://github.com/HaTranUSF" target="_blank"><span>🐙</span> GitHub</a>
+          <a class="contact-btn" href="tel:+18133379600">📞 (813) 337-9600</a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/mhatran" target="_blank">💼 LinkedIn</a>
+          <a class="contact-btn" href="https://github.com/HaTranUSF" target="_blank">🐙 GitHub</a>
         </div>
-        <p id="copy-toast" class="copy-toast">Email copied!</p>
+        <p id="copy-toast" class="copy-toast">Copied!</p>
       </div>
     </div>
   </section>
  
   <footer>
-    <p>© 2026 Ha Tran &nbsp;·&nbsp; Built with 💻 and ☕</p>
+    <p>© 2026 Ha Tran · Built with 💻 and ☕</p>
   </footer>
  
   <script>
-    /* ===== NAVBAR SCROLL EFFECT ===== */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
  
-    /* ===== TYPING ANIMATION ===== */
-    const phrase = 'Data Analyst';
-    let charIndex = 0;
-    const typedEl = document.getElementById('typed-text');
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => activeObserver.observe(s));
  
-    function type() {
-      if (charIndex <= phrase.length) {
-        typedEl.textContent = phrase.slice(0, charIndex++);
-        setTimeout(type, 100);
-      }
-    }
-    setTimeout(type, 600);
- 
-    /* ===== SCROLL REVEAL ===== */
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -430,7 +410,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
  
-    /* ===== SKILL BAR ANIMATION ===== */
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -444,31 +423,15 @@
     const skillsSection = document.getElementById('skills');
     if (skillsSection) barObserver.observe(skillsSection);
  
-    /* ===== COPY EMAIL ===== */
     function copyEmail(e) {
       e.preventDefault();
       e.stopPropagation();
       navigator.clipboard.writeText('mhaftran@gmail.com').then(() => {
         const toast = document.getElementById('copy-toast');
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2200);
+        setTimeout(() => toast.classList.remove('show'), 2000);
       });
     }
- 
-    /* ===== ACTIVE NAV LINK ===== */
-    const sections = document.querySelectorAll('section[id], header[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const activeLinkObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            link.style.color = link.getAttribute('href') === '#' + id ? 'var(--white)' : '';
-          });
-        }
-      });
-    }, { threshold: 0.4 });
-    sections.forEach(s => activeLinkObserver.observe(s));
   </script>
 </body>
 </html>
