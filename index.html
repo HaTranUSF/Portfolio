@@ -31,9 +31,6 @@
     </div>
   </nav>
 
-  <!-- Tom & Jerry canvas swimmers -->
-  <canvas id="swimmer-canvas" aria-hidden="true"></canvas>
-
   <header id="hero">
     <div class="hero-inner">
       <div class="hero-available"><span class="dot"></span> Open to work</div>
@@ -57,20 +54,20 @@
       <p class="section-label">About</p>
       <div class="about-grid">
         <div class="about-text">
-          <h2>Quantitative thinking, <span class="accent">real results</span>.</h2>
+          <h2>Numbers that <span class="accent">mean something</span>.</h2>
           <p>
             I'm a recent USF grad with double degrees in AI and Business Analytics and Econometrics.
-            I chose those majors because I wanted to do more than describe data. I wanted to explain it
-            quantitatively and connect those insights to decisions that actually matter for a business.
+            Most people pick one or the other. I wanted both because the interesting problems sit right
+            at the intersection: rigorous quantitative thinking applied to decisions that actually move a business.
           </p>
           <p>
-            Last summer at Princeton's Office of Finance and Treasury, I worked on automating reporting
-            workflows and improving dashboard performance. Watching both of those go from a real pain
-            point to something the team genuinely relied on is the kind of work I want to keep doing.
+            Last summer at Princeton's Office of Finance and Treasury, I got to see what it looks like
+            when analytics work lands right. Reporting that used to take hours ran in five minutes.
+            Dashboards that nobody trusted became something the team built their day around.
+            That gap between "data exists" and "data gets used" is exactly where I want to work.
           </p>
           <p>
-            Outside of work, music is a big part of my life. I can lose hours just listening, and if you
-            ever need a karaoke partner, I'm absolutely your person.
+            Outside of work I'm deep into music. If you ever want a karaoke partner, I will not let you down.
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
@@ -416,6 +413,107 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.bar-fill').forEach(fill => {
+            fill.style.width = fill.dataset.width + '%';
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) barObserver.observe(skillsSection);
+
+    function copyEmail(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      navigator.clipboard.writeText('mhaftran@gmail.com').then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+  </script>
+  <script>
+  // ── WAVE CANVAS ───────────────────────────────────────────────────────────
+  (function() {
+    const canvas = document.getElementById('swimmer-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = 120;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function drawWater(t) {
+      const w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      // second wave (deeper, less opacity)
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x <= w; x += 3) {
+        const y = 68 + Math.sin((x / w) * Math.PI * 6 + t * 1.1) * 5
+                     + Math.sin((x / w) * Math.PI * 11 + t * 1.8) * 2.5;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h); ctx.closePath();
+      const g2 = ctx.createLinearGradient(0, 65, 0, h);
+      g2.addColorStop(0, 'rgba(0,80,120,0.3)');
+      g2.addColorStop(1, 'rgba(1,30,46,0.6)');
+      ctx.fillStyle = g2; ctx.fill();
+
+      // main water fill
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x <= w; x += 3) {
+        const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h); ctx.closePath();
+      const g1 = ctx.createLinearGradient(0, 70, 0, h);
+      g1.addColorStop(0, 'rgba(0,60,100,0.55)');
+      g1.addColorStop(1, 'rgba(1,30,46,0.9)');
+      ctx.fillStyle = g1; ctx.fill();
+
+      // teal shimmer line on top
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 3) {
+        const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = 'rgba(0,212,168,0.4)';
+      ctx.lineWidth = 1.8; ctx.stroke();
+
+      // foam sparkles
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      for (let i = 0; i < 6; i++) {
+        const sx = ((i * 173 + t * 40) % w);
+        const sy = 72 + Math.sin((sx / w) * Math.PI * 8 + t * 1.5) * 4 - 2;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 1.5 + Math.sin(t * 3 + i) * 0.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function loop(ts) {
+      drawWater(ts / 1000);
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
+  </script>
+
+</body>
+</html>
 
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
