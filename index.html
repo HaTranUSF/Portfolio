@@ -1,22 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ha Tran | Data Analyst</title>
+  <title>Ha Tran | Data Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
+ 
   <div class="bubble-container" aria-hidden="true">
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
   </div>
-
+ 
   <nav id="navbar">
     <div class="nav-inner">
       <span class="nav-logo">Ha Tran</span>
@@ -30,16 +31,16 @@
       <a class="nav-resume" href="Ha_Tran_Resume_26_.pdf" download>Resume</a>
     </div>
   </nav>
-
+ 
+  <canvas id="swimmer-canvas" aria-hidden="true"></canvas>
+ 
   <header id="hero">
     <div class="hero-inner">
       <div class="hero-available"><span class="dot"></span> Open to work</div>
       <h1 class="hero-name">Ha Tran</h1>
-      <p class="hero-tagline">Data Analyst</p>
+      <p class="hero-tagline">Data Scientist</p>
       <p class="hero-bio">
-        I studied AI, Business Analytics, and Quantitative Economics because I wanted to understand
-        data the way economists think about it: rigorously, and with real business stakes in mind.
-        That combination is what I bring to every problem I work on.
+        USF grad with degrees in AI and Econometrics. I like figuring out why things happen in data, not just reporting that they did. Spent a summer in 2024 at Princeton automating the stuff nobody wanted to do manually. Outside of work I'm either listening to music or dragging someone to karaoke.
       </p>
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">See My Work</a>
@@ -48,26 +49,25 @@
     </div>
     <div class="scroll-hint" aria-hidden="true"><span></span></div>
   </header>
-
+ 
   <section id="about" class="reveal">
     <div class="wrap">
       <p class="section-label">About</p>
       <div class="about-grid">
         <div class="about-text">
-          <h2>Numbers that <span class="accent">mean something</span>.</h2>
+          <h2>I like knowing <span class="accent">why</span>.</h2>
           <p>
-            I'm a recent USF grad with double degrees in AI and Business Analytics and Econometrics.
-            Most people pick one or the other. I wanted both because the interesting problems sit right
-            at the intersection: rigorous quantitative thinking applied to decisions that actually move a business.
+            USF grad with degrees in AI and Business Analytics and Econometrics. I picked both because
+            I wanted to understand data the way a scientist and an economist would at the same time.
+            The modeling rigor from one, the business intuition from the other.
           </p>
           <p>
-            Last summer at Princeton's Office of Finance and Treasury, I got to see what it looks like
-            when analytics work lands right. Reporting that used to take hours ran in five minutes.
-            Dashboards that nobody trusted became something the team built their day around.
-            That gap between "data exists" and "data gets used" is exactly where I want to work.
+            In summer 2024 at Princeton's Office of Finance and Treasury, I got to work on the kind of
+            problems that actually matter to a team. Reporting workflows nobody liked, dashboards that
+            were slow and hard to trust. By the end they worked, and people used them.
           </p>
           <p>
-            Outside of work I'm deep into music. If you ever want a karaoke partner, I will not let you down.
+            Outside of work I'm either deep in a playlist or at karaoke. Probably both.
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
@@ -107,7 +107,7 @@
       </div>
     </div>
   </section>
-
+ 
   <section id="education" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Education</p>
@@ -133,12 +133,12 @@
       </div>
     </div>
   </section>
-
+ 
   <section id="experience" class="reveal">
     <div class="wrap">
       <p class="section-label">Experience</p>
       <div class="timeline">
-
+ 
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-card">
@@ -160,7 +160,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-card">
@@ -180,16 +180,16 @@
             </div>
           </div>
         </div>
-
+ 
       </div>
     </div>
   </section>
-
+ 
   <section id="projects" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Projects</p>
       <div class="proj-grid">
-
+ 
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -204,7 +204,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -218,7 +218,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -233,7 +233,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🍏</span></div>
@@ -243,7 +243,7 @@
             <div class="proj-tools"><span class="tag">Python</span><span class="tag">scikit-learn</span></div>
           </div>
         </div>
-
+ 
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🏥</span></div>
@@ -253,7 +253,7 @@
             <div class="proj-tools"><span class="tag">SQL</span><span class="tag">ERD / EERD</span></div>
           </div>
         </div>
-
+ 
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">📈</span></div>
@@ -263,16 +263,16 @@
             <div class="proj-tools"><span class="tag">Python</span><span class="tag">SVC</span><span class="tag">EDA</span></div>
           </div>
         </div>
-
+ 
       </div>
     </div>
   </section>
-
+ 
   <section id="skills" class="reveal">
     <div class="wrap">
       <p class="section-label">Skills</p>
       <div class="skills-layout">
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Languages</h4>
           <div class="skill-bars">
@@ -294,7 +294,7 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Analytics and BI</h4>
           <div class="tags-block">
@@ -305,7 +305,7 @@
             <span class="tag bright">Qlik</span>
           </div>
         </div>
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Data Stack</h4>
           <div class="tags-block">
@@ -318,7 +318,7 @@
             <span class="tag bright">DuckDB</span>
           </div>
         </div>
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">ML and Modeling</h4>
           <div class="tags-block">
@@ -330,7 +330,7 @@
             <span class="tag bright">Time Series</span>
           </div>
         </div>
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Concepts</h4>
           <div class="tags-block">
@@ -341,7 +341,7 @@
             <span class="tag bright">KPI Reporting</span>
           </div>
         </div>
-
+ 
         <div class="skill-group">
           <h4 class="skill-group-label">Developer Tools</h4>
           <div class="tags-block">
@@ -350,9 +350,9 @@
             <span class="tag bright">Jupyter</span>
           </div>
         </div>
-
+ 
       </div>
-
+ 
       <div class="certs">
         <p class="skill-group-label" style="margin-bottom:12px">Certifications</p>
         <div class="cert-row">
@@ -362,13 +362,13 @@
       </div>
     </div>
   </section>
-
+ 
   <section id="contact" class="reveal alt-bg">
     <div class="wrap">
       <div class="contact-block">
         <p class="section-label">Contact</p>
         <h2>Let's talk.</h2>
-        <p>I'm actively looking for Data Analyst roles. If you think we'd be a good fit, reach out.</p>
+        <p>I'm actively looking for Data Scientist roles. If you think we'd be a good fit, reach out.</p>
         <div class="contact-row">
           <a class="contact-btn" href="mailto:mhaftran@gmail.com">
             ✉️ mhaftran@gmail.com
@@ -382,17 +382,19 @@
       </div>
     </div>
   </section>
-
+ 
   <footer>
     <p>© 2026 Ha Tran · Built with 💻 and ☕</p>
   </footer>
-
+ 
   <script>
+    // NAVBAR
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
-
+ 
+    // ACTIVE NAV
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     const activeObserver = new IntersectionObserver((entries) => {
@@ -406,14 +408,16 @@
       });
     }, { threshold: 0.4 });
     sections.forEach(s => activeObserver.observe(s));
-
+ 
+    // SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
+ 
+    // SKILL BARS
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -426,7 +430,8 @@
     }, { threshold: 0.3 });
     const skillsSection = document.getElementById('skills');
     if (skillsSection) barObserver.observe(skillsSection);
-
+ 
+    // COPY EMAIL
     function copyEmail(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -436,542 +441,80 @@
         setTimeout(() => toast.classList.remove('show'), 2000);
       });
     }
-  </script>
-  <script>
-  // ── WAVE CANVAS ───────────────────────────────────────────────────────────
-  (function() {
-    const canvas = document.getElementById('swimmer-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = 120;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    function drawWater(t) {
-      const w = canvas.width, h = canvas.height;
-      ctx.clearRect(0, 0, w, h);
-
-      // second wave (deeper, less opacity)
-      ctx.beginPath();
-      ctx.moveTo(0, h);
-      for (let x = 0; x <= w; x += 3) {
-        const y = 68 + Math.sin((x / w) * Math.PI * 6 + t * 1.1) * 5
-                     + Math.sin((x / w) * Math.PI * 11 + t * 1.8) * 2.5;
-        ctx.lineTo(x, y);
+ 
+    // WAVE CANVAS
+    (function() {
+      const canvas = document.getElementById('swimmer-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+ 
+      function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = 120;
       }
-      ctx.lineTo(w, h); ctx.closePath();
-      const g2 = ctx.createLinearGradient(0, 65, 0, h);
-      g2.addColorStop(0, 'rgba(0,80,120,0.3)');
-      g2.addColorStop(1, 'rgba(1,30,46,0.6)');
-      ctx.fillStyle = g2; ctx.fill();
-
-      // main water fill
-      ctx.beginPath();
-      ctx.moveTo(0, h);
-      for (let x = 0; x <= w; x += 3) {
-        const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
-                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(w, h); ctx.closePath();
-      const g1 = ctx.createLinearGradient(0, 70, 0, h);
-      g1.addColorStop(0, 'rgba(0,60,100,0.55)');
-      g1.addColorStop(1, 'rgba(1,30,46,0.9)');
-      ctx.fillStyle = g1; ctx.fill();
-
-      // teal shimmer line on top
-      ctx.beginPath();
-      for (let x = 0; x <= w; x += 3) {
-        const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
-                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = 'rgba(0,212,168,0.4)';
-      ctx.lineWidth = 1.8; ctx.stroke();
-
-      // foam sparkles
-      ctx.fillStyle = 'rgba(255,255,255,0.55)';
-      for (let i = 0; i < 6; i++) {
-        const sx = ((i * 173 + t * 40) % w);
-        const sy = 72 + Math.sin((sx / w) * Math.PI * 8 + t * 1.5) * 4 - 2;
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+ 
+      function drawWater(t) {
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+ 
+        // back wave
         ctx.beginPath();
-        ctx.arc(sx, sy, 1.5 + Math.sin(t * 3 + i) * 0.8, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function loop(ts) {
-      drawWater(ts / 1000);
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  })();
-  </script>
-
-</body>
-</html>
-
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.bar-fill').forEach(fill => {
-            fill.style.width = fill.dataset.width + '%';
-          });
-          barObserver.unobserve(entry.target);
+        ctx.moveTo(0, h);
+        for (let x = 0; x <= w; x += 3) {
+          const y = 68 + Math.sin((x / w) * Math.PI * 6 + t * 1.1) * 5
+                       + Math.sin((x / w) * Math.PI * 11 + t * 1.8) * 2.5;
+          ctx.lineTo(x, y);
         }
-      });
-    }, { threshold: 0.3 });
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) barObserver.observe(skillsSection);
-
-    function copyEmail(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      navigator.clipboard.writeText('mhaftran@gmail.com').then(() => {
-        const toast = document.getElementById('copy-toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      });
-    }
-  </script>
-  <script>
-  // ── TOM & JERRY CANVAS SWIMMERS ──────────────────────────────────────────
-  (function() {
-    const canvas = document.getElementById('swimmer-canvas');
-    const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = 120;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const W = () => canvas.width;
-    const FLOOR = 85; // y centre of characters
-
-    // ── DRAW TOM (blue-grey cat, ~80px wide) ────────────────────────────────
-    function drawTom(x, y, t, dir) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(dir, 1); // dir: 1 = facing right, -1 = facing left
-
-      const bob = Math.sin(t * 3) * 3;
-      ctx.translate(0, bob);
-
-      // swimming arm cycle
-      const armSwing = Math.sin(t * 3);
-
-      // --- TAIL ---
-      ctx.beginPath();
-      ctx.moveTo(-32, 5);
-      ctx.bezierCurveTo(-48, -10 + Math.sin(t*2)*8, -52, 15, -40, 10);
-      ctx.strokeStyle = '#8aaad4';
-      ctx.lineWidth = 5;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-
-      // --- BODY ---
-      ctx.beginPath();
-      ctx.ellipse(-8, 8, 26, 14, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-
-      // body stripes
-      ctx.strokeStyle = '#6a8fc0';
-      ctx.lineWidth = 1.5;
-      ctx.globalAlpha = 0.5;
-      for (let i = -2; i <= 1; i++) {
+        ctx.lineTo(w, h); ctx.closePath();
+        const g2 = ctx.createLinearGradient(0, 65, 0, h);
+        g2.addColorStop(0, 'rgba(0,80,120,0.3)');
+        g2.addColorStop(1, 'rgba(1,30,46,0.6)');
+        ctx.fillStyle = g2; ctx.fill();
+ 
+        // main wave
         ctx.beginPath();
-        ctx.moveTo(-8 + i * 8, -4);
-        ctx.lineTo(-8 + i * 8, 18);
-        ctx.stroke();
+        ctx.moveTo(0, h);
+        for (let x = 0; x <= w; x += 3) {
+          const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                       + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w, h); ctx.closePath();
+        const g1 = ctx.createLinearGradient(0, 70, 0, h);
+        g1.addColorStop(0, 'rgba(0,60,100,0.55)');
+        g1.addColorStop(1, 'rgba(1,30,46,0.9)');
+        ctx.fillStyle = g1; ctx.fill();
+ 
+        // teal shimmer
+        ctx.beginPath();
+        for (let x = 0; x <= w; x += 3) {
+          const y = 72 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                       + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(0,212,168,0.4)';
+        ctx.lineWidth = 1.8; ctx.stroke();
+ 
+        // foam sparkles
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
+        for (let i = 0; i < 6; i++) {
+          const sx = ((i * 173 + t * 40) % w);
+          const sy = 72 + Math.sin((sx / w) * Math.PI * 8 + t * 1.5) * 4 - 2;
+          ctx.beginPath();
+          ctx.arc(sx, sy, 1.5 + Math.sin(t * 3 + i) * 0.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
-      ctx.globalAlpha = 1;
-
-      // belly
-      ctx.beginPath();
-      ctx.ellipse(-8, 10, 14, 9, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#c5d9f0';
-      ctx.fill();
-
-      // --- BACK LEG ---
-      ctx.save();
-      ctx.translate(-22, 14);
-      ctx.rotate(Math.sin(t * 3 + 1) * 0.4);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(-4, 16);
-      ctx.lineTo(2, 22);
-      ctx.strokeStyle = '#8aaad4';
-      ctx.lineWidth = 5;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.stroke();
-      // foot
-      ctx.beginPath();
-      ctx.ellipse(2, 22, 6, 3, 0.3, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.restore();
-
-      // --- FRONT LEG ---
-      ctx.save();
-      ctx.translate(6, 14);
-      ctx.rotate(Math.sin(t * 3) * 0.4);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(4, 16);
-      ctx.lineTo(10, 22);
-      ctx.strokeStyle = '#8aaad4';
-      ctx.lineWidth = 5;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.ellipse(10, 22, 6, 3, -0.3, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.restore();
-
-      // --- FRONT ARM (swimming stroke) ---
-      ctx.save();
-      ctx.translate(14, 2);
-      ctx.rotate(-0.3 + armSwing * 0.6);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(18, 10);
-      ctx.strokeStyle = '#8aaad4';
-      ctx.lineWidth = 6;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-      // paw
-      ctx.beginPath();
-      ctx.arc(18, 10, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.restore();
-
-      // --- BACK ARM ---
-      ctx.save();
-      ctx.translate(-20, 2);
-      ctx.rotate(0.3 - armSwing * 0.6);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.lineTo(-14, 10);
-      ctx.strokeStyle = '#8aaad4';
-      ctx.lineWidth = 6;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(-14, 10, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.restore();
-
-      // --- HEAD ---
-      ctx.beginPath();
-      ctx.arc(22, -8, 18, 0, Math.PI * 2);
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-
-      // HEAD STRIPE (forehead)
-      ctx.beginPath();
-      ctx.moveTo(14, -24);
-      ctx.lineTo(10, -10);
-      ctx.strokeStyle = '#6a8fc0';
-      ctx.lineWidth = 3;
-      ctx.globalAlpha = 0.5;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-
-      // --- EARS ---
-      // left ear
-      ctx.beginPath();
-      ctx.moveTo(12, -22);
-      ctx.lineTo(8, -38);
-      ctx.lineTo(20, -26);
-      ctx.closePath();
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(13, -23);
-      ctx.lineTo(10, -34);
-      ctx.lineTo(19, -26);
-      ctx.closePath();
-      ctx.fillStyle = '#c9a0dc';
-      ctx.fill();
-
-      // right ear
-      ctx.beginPath();
-      ctx.moveTo(28, -24);
-      ctx.lineTo(32, -38);
-      ctx.lineTo(38, -22);
-      ctx.closePath();
-      ctx.fillStyle = '#8aaad4';
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(29, -24);
-      ctx.lineTo(32, -34);
-      ctx.lineTo(36, -23);
-      ctx.closePath();
-      ctx.fillStyle = '#c9a0dc';
-      ctx.fill();
-
-      // cheek puff
-      ctx.beginPath();
-      ctx.ellipse(34, -4, 7, 6, 0.2, 0, Math.PI * 2);
-      ctx.fillStyle = '#a0c0e8';
-      ctx.fill();
-
-      // white eye area
-      ctx.beginPath();
-      ctx.ellipse(24, -12, 7, 6, -0.2, 0, Math.PI * 2);
-      ctx.fillStyle = '#fff';
-      ctx.fill();
-      // pupil
-      ctx.beginPath();
-      ctx.arc(26, -12, 3, 0, Math.PI * 2);
-      ctx.fillStyle = '#1a1a2e';
-      ctx.fill();
-      // eye shine
-      ctx.beginPath();
-      ctx.arc(27, -14, 1.2, 0, Math.PI * 2);
-      ctx.fillStyle = '#fff';
-      ctx.fill();
-
-      // nose
-      ctx.beginPath();
-      ctx.ellipse(34, -6, 3.5, 2.5, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#e06060';
-      ctx.fill();
-
-      // mouth
-      ctx.beginPath();
-      ctx.moveTo(31, -3);
-      ctx.quadraticCurveTo(34, 1, 37, -3);
-      ctx.strokeStyle = '#666';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // whiskers
-      ctx.strokeStyle = 'rgba(200,200,200,0.8)';
-      ctx.lineWidth = 1;
-      [[34,-5,46,-8],[34,-4,46,-4],[34,-3,46,0]].forEach(([x1,y1,x2,y2]) => {
-        ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-      });
-
-      ctx.restore();
-    }
-
-    // ── DRAW JERRY (brown mouse, ~55px wide) ────────────────────────────────
-    function drawJerry(x, y, t, dir) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(dir, 1);
-
-      const bob = Math.sin(t * 3.5 + 1) * 3;
-      ctx.translate(0, bob);
-
-      const armSwing = Math.sin(t * 3.5);
-
-      // --- TAIL (thin, curly) ---
-      ctx.beginPath();
-      ctx.moveTo(-22, 4);
-      ctx.bezierCurveTo(-34, -8 + Math.sin(t*2.5)*7, -40, 12, -30, 8);
-      ctx.strokeStyle = '#a06030';
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-
-      // --- BODY ---
-      ctx.beginPath();
-      ctx.ellipse(-5, 6, 18, 11, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#c8924a';
-      ctx.fill();
-
-      // belly
-      ctx.beginPath();
-      ctx.ellipse(-5, 8, 10, 7, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#e8b87a';
-      ctx.fill();
-
-      // --- LEGS ---
-      ctx.save();
-      ctx.translate(-14, 10);
-      ctx.rotate(Math.sin(t * 3.5 + 1) * 0.4);
-      ctx.beginPath();
-      ctx.moveTo(0, 0); ctx.lineTo(-3, 13); ctx.lineTo(1, 18);
-      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 4;
-      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
-      ctx.beginPath(); ctx.ellipse(1, 18, 5, 2.5, 0.3, 0, Math.PI*2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.restore();
-
-      ctx.save();
-      ctx.translate(4, 10);
-      ctx.rotate(Math.sin(t * 3.5) * 0.4);
-      ctx.beginPath();
-      ctx.moveTo(0, 0); ctx.lineTo(3, 13); ctx.lineTo(7, 18);
-      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 4;
-      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
-      ctx.beginPath(); ctx.ellipse(7, 18, 5, 2.5, -0.3, 0, Math.PI*2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.restore();
-
-      // --- ARMS (swim stroke) ---
-      ctx.save();
-      ctx.translate(8, 0);
-      ctx.rotate(-0.3 + armSwing * 0.55);
-      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(14, 8);
-      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.stroke();
-      ctx.beginPath(); ctx.arc(14, 8, 4, 0, Math.PI*2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.restore();
-
-      ctx.save();
-      ctx.translate(-16, 0);
-      ctx.rotate(0.3 - armSwing * 0.55);
-      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-12, 8);
-      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.stroke();
-      ctx.beginPath(); ctx.arc(-12, 8, 4, 0, Math.PI*2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.restore();
-
-      // --- HEAD ---
-      ctx.beginPath();
-      ctx.arc(14, -6, 13, 0, Math.PI * 2);
-      ctx.fillStyle = '#c8924a';
-      ctx.fill();
-
-      // --- ROUND EARS (mouse ears!) ---
-      // left ear
-      ctx.beginPath();
-      ctx.arc(8, -17, 8, 0, Math.PI * 2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.beginPath();
-      ctx.arc(8, -17, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#e8a0a0'; ctx.fill();
-
-      // right ear
-      ctx.beginPath();
-      ctx.arc(20, -17, 8, 0, Math.PI * 2);
-      ctx.fillStyle = '#c8924a'; ctx.fill();
-      ctx.beginPath();
-      ctx.arc(20, -17, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#e8a0a0'; ctx.fill();
-
-      // face
-      // white eye
-      ctx.beginPath();
-      ctx.ellipse(17, -9, 5, 4.5, 0.1, 0, Math.PI * 2);
-      ctx.fillStyle = '#fff'; ctx.fill();
-      // pupil
-      ctx.beginPath();
-      ctx.arc(18, -9, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#1a1a2e'; ctx.fill();
-      // shine
-      ctx.beginPath();
-      ctx.arc(19, -10.5, 1, 0, Math.PI * 2);
-      ctx.fillStyle = '#fff'; ctx.fill();
-
-      // nose (small round)
-      ctx.beginPath();
-      ctx.ellipse(22, -3, 2.5, 2, 0, 0, Math.PI * 2);
-      ctx.fillStyle = '#e06060'; ctx.fill();
-
-      // smile
-      ctx.beginPath();
-      ctx.moveTo(19, -1);
-      ctx.quadraticCurveTo(22, 2, 25, -1);
-      ctx.strokeStyle = '#666'; ctx.lineWidth = 1.2; ctx.stroke();
-
-      // whiskers
-      ctx.strokeStyle = 'rgba(200,200,200,0.8)';
-      ctx.lineWidth = 0.9;
-      [[22,-3,32,-5],[22,-2,32,-2],[22,-1,32,1]].forEach(([x1,y1,x2,y2]) => {
-        ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-      });
-
-      ctx.restore();
-    }
-
-    // ── WATER SURFACE ─────────────────────────────────────────────────────
-    function drawWater(t) {
-      const h = canvas.height;
-      const w = W();
-      ctx.beginPath();
-      ctx.moveTo(0, h);
-      for (let x = 0; x <= w; x += 4) {
-        const y = 62 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
-                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
-        ctx.lineTo(x, y);
+ 
+      function loop(ts) {
+        drawWater(ts / 1000);
+        requestAnimationFrame(loop);
       }
-      ctx.lineTo(w, h);
-      ctx.closePath();
-      const grad = ctx.createLinearGradient(0, 60, 0, h);
-      grad.addColorStop(0, 'rgba(0,60,100,0.55)');
-      grad.addColorStop(1, 'rgba(1,30,46,0.85)');
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // wave shimmer line
-      ctx.beginPath();
-      ctx.moveTo(0, 62);
-      for (let x = 0; x <= w; x += 4) {
-        const y = 62 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
-                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
-        ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = 'rgba(0,212,168,0.3)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-    }
-
-    // ── CHARACTERS STATE ──────────────────────────────────────────────────
-    // Tom chases Jerry — Jerry is always ahead
-    const tom   = { x: -100, speed: 1.8 };
-    const jerry = { x:  -20, speed: 2.4 };
-
-    let lastTime = null;
-
-    function loop(ts) {
-      if (!lastTime) lastTime = ts;
-      const dt = Math.min((ts - lastTime) / 1000, 0.05);
-      lastTime = ts;
-
-      const t = ts / 1000;
-      const w = W();
-
-      ctx.clearRect(0, 0, w, canvas.height);
-
-      drawWater(t);
-
-      // advance both characters
-      tom.x   += tom.speed;
-      jerry.x += jerry.speed;
-
-      // wrap when off screen right
-      if (tom.x   > w + 120) tom.x   = -120;
-      if (jerry.x > w + 100) jerry.x = -100;
-
-      // keep Jerry ahead of Tom — if Tom catches up, nudge Jerry forward
-      if (jerry.x - tom.x < 60) jerry.x = tom.x + 60;
-
-      // draw (both always face right since they only move right)
-      drawTom(tom.x, FLOOR, t, 1);
-      drawJerry(jerry.x, FLOOR, t, 1);
-
       requestAnimationFrame(loop);
-    }
-
-    requestAnimationFrame(loop);
-  })();
+    })();
   </script>
-
+ 
 </body>
 </html>
