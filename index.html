@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
- 
+
   <div class="bubble-container" aria-hidden="true">
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
   </div>
- 
+
   <nav id="navbar">
     <div class="nav-inner">
       <span class="nav-logo">Ha Tran</span>
@@ -30,16 +30,19 @@
       <a class="nav-resume" href="Ha_Tran_Resume_26_.pdf" download>Resume</a>
     </div>
   </nav>
- 
+
+  <!-- Tom & Jerry canvas swimmers -->
+  <canvas id="swimmer-canvas" aria-hidden="true"></canvas>
+
   <header id="hero">
     <div class="hero-inner">
       <div class="hero-available"><span class="dot"></span> Open to work</div>
       <h1 class="hero-name">Ha Tran</h1>
       <p class="hero-tagline">Data Analyst</p>
       <p class="hero-bio">
-        I turn messy data into things people can actually use.
-        From Tableau dashboards at Princeton to ML pipelines processing millions of records,
-        I focus on work that makes a real difference.
+        I studied AI, Business Analytics, and Quantitative Economics because I wanted to understand
+        data the way economists think about it: rigorously, and with real business stakes in mind.
+        That combination is what I bring to every problem I work on.
       </p>
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">See My Work</a>
@@ -48,22 +51,26 @@
     </div>
     <div class="scroll-hint" aria-hidden="true"><span></span></div>
   </header>
- 
+
   <section id="about" class="reveal">
     <div class="wrap">
       <p class="section-label">About</p>
       <div class="about-grid">
         <div class="about-text">
-          <h2>I make data <span class="accent">useful</span>.</h2>
+          <h2>Quantitative thinking, <span class="accent">real results</span>.</h2>
           <p>
             I'm a recent USF grad with double degrees in AI and Business Analytics and Econometrics.
-            Last summer at Princeton's Office of Finance and Treasury, I built dashboards, automated reporting pipelines,
-            and helped 150+ finance staff start using AI tools for the first time.
+            I chose those majors because I wanted to do more than describe data. I wanted to explain it
+            quantitatively and connect those insights to decisions that actually matter for a business.
           </p>
           <p>
-            I care about the full journey from raw, messy data to a clean insight someone can act on.
-            Whether that's an ETL pipeline, a predictive model, or a dashboard that finally loads fast,
-            I want to build things that make people's jobs easier.
+            Last summer at Princeton's Office of Finance and Treasury, I worked on automating reporting
+            workflows and improving dashboard performance. Watching both of those go from a real pain
+            point to something the team genuinely relied on is the kind of work I want to keep doing.
+          </p>
+          <p>
+            Outside of work, music is a big part of my life. I can lose hours just listening, and if you
+            ever need a karaoke partner, I'm absolutely your person.
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
@@ -103,7 +110,7 @@
       </div>
     </div>
   </section>
- 
+
   <section id="education" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Education</p>
@@ -129,12 +136,12 @@
       </div>
     </div>
   </section>
- 
+
   <section id="experience" class="reveal">
     <div class="wrap">
       <p class="section-label">Experience</p>
       <div class="timeline">
- 
+
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-card">
@@ -156,7 +163,7 @@
             </div>
           </div>
         </div>
- 
+
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-card">
@@ -176,16 +183,16 @@
             </div>
           </div>
         </div>
- 
+
       </div>
     </div>
   </section>
- 
+
   <section id="projects" class="reveal alt-bg">
     <div class="wrap">
       <p class="section-label">Projects</p>
       <div class="proj-grid">
- 
+
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -200,7 +207,7 @@
             </div>
           </div>
         </div>
- 
+
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -214,7 +221,7 @@
             </div>
           </div>
         </div>
- 
+
         <div class="proj-card">
           <div class="proj-card-inner">
             <div class="proj-top">
@@ -229,7 +236,7 @@
             </div>
           </div>
         </div>
- 
+
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🍏</span></div>
@@ -239,7 +246,7 @@
             <div class="proj-tools"><span class="tag">Python</span><span class="tag">scikit-learn</span></div>
           </div>
         </div>
- 
+
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">🏥</span></div>
@@ -249,7 +256,7 @@
             <div class="proj-tools"><span class="tag">SQL</span><span class="tag">ERD / EERD</span></div>
           </div>
         </div>
- 
+
         <div class="proj-card small">
           <div class="proj-card-inner">
             <div class="proj-top"><span class="proj-icon">📈</span></div>
@@ -259,16 +266,16 @@
             <div class="proj-tools"><span class="tag">Python</span><span class="tag">SVC</span><span class="tag">EDA</span></div>
           </div>
         </div>
- 
+
       </div>
     </div>
   </section>
- 
+
   <section id="skills" class="reveal">
     <div class="wrap">
       <p class="section-label">Skills</p>
       <div class="skills-layout">
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">Languages</h4>
           <div class="skill-bars">
@@ -290,7 +297,7 @@
             </div>
           </div>
         </div>
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">Analytics and BI</h4>
           <div class="tags-block">
@@ -301,7 +308,7 @@
             <span class="tag bright">Qlik</span>
           </div>
         </div>
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">Data Stack</h4>
           <div class="tags-block">
@@ -314,7 +321,7 @@
             <span class="tag bright">DuckDB</span>
           </div>
         </div>
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">ML and Modeling</h4>
           <div class="tags-block">
@@ -326,7 +333,7 @@
             <span class="tag bright">Time Series</span>
           </div>
         </div>
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">Concepts</h4>
           <div class="tags-block">
@@ -337,7 +344,7 @@
             <span class="tag bright">KPI Reporting</span>
           </div>
         </div>
- 
+
         <div class="skill-group">
           <h4 class="skill-group-label">Developer Tools</h4>
           <div class="tags-block">
@@ -346,9 +353,9 @@
             <span class="tag bright">Jupyter</span>
           </div>
         </div>
- 
+
       </div>
- 
+
       <div class="certs">
         <p class="skill-group-label" style="margin-bottom:12px">Certifications</p>
         <div class="cert-row">
@@ -358,7 +365,7 @@
       </div>
     </div>
   </section>
- 
+
   <section id="contact" class="reveal alt-bg">
     <div class="wrap">
       <div class="contact-block">
@@ -378,17 +385,17 @@
       </div>
     </div>
   </section>
- 
+
   <footer>
     <p>© 2026 Ha Tran · Built with 💻 and ☕</p>
   </footer>
- 
+
   <script>
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
- 
+
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     const activeObserver = new IntersectionObserver((entries) => {
@@ -402,14 +409,14 @@
       });
     }, { threshold: 0.4 });
     sections.forEach(s => activeObserver.observe(s));
- 
+
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
- 
+
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -422,7 +429,7 @@
     }, { threshold: 0.3 });
     const skillsSection = document.getElementById('skills');
     if (skillsSection) barObserver.observe(skillsSection);
- 
+
     function copyEmail(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -433,5 +440,440 @@
       });
     }
   </script>
+  <script>
+  // ── TOM & JERRY CANVAS SWIMMERS ──────────────────────────────────────────
+  (function() {
+    const canvas = document.getElementById('swimmer-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = 120;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const W = () => canvas.width;
+    const FLOOR = 85; // y centre of characters
+
+    // ── DRAW TOM (blue-grey cat, ~80px wide) ────────────────────────────────
+    function drawTom(x, y, t, dir) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(dir, 1); // dir: 1 = facing right, -1 = facing left
+
+      const bob = Math.sin(t * 3) * 3;
+      ctx.translate(0, bob);
+
+      // swimming arm cycle
+      const armSwing = Math.sin(t * 3);
+
+      // --- TAIL ---
+      ctx.beginPath();
+      ctx.moveTo(-32, 5);
+      ctx.bezierCurveTo(-48, -10 + Math.sin(t*2)*8, -52, 15, -40, 10);
+      ctx.strokeStyle = '#8aaad4';
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // --- BODY ---
+      ctx.beginPath();
+      ctx.ellipse(-8, 8, 26, 14, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+
+      // body stripes
+      ctx.strokeStyle = '#6a8fc0';
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.5;
+      for (let i = -2; i <= 1; i++) {
+        ctx.beginPath();
+        ctx.moveTo(-8 + i * 8, -4);
+        ctx.lineTo(-8 + i * 8, 18);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      // belly
+      ctx.beginPath();
+      ctx.ellipse(-8, 10, 14, 9, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#c5d9f0';
+      ctx.fill();
+
+      // --- BACK LEG ---
+      ctx.save();
+      ctx.translate(-22, 14);
+      ctx.rotate(Math.sin(t * 3 + 1) * 0.4);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(-4, 16);
+      ctx.lineTo(2, 22);
+      ctx.strokeStyle = '#8aaad4';
+      ctx.lineWidth = 5;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      // foot
+      ctx.beginPath();
+      ctx.ellipse(2, 22, 6, 3, 0.3, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.restore();
+
+      // --- FRONT LEG ---
+      ctx.save();
+      ctx.translate(6, 14);
+      ctx.rotate(Math.sin(t * 3) * 0.4);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(4, 16);
+      ctx.lineTo(10, 22);
+      ctx.strokeStyle = '#8aaad4';
+      ctx.lineWidth = 5;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.ellipse(10, 22, 6, 3, -0.3, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.restore();
+
+      // --- FRONT ARM (swimming stroke) ---
+      ctx.save();
+      ctx.translate(14, 2);
+      ctx.rotate(-0.3 + armSwing * 0.6);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(18, 10);
+      ctx.strokeStyle = '#8aaad4';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      // paw
+      ctx.beginPath();
+      ctx.arc(18, 10, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.restore();
+
+      // --- BACK ARM ---
+      ctx.save();
+      ctx.translate(-20, 2);
+      ctx.rotate(0.3 - armSwing * 0.6);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(-14, 10);
+      ctx.strokeStyle = '#8aaad4';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(-14, 10, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.restore();
+
+      // --- HEAD ---
+      ctx.beginPath();
+      ctx.arc(22, -8, 18, 0, Math.PI * 2);
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+
+      // HEAD STRIPE (forehead)
+      ctx.beginPath();
+      ctx.moveTo(14, -24);
+      ctx.lineTo(10, -10);
+      ctx.strokeStyle = '#6a8fc0';
+      ctx.lineWidth = 3;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      // --- EARS ---
+      // left ear
+      ctx.beginPath();
+      ctx.moveTo(12, -22);
+      ctx.lineTo(8, -38);
+      ctx.lineTo(20, -26);
+      ctx.closePath();
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(13, -23);
+      ctx.lineTo(10, -34);
+      ctx.lineTo(19, -26);
+      ctx.closePath();
+      ctx.fillStyle = '#c9a0dc';
+      ctx.fill();
+
+      // right ear
+      ctx.beginPath();
+      ctx.moveTo(28, -24);
+      ctx.lineTo(32, -38);
+      ctx.lineTo(38, -22);
+      ctx.closePath();
+      ctx.fillStyle = '#8aaad4';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(29, -24);
+      ctx.lineTo(32, -34);
+      ctx.lineTo(36, -23);
+      ctx.closePath();
+      ctx.fillStyle = '#c9a0dc';
+      ctx.fill();
+
+      // cheek puff
+      ctx.beginPath();
+      ctx.ellipse(34, -4, 7, 6, 0.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#a0c0e8';
+      ctx.fill();
+
+      // white eye area
+      ctx.beginPath();
+      ctx.ellipse(24, -12, 7, 6, -0.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+      // pupil
+      ctx.beginPath();
+      ctx.arc(26, -12, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#1a1a2e';
+      ctx.fill();
+      // eye shine
+      ctx.beginPath();
+      ctx.arc(27, -14, 1.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+
+      // nose
+      ctx.beginPath();
+      ctx.ellipse(34, -6, 3.5, 2.5, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#e06060';
+      ctx.fill();
+
+      // mouth
+      ctx.beginPath();
+      ctx.moveTo(31, -3);
+      ctx.quadraticCurveTo(34, 1, 37, -3);
+      ctx.strokeStyle = '#666';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // whiskers
+      ctx.strokeStyle = 'rgba(200,200,200,0.8)';
+      ctx.lineWidth = 1;
+      [[34,-5,46,-8],[34,-4,46,-4],[34,-3,46,0]].forEach(([x1,y1,x2,y2]) => {
+        ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+      });
+
+      ctx.restore();
+    }
+
+    // ── DRAW JERRY (brown mouse, ~55px wide) ────────────────────────────────
+    function drawJerry(x, y, t, dir) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(dir, 1);
+
+      const bob = Math.sin(t * 3.5 + 1) * 3;
+      ctx.translate(0, bob);
+
+      const armSwing = Math.sin(t * 3.5);
+
+      // --- TAIL (thin, curly) ---
+      ctx.beginPath();
+      ctx.moveTo(-22, 4);
+      ctx.bezierCurveTo(-34, -8 + Math.sin(t*2.5)*7, -40, 12, -30, 8);
+      ctx.strokeStyle = '#a06030';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // --- BODY ---
+      ctx.beginPath();
+      ctx.ellipse(-5, 6, 18, 11, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#c8924a';
+      ctx.fill();
+
+      // belly
+      ctx.beginPath();
+      ctx.ellipse(-5, 8, 10, 7, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#e8b87a';
+      ctx.fill();
+
+      // --- LEGS ---
+      ctx.save();
+      ctx.translate(-14, 10);
+      ctx.rotate(Math.sin(t * 3.5 + 1) * 0.4);
+      ctx.beginPath();
+      ctx.moveTo(0, 0); ctx.lineTo(-3, 13); ctx.lineTo(1, 18);
+      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 4;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(1, 18, 5, 2.5, 0.3, 0, Math.PI*2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(4, 10);
+      ctx.rotate(Math.sin(t * 3.5) * 0.4);
+      ctx.beginPath();
+      ctx.moveTo(0, 0); ctx.lineTo(3, 13); ctx.lineTo(7, 18);
+      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 4;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(7, 18, 5, 2.5, -0.3, 0, Math.PI*2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.restore();
+
+      // --- ARMS (swim stroke) ---
+      ctx.save();
+      ctx.translate(8, 0);
+      ctx.rotate(-0.3 + armSwing * 0.55);
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(14, 8);
+      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(14, 8, 4, 0, Math.PI*2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(-16, 0);
+      ctx.rotate(0.3 - armSwing * 0.55);
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-12, 8);
+      ctx.strokeStyle = '#c8924a'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(-12, 8, 4, 0, Math.PI*2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.restore();
+
+      // --- HEAD ---
+      ctx.beginPath();
+      ctx.arc(14, -6, 13, 0, Math.PI * 2);
+      ctx.fillStyle = '#c8924a';
+      ctx.fill();
+
+      // --- ROUND EARS (mouse ears!) ---
+      // left ear
+      ctx.beginPath();
+      ctx.arc(8, -17, 8, 0, Math.PI * 2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.beginPath();
+      ctx.arc(8, -17, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#e8a0a0'; ctx.fill();
+
+      // right ear
+      ctx.beginPath();
+      ctx.arc(20, -17, 8, 0, Math.PI * 2);
+      ctx.fillStyle = '#c8924a'; ctx.fill();
+      ctx.beginPath();
+      ctx.arc(20, -17, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#e8a0a0'; ctx.fill();
+
+      // face
+      // white eye
+      ctx.beginPath();
+      ctx.ellipse(17, -9, 5, 4.5, 0.1, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff'; ctx.fill();
+      // pupil
+      ctx.beginPath();
+      ctx.arc(18, -9, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#1a1a2e'; ctx.fill();
+      // shine
+      ctx.beginPath();
+      ctx.arc(19, -10.5, 1, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff'; ctx.fill();
+
+      // nose (small round)
+      ctx.beginPath();
+      ctx.ellipse(22, -3, 2.5, 2, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#e06060'; ctx.fill();
+
+      // smile
+      ctx.beginPath();
+      ctx.moveTo(19, -1);
+      ctx.quadraticCurveTo(22, 2, 25, -1);
+      ctx.strokeStyle = '#666'; ctx.lineWidth = 1.2; ctx.stroke();
+
+      // whiskers
+      ctx.strokeStyle = 'rgba(200,200,200,0.8)';
+      ctx.lineWidth = 0.9;
+      [[22,-3,32,-5],[22,-2,32,-2],[22,-1,32,1]].forEach(([x1,y1,x2,y2]) => {
+        ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+      });
+
+      ctx.restore();
+    }
+
+    // ── WATER SURFACE ─────────────────────────────────────────────────────
+    function drawWater(t) {
+      const h = canvas.height;
+      const w = W();
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x <= w; x += 4) {
+        const y = 62 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      const grad = ctx.createLinearGradient(0, 60, 0, h);
+      grad.addColorStop(0, 'rgba(0,60,100,0.55)');
+      grad.addColorStop(1, 'rgba(1,30,46,0.85)');
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // wave shimmer line
+      ctx.beginPath();
+      ctx.moveTo(0, 62);
+      for (let x = 0; x <= w; x += 4) {
+        const y = 62 + Math.sin((x / w) * Math.PI * 8 + t * 1.5) * 4
+                     + Math.sin((x / w) * Math.PI * 14 + t * 2.3) * 2;
+        ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = 'rgba(0,212,168,0.3)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    // ── CHARACTERS STATE ──────────────────────────────────────────────────
+    // Tom chases Jerry — Jerry is always ahead
+    const tom   = { x: -100, speed: 1.8 };
+    const jerry = { x:  -20, speed: 2.4 };
+
+    let lastTime = null;
+
+    function loop(ts) {
+      if (!lastTime) lastTime = ts;
+      const dt = Math.min((ts - lastTime) / 1000, 0.05);
+      lastTime = ts;
+
+      const t = ts / 1000;
+      const w = W();
+
+      ctx.clearRect(0, 0, w, canvas.height);
+
+      drawWater(t);
+
+      // advance both characters
+      tom.x   += tom.speed;
+      jerry.x += jerry.speed;
+
+      // wrap when off screen right
+      if (tom.x   > w + 120) tom.x   = -120;
+      if (jerry.x > w + 100) jerry.x = -100;
+
+      // keep Jerry ahead of Tom — if Tom catches up, nudge Jerry forward
+      if (jerry.x - tom.x < 60) jerry.x = tom.x + 60;
+
+      // draw (both always face right since they only move right)
+      drawTom(tom.x, FLOOR, t, 1);
+      drawJerry(jerry.x, FLOOR, t, 1);
+
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+  })();
+  </script>
+
 </body>
 </html>
