@@ -135,7 +135,8 @@ strong { color: var(--accent); font-weight: 600; }
   border: 1px solid rgba(47,184,224,0.10); box-shadow: 0 0 120px rgba(47,184,224,0.05);
   pointer-events: none; z-index: -1;
 }
-.hero-inner { max-width: 680px; }
+.hero-inner { width: 100%; max-width: 980px; display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 54px; align-items: center; }
+.hero-copy { text-align: left; }
 .hero-available {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 5px 14px;
@@ -174,9 +175,9 @@ strong { color: var(--accent); font-weight: 600; }
 }
 .hero-bio {
   font-size: 1rem; color: var(--muted); max-width: 500px;
-  margin: 0 auto 32px; line-height: 1.8;
+  margin: 0 0 32px; line-height: 1.8;
 }
-.hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-cta { display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; }
 .btn-primary {
   padding: 12px 26px; background: linear-gradient(135deg, var(--accent), #53e5c8); color: #011e2e;
   font-family: var(--head); font-weight: 700; font-size: 0.9rem;
@@ -192,6 +193,29 @@ strong { color: var(--accent); font-weight: 600; }
   background: rgba(255,255,255,0.02);
 }
 .btn-ghost:hover { border-color: rgba(240,250,255,0.4); color: var(--white); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
+.hero-portrait { display: flex; justify-content: center; align-items: center; }
+.portrait-shell { position: relative; width: 320px; height: 320px; display: grid; place-items: center; }
+.portrait-shell::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(0,212,168,0.85), rgba(47,184,224,0.22), rgba(255,209,102,0.26), rgba(0,212,168,0.85));
+  animation: portrait-spin 16s linear infinite;
+}
+.portrait-shell::after { content: ''; position: absolute; inset: 13px; border-radius: 50%; background: var(--bg); }
+@keyframes portrait-spin { to { transform: rotate(360deg); } }
+.hero-headshot {
+  position: relative; z-index: 2; width: 270px; height: 270px; border-radius: 50%;
+  object-fit: cover; object-position: 57% 40%;
+  border: 5px solid rgba(240,250,255,0.12);
+  box-shadow: 0 20px 52px rgba(0,0,0,0.34), 0 0 38px rgba(47,184,224,0.13);
+}
+.portrait-badge {
+  position: absolute; z-index: 3; padding: 7px 12px; border-radius: 999px;
+  background: rgba(3,43,63,0.84); border: 1px solid var(--border); backdrop-filter: blur(10px);
+  font-size: 0.72rem; font-weight: 600; box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+}
+.pb1 { top: 32px; left: -18px; }
+.pb2 { right: -24px; bottom: 48px; }
+.pb3 { left: 18px; bottom: 2px; color: var(--accent); }
 
 .scroll-hint {
   position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -234,7 +258,6 @@ section { padding: 80px 24px; position: relative; z-index: 2; }
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   border-radius: 2px;
 }
-/* REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -601,7 +624,7 @@ section { padding: 80px 24px; position: relative; z-index: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ship-drift, .fish-drift, .blade, #treasure-btn { animation: none; }
+  .ship-drift, .fish-drift, .blade, #treasure-btn, .portrait-shell::before { animation: none; }
 }
 
 /* WAVE CANVAS */
@@ -623,6 +646,12 @@ footer .quip { display: block; margin-top: 4px; color: rgba(240,250,255,0.15); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; max-width: 720px; }
+  .hero-copy { text-align: center; }
+  .hero-bio { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+  .portrait-shell { width: 290px; height: 290px; margin: 0 auto; }
+  .hero-headshot { width: 242px; height: 242px; }
   .tech-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .skill-groups-modern { grid-template-columns: 1fr 1fr; }
 }
@@ -641,6 +670,10 @@ footer .quip { display: block; margin-top: 4px; color: rgba(240,250,255,0.15); }
   .proj-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portrait-shell { width: 260px; height: 260px; }
+  .hero-headshot { width: 218px; height: 218px; }
+  .pb1 { left: -2px; }
+  .pb2 { right: -2px; }
   #treasure-note { width: 180px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -742,15 +775,25 @@ footer .quip { display: block; margin-top: 4px; color: rgba(240,250,255,0.15); }
  
   <header id="hero">
     <div class="hero-inner">
-      <div class="hero-available"><span class="sonar"></span> Open to work</div>
-      <h1 class="hero-name">Ha Tran</h1>
-      <p class="hero-tagline">Data Scientist</p>
-      <p class="hero-bio">
-        A data guy who gets genuinely excited about finding the pattern nobody else caught, and turning it into something a team can actually use 
-      </p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#projects">See My Work</a>
-        <a class="btn-ghost" href="Resume_Ha_Tran_.pdf" download>Download Resume</a>
+      <div class="hero-copy">
+        <div class="hero-available"><span class="sonar"></span> Open to work</div>
+        <h1 class="hero-name">Ha Tran</h1>
+        <p class="hero-tagline">Data Scientist</p>
+        <p class="hero-bio">
+          A data guy who gets genuinely excited about finding the pattern nobody else caught, and turning it into something a team can actually use
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="#projects">See My Work</a>
+          <a class="btn-ghost" href="Resume_Ha_Tran_.pdf" download>Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <div class="portrait-shell">
+          <img class="hero-headshot" src="Portfolio_image.jpg" alt="Ha Tran" />
+          <span class="portrait-badge pb1">⚓ Data + Business</span>
+          <span class="portrait-badge pb2">🌊 Python · SQL · BI</span>
+          <span class="portrait-badge pb3">● Available</span>
+        </div>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true"><span></span></div>
@@ -1061,13 +1104,11 @@ quantitative way and applying those insights to solve actual business problems, 
   </div>
  
   <script>
-    // NAVBAR
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
  
-    // ACTIVE NAV + COMPASS
     const compassDegrees = { hero: 0, about: 45, education: 90, experience: 135, projects: 180, skills: 225, leadership: 260, contact: 330 };
     const compass = document.getElementById('compass');
     const sections = document.querySelectorAll('section[id], header[id]');
@@ -1087,7 +1128,6 @@ quantitative way and applying those insights to solve actual business problems, 
     }, { threshold: 0.4 });
     sections.forEach(s => activeObserver.observe(s));
  
-    // SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1095,7 +1135,6 @@ quantitative way and applying those insights to solve actual business problems, 
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
  
-    // COPY EMAIL
     function copyEmail(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -1106,7 +1145,6 @@ quantitative way and applying those insights to solve actual business problems, 
       });
     }
 
-    // TREASURE CHEST FACTS
     const treasureFacts = [
       "🎤 Certified karaoke enthusiast. Ask me about my go-to song sometime.",
       "🧭 My double major isn't random. AI and Business Analytics taught me to build the model, Econometrics and Quantitative Economics taught me why it's right.",
@@ -1138,7 +1176,6 @@ quantitative way and applying those insights to solve actual business problems, 
       }
     });
  
-    // WAVE CANVAS
     (function() {
       const canvas = document.getElementById('swimmer-canvas');
       if (!canvas) return;
