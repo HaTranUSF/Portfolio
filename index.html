@@ -1203,6 +1203,16 @@ a,button{-webkit-touch-callout:none}
   }
 }
 
+
+/* Contact alignment fix */
+.contact h2{
+  max-width:none;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
 </style>
 </head>
 <body>
@@ -1246,7 +1256,7 @@ a,button{-webkit-touch-callout:none}
 <div class="hero-copy">
 <div class="hero-kicker">Analytics</div>
 <h1>Ha Tran</h1>
-<p>I like learning how a business works, finding the parts that could be better, and seeing what I can do with the data around them.</p>
+<p>I like learning how a business works, finding the parts that could be better, and seeing what I can do with the data around them</p>
 <a class="hero-link" href="#projects">Selected work <span aria-hidden="true">↘</span></a>
 </div>
 <figure class="hero-photo editorial-photo">
@@ -1262,7 +1272,7 @@ a,button{-webkit-touch-callout:none}
 
 <section class="edu" id="education"><div class="wrap edu-grid reveal">
 <div class="edu-intro">
-  <div class="section-index">01 / ORIGIN</div><h2>Where it started.</h2>
+  <div class="section-index">01 / ORIGIN</div><h2>Where it started</h2>
   <p class="quiet">University of South Florida · Tampa, Florida<br>May 2026 · 3.98 GPA · Summa Cum Laude</p>
   <figure class="education-photo">
     <img src="Graduation_image.jpg" alt="Ha Tran at the University of South Florida after graduation">
@@ -1271,13 +1281,13 @@ a,button{-webkit-touch-callout:none}
 <div>
   <p class="degree">B.S. Artificial Intelligence and Business Analytics</p>
   <p class="degree">B.S. Econometrics and Quantitative Economics</p>
-  <p class="quiet">The combination was actually pretty simple for me. I wanted to learn how data and technology could solve business problems, which is what pulled me toward Artificial Intelligence and Business Analytics. I added Econometrics and Quantitative Economics because I loved the extra math and economics it brought to the way I look at analytics.</p>
+  <p class="quiet">The combination was actually pretty simple for me. I wanted to learn how data and technology could solve business problems, which is what pulled me toward Artificial Intelligence and Business Analytics. I added Econometrics and Quantitative Economics because I loved the extra math and economics it brought to the way I look at analytics</p>
 </div>
 </div></section>
 
 <section class="work" id="work"><div class="wrap reveal">
-<div class="section-index">02 / WORK</div><h2>Learning by doing.</h2>
-<p class="intro">The two places could not have been more different, but both taught me to get close to the process before trying to improve it.</p>
+<div class="section-index">02 / WORK</div><h2>Learning by doing</h2>
+<p class="intro">The two places could not have been more different, but both taught me to get close to the process before trying to improve it</p>
 
 <div class="chapter story-role">
   <div>
@@ -1286,7 +1296,7 @@ a,button{-webkit-touch-callout:none}
     <p class="quiet">Summer 2024 · Princeton, New Jersey</p>
   </div>
   <div class="role-story">
-    <p>I spent the summer moving between very different problems. I rebuilt access logic for a Tableau dataset with more than 7 million records, made it about 80% faster, and built an automation that turned a reporting process from hours into about five minutes. I also worked with International Tax on a recurring data-prep process and put together a practical GenAI guide for the office. I liked that no two projects really asked the same thing of me.</p>
+    <p>I spent the summer moving between very different problems. I rebuilt access logic for a Tableau dataset with more than 7 million records, made it about 80% faster, and built an automation that turned a reporting process from hours into about five minutes. I also worked with International Tax on a recurring data-prep process and put together a practical GenAI guide for the office. I liked that no two projects really asked the same thing of me</p>
   </div>
 </div>
 
@@ -1297,35 +1307,35 @@ a,button{-webkit-touch-callout:none}
     <p class="quiet">Summer 2023 · Haiphong, Vietnam</p>
   </div>
   <div class="role-story">
-    <p>This was where I first saw how messy real operational data can get. I traced shipment discrepancies across customer, port, and internal records, then worked with the people behind those records to sort out what was actually happening. The work helped cut documentation errors by 25%, but the bigger lesson for me was that the spreadsheet is usually only one part of the problem.</p>
+    <p>This was where I first saw how messy real operational data can get. I traced shipment discrepancies across customer, port, and internal records, then worked with the people behind those records to sort out what was actually happening. The work helped cut documentation errors by 25%, but the bigger lesson for me was that the spreadsheet is usually only one part of the problem</p>
   </div>
 </div>
 </div></section>
 
 <section class="projects" id="projects"><div class="river-thread"></div><div class="wrap reveal">
-<div class="section-index">03 / BUILDS</div><h2>Then I started building.</h2><p class="intro">These are the projects where I had room to follow my own questions, make the calls myself, and see how far I could take an idea.</p>
-<div class="project"><div><div class="project-meta">Player scouting & decision support</div><h3>Soccer Analytics & Scouting</h3></div><div><p>Player stats are easy to find, but they are not always easy to compare. A midfielder and a striker are judged differently, and raw totals can be misleading when players have different minutes or play in different leagues. I built this project to make those comparisons more useful, from cleaning and modeling the data to creating per-90 and position-aware metrics and a scouting app for comparing 4,500+ players.</p><div class="tags"><span>Python</span><span>DuckDB</span><span>dbt</span><span>Databricks</span><span>Power BI</span><span>Streamlit</span></div><p><a href="https://github.com/hquantran/soccer-analytics" target="_blank">Open project →</a></p></div></div>
-<div class="project"><div><div class="project-meta">Workforce demand & market visibility</div><h3>Data Jobs Market</h3></div><div><p>I started this because I wanted a clearer picture of the data job market than I could get from scrolling through individual postings. I collected and cleaned 5,500+ USAJOBS postings across 12 role categories, then built a Power BI dashboard to compare demand, salary, location, and work arrangement. I also moved the project from Snowflake to PostgreSQL after realizing the simpler setup made more sense for what I was actually building.</p><div class="tags"><span>Python</span><span>PostgreSQL</span><span>Power BI</span><span>ETL</span></div><p><a href="https://hatranusf.github.io/Job-Market-Analysis/" target="_blank">Open project →</a></p></div></div>
-<div class="project"><div><div class="project-meta">Targeting efficiency & marketing cost</div><h3>Coupon Acceptance</h3></div><div><p>The question here was not just whether I could predict coupon acceptance. I wanted to know whether the model could make targeting more useful for the business. I worked with 12,700+ records, built features around customer behavior and context, and evaluated the model with the cost of different mistakes in mind. The final approach was estimated to cut distribution costs by 3.1% compared with sending coupons without targeting.</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>MLflow</span><span>Cost-sensitive evaluation</span></div><p><a href="https://github.com/HaTranUSF/coupon-acceptance-prediction_mlops" target="_blank" rel="noopener">Open project →</a></p></div></div>
+<div class="section-index">03 / BUILDS</div><h2>Then I started building</h2><p class="intro">These are the projects where I had room to follow my own questions, make the calls myself, and see how far I could take an idea</p>
+<div class="project"><div><div class="project-meta">Player scouting & decision support</div><h3>Soccer Analytics & Scouting</h3></div><div><p>Player stats are easy to find, but they are not always easy to compare. A midfielder and a striker are judged differently, and raw totals can be misleading when players have different minutes or play in different leagues. I built this project to make those comparisons more useful, from cleaning and modeling the data to creating per-90 and position-aware metrics and a scouting app for comparing 4,500+ players</p><div class="tags"><span>Python</span><span>DuckDB</span><span>dbt</span><span>Databricks</span><span>Power BI</span><span>Streamlit</span></div><p><a href="https://github.com/hquantran/soccer-analytics" target="_blank">Open project →</a></p></div></div>
+<div class="project"><div><div class="project-meta">Workforce demand & market visibility</div><h3>Data Jobs Market</h3></div><div><p>I started this because I wanted a clearer picture of the data job market than I could get from scrolling through individual postings. I collected and cleaned 5,500+ USAJOBS postings across 12 role categories, then built a Power BI dashboard to compare demand, salary, location, and work arrangement. I also moved the project from Snowflake to PostgreSQL after realizing the simpler setup made more sense for what I was actually building</p><div class="tags"><span>Python</span><span>PostgreSQL</span><span>Power BI</span><span>ETL</span></div><p><a href="https://hatranusf.github.io/Job-Market-Analysis/" target="_blank">Open project →</a></p></div></div>
+<div class="project"><div><div class="project-meta">Targeting efficiency & marketing cost</div><h3>Coupon Acceptance</h3></div><div><p>The question here was not just whether I could predict coupon acceptance. I wanted to know whether the model could make targeting more useful for the business. I worked with 12,700+ records, built features around customer behavior and context, and evaluated the model with the cost of different mistakes in mind. The final approach was estimated to cut distribution costs by 3.1% compared with sending coupons without targeting</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>MLflow</span><span>Cost-sensitive evaluation</span></div><p><a href="https://github.com/HaTranUSF/coupon-acceptance-prediction_mlops" target="_blank" rel="noopener">Open project →</a></p></div></div>
 </div></section>
 
 <section class="campus" id="campus"><div class="wrap reveal">
-<div class="campus-head"><div class="section-index">04 / OFF SCREEN</div><h2>There’s more to me than the data.</h2><p class="intro">Some of the experiences that shaped me most never involved a model or a dashboard.</p></div>
+<div class="campus-head"><div class="section-index">04 / OFF SCREEN</div><h2>There’s more to me than the data</h2><p class="intro">Some of the experiences that shaped me most never involved a model or a dashboard.</p></div>
 <div class="campus-grid">
   <article class="campus-card">
     <div class="where">University of South Florida · Corporate Mentor Program</div>
     <h3>Peer Leader</h3>
-    <p>As a first-generation student, I remember how much there was to figure out when I first got to college. Later, I got to be the person helping other students through some of that. I mentored 12+ students through regular check-ins and co-led career events for more than 120 students. I liked being able to make the path feel a little less confusing for someone else.</p>
+    <p>As a first-generation student, I remember how much there was to figure out when I first got to college. Later, I got to be the person helping other students through some of that. I mentored 12+ students through regular check-ins and co-led career events for more than 120 students. I liked being able to make the path feel a little less confusing for someone else</p>
   
 </article>
   <article class="campus-card">
     <div class="where">University of South Florida · SAFE Team</div>
     <h3>Dispatcher & General Field Staff</h3>
-    <p>I started in the field providing nighttime transportation around campus and eventually became a dispatcher, coordinating teams and assigning calls. It was not analytics work, but it taught me a lot about showing up, staying calm, and making a decision when other people are waiting on you.</p>
+    <p>I started in the field providing nighttime transportation around campus and eventually became a dispatcher, coordinating teams and assigning calls. It was not analytics work, but it taught me a lot about showing up, staying calm, and making a decision when other people are waiting on you</p>
   </article>
 </div></div></section>
 
-<section class="toolkit" id="skills"><div class="wrap reveal"><div class="section-index">05 / TOOLKIT</div><h2>What I bring with me.</h2><p class="intro">A growing toolkit from internships, coursework, side projects, and a lot of learning things when I actually needed them.</p>
+<section class="toolkit" id="skills"><div class="wrap reveal"><div class="section-index">05 / TOOLKIT</div><h2>What I bring with me</h2><p class="intro">A growing toolkit from internships, coursework, side projects, and a lot of learning things when I actually needed them</p>
 <div class="tool-grid"><div class="tool"><h3>Analysis</h3><p>Python · pandas · NumPy · R · econometrics · statistics · time series · experimentation</p></div><div class="tool"><h3>Data</h3><p>SQL · PostgreSQL · BigQuery · DuckDB · dbt · Databricks · dimensional modeling</p></div><div class="tool"><h3>Reporting</h3><p>Power BI · Tableau · Streamlit · Excel · KPI design · semantic metrics</p></div><div class="tool"><h3>Automation</h3><p>Power Automate · Power Query · VBA · REST APIs · Git</p></div></div>
 </div></section>
 
@@ -1352,13 +1362,13 @@ a,button{-webkit-touch-callout:none}
           <path class="petal petal-front-right" d="M49 48 C62 48 73 41 77 30 C64 29 53 35 48 44Z"/>
         </svg>
       </div>
-      <h2>Keep moving.</h2>
-      <p class="river-reminder">Stay open. Keep going. Trust that the right opportunity will find you moving forward.</p>
-      <p class="wish">For anyone still figuring out where the current takes them.</p>
+      <h2>Keep moving</h2>
+      <p class="river-reminder">Stay open. Keep going. Trust that the right opportunity will find you moving forward</p>
+      <p class="wish">For anyone still figuring out where the current takes them</p>
     </div></section>
 
-<section class="contact" id="contact"><div class="wrap reveal"><h2>Say hi.</h2><p>I'm looking for early-career analytics work where I can learn the business, solve real problems, and keep growing into harder ones.</p><div class="actions"><a class="btn dark" href="mailto:mhaftran@gmail.com">mhaftran@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/mhatran" target="_blank">LinkedIn</a><a class="btn" href="https://github.com/HaTranUSF" target="_blank">GitHub</a><a class="btn" href="Resume_Ha_Tran_.pdf" download>Resume</a></div></div></section>
-<footer><div class="wrap"><span>Ha Tran · 2026</span><span>Keep moving.</span></div></footer>
+<section class="contact" id="contact"><div class="wrap reveal"><h2>Say hi</h2><p>I'm looking for early-career analytics work where I can learn the business, solve real problems, and keep growing into harder ones</p><div class="actions"><a class="btn dark" href="mailto:mhaftran@gmail.com">mhaftran@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/mhatran" target="_blank">LinkedIn</a><a class="btn" href="https://github.com/HaTranUSF" target="_blank">GitHub</a><a class="btn" href="Resume_Ha_Tran_.pdf" download>Resume</a></div></div></section>
+<footer><div class="wrap"><span>Ha Tran · 2026</span><span>Keep moving</span></div></footer>
 <script>
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>18));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
