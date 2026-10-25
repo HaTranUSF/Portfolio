@@ -756,6 +756,453 @@ section h2{max-width:13ch}
   }
 }
 
+
+/* ===== Desktop scale fix =====
+   Keep the composition substantial on large monitors instead of letting
+   a fixed 1120px canvas look miniature. */
+@media (min-width:1200px){
+  .wrap{
+    width:min(1380px,calc(100% - 96px))!important;
+  }
+
+  nav .wrap{
+    width:min(1380px,calc(100% - 96px))!important;
+  }
+
+  .hero{
+    min-height:100svh!important;
+    padding:110px 0 72px!important;
+  }
+
+  .hero-layout{
+    grid-template-columns:minmax(520px,1.05fr) minmax(390px,.78fr)!important;
+    gap:clamp(72px,7vw,130px)!important;
+    width:100%;
+  }
+
+  .hero-copy{
+    padding:clamp(44px,4vw,66px)!important;
+  }
+
+  .hero-copy h1{
+    font-size:clamp(6rem,7.3vw,8.8rem)!important;
+  }
+
+  .hero-copy>p{
+    max-width:620px!important;
+    font-size:clamp(1.08rem,1.15vw,1.28rem)!important;
+  }
+
+  .hero-photo.editorial-photo{
+    max-width:510px!important;
+    justify-self:end;
+  }
+}
+
+/* Extra-wide displays get a little more presence, not more empty space. */
+@media (min-width:1700px){
+  .wrap,
+  nav .wrap{
+    width:min(1500px,calc(100% - 120px))!important;
+  }
+
+  .hero-layout{
+    grid-template-columns:minmax(600px,1.08fr) minmax(430px,.72fr)!important;
+  }
+
+  .hero-photo.editorial-photo{
+    max-width:550px!important;
+  }
+
+  .hero-copy h1{
+    font-size:clamp(7rem,7.5vw,9.4rem)!important;
+  }
+}
+
+
+/* ===== Mobile polish ===== */
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  scroll-padding-top:82px;
+}
+body{
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:rgba(57,143,125,.16);
+}
+::selection{background:#a8ded3;color:#143b31}
+a,button{-webkit-touch-callout:none}
+.mobile-menu-toggle{display:none}
+
+/* Touch feedback applies on touch devices instead of relying on hover. */
+@media (hover:none){
+  .project:hover,.chapter:hover,.tool:hover,
+  .education-photo:hover,.hero-photo.editorial-photo:hover{
+    transform:none!important;
+  }
+  .project:active,.chapter:active,.tool:active{
+    border-color:rgba(20,59,49,.48)!important;
+    background-color:rgba(248,245,233,.22);
+  }
+  .hero-link:active,.project a:active,.links a:active{opacity:.62}
+}
+
+/* Tablet bridge: avoid the awkward compressed-desktop phase. */
+@media (min-width:761px) and (max-width:1100px){
+  .wrap{width:min(100% - 56px,1040px)!important}
+  .hero{min-height:auto!important;padding:132px 0 86px!important}
+  .hero-layout{
+    grid-template-columns:minmax(0,1fr) minmax(280px,.72fr)!important;
+    gap:48px!important;
+  }
+  .hero-copy{padding:38px!important}
+  .hero-copy h1{font-size:clamp(4.8rem,9vw,6.2rem)!important}
+  .hero-photo.editorial-photo{max-width:380px!important}
+}
+
+/* Phone */
+@media (max-width:760px){
+  :root{--mobile-gutter:20px}
+
+  .wrap,
+  nav .wrap{
+    width:calc(100% - (var(--mobile-gutter) * 2))!important;
+    max-width:none!important;
+  }
+
+  /* Compact, touch-friendly navigation */
+  nav{
+    padding:0!important;
+    min-height:64px;
+    display:flex;
+    align-items:center;
+    background:rgba(248,245,233,.96)!important;
+    border-bottom:1px solid rgba(20,59,49,.12);
+  }
+  nav .wrap{
+    min-height:64px;
+    padding:0!important;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border:0!important;
+  }
+  .brand-mark{
+    min-height:44px;
+    display:inline-flex!important;
+    align-items:center;
+  }
+  .brand-name{font-size:1.45rem!important}
+  .brand-symbol{width:25px!important;height:25px!important}
+
+  .mobile-menu-toggle{
+    display:grid;
+    width:44px;height:44px;
+    place-content:center;
+    gap:6px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#143b31;
+    cursor:pointer;
+    z-index:12;
+  }
+  .mobile-menu-toggle span{
+    display:block;
+    width:23px;height:1.5px;
+    background:currentColor;
+    transform-origin:center;
+    transition:transform .22s ease,opacity .22s ease;
+  }
+  .mobile-menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.75px) rotate(45deg)}
+  .mobile-menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+
+  nav .links{
+    position:fixed;
+    top:64px;left:0;right:0;
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0!important;
+    padding:14px var(--mobile-gutter) 24px;
+    background:#f8f5e9;
+    border-bottom:1px solid rgba(20,59,49,.16);
+    transform:translateY(-115%);
+    opacity:0;
+    visibility:hidden;
+    transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s ease,visibility .28s;
+    z-index:10;
+  }
+  body.menu-open nav .links{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+  }
+  nav .links a{
+    min-height:48px;
+    display:flex!important;
+    align-items:center;
+    justify-content:space-between;
+    padding:0!important;
+    border-bottom:1px solid rgba(20,59,49,.1);
+    font-size:.92rem!important;
+  }
+  nav .links a::after{display:none!important}
+  nav .links .resume{
+    margin-top:12px;
+    min-height:48px;
+    justify-content:center;
+    border:1px solid #143b31!important;
+  }
+
+  /* Hero becomes a deliberate editorial stack, not a squeezed desktop grid. */
+  .hero{
+    min-height:auto!important;
+    padding:96px 0 66px!important;
+    align-items:initial!important;
+  }
+  .hero-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:34px!important;
+    width:100%;
+  }
+  .hero-layout::before{display:none!important}
+  .hero-copy{
+    order:1;
+    width:100%!important;
+    padding:26px 0 28px!important;
+    background:transparent!important;
+    border-top:1px solid rgba(20,59,49,.3)!important;
+    border-bottom:1px solid rgba(20,59,49,.16)!important;
+  }
+  .hero-copy::after{
+    width:28px!important;
+    height:5px!important;
+    top:-3px!important;
+    right:0!important;
+  }
+  .hero-kicker{
+    margin-bottom:10px!important;
+    font-size:.66rem!important;
+    letter-spacing:.16em!important;
+  }
+  .hero-copy h1{
+    font-size:clamp(4rem,20vw,5.6rem)!important;
+    line-height:.84!important;
+    letter-spacing:-.035em!important;
+    margin:0 0 24px!important;
+    max-width:none!important;
+  }
+  .hero-copy>p{
+    max-width:32rem!important;
+    font-size:1rem!important;
+    line-height:1.65!important;
+  }
+  .hero-link{
+    min-height:44px;
+    margin-top:20px!important;
+    align-items:center;
+    font-size:.72rem!important;
+  }
+
+  .hero-photo.editorial-photo{
+    order:2;
+    width:calc(100% - 14px)!important;
+    max-width:440px!important;
+    justify-self:auto!important;
+    align-self:flex-end;
+    padding-left:14px!important;
+    padding-bottom:0!important;
+  }
+  .hero-photo.editorial-photo::before{
+    left:0!important;
+    top:14px!important;
+    width:calc(100% - 14px)!important;
+    height:calc(100% - 14px)!important;
+  }
+  .photo-mat{
+    border-width:4px!important;
+    aspect-ratio:4/4.8!important;
+  }
+  .photo-mat img{
+    object-position:50% 34%!important;
+  }
+  .photo-mat::after{
+    right:7px!important;
+    bottom:7px!important;
+    padding:4px 6px!important;
+    font-size:.52rem!important;
+  }
+
+  /* River: fewer layers and softer contrast on a small screen.
+     Motion stays top-to-bottom and continuous. */
+  .water-world{
+    background:linear-gradient(180deg,#caeee7 0%,#dff4ef 43%,#edf8f3 68%,#ccece5 100%)!important;
+  }
+  .river-field{
+    inset:-18%!important;
+    width:136%!important;
+    height:136%!important;
+    opacity:.62!important;
+  }
+  .river-mass path{
+    stroke-width:96!important;
+    stroke-opacity:.11!important;
+  }
+  .river-mass path:nth-child(even){display:none}
+  .river-lines path{
+    stroke-width:3!important;
+    stroke-opacity:.23!important;
+    animation-duration:7.5s!important;
+  }
+  .river-lines path:nth-child(even){
+    stroke-width:2!important;
+    stroke-opacity:.14!important;
+    animation-duration:10s!important;
+  }
+  .river-glints path{
+    stroke-opacity:.18!important;
+    animation-duration:9s!important;
+  }
+
+  /* Sections get breathing room and single-column reading rhythm. */
+  section{scroll-margin-top:78px}
+  section:not(.hero){padding-top:72px!important;padding-bottom:72px!important}
+  section h2{
+    max-width:11ch!important;
+    font-size:clamp(2.45rem,12vw,3.8rem)!important;
+    line-height:.95!important;
+    letter-spacing:-.035em!important;
+    margin-bottom:24px!important;
+  }
+  .section-index{font-size:.58rem!important;margin-bottom:12px!important}
+  .intro{
+    max-width:34rem!important;
+    font-size:1rem!important;
+    line-height:1.68!important;
+  }
+
+  .edu-grid,
+  .chapter,
+  .project{
+    grid-template-columns:1fr!important;
+  }
+
+  .edu-grid{gap:30px!important}
+  .education-photo{
+    width:100%!important;
+    max-width:430px!important;
+    justify-self:start!important;
+  }
+  .education-photo img{
+    width:100%!important;
+    height:auto!important;
+    object-fit:contain!important;
+  }
+
+  .chapter{
+    gap:16px!important;
+    padding:28px 0!important;
+  }
+  .chapter h3,
+  .project h3{
+    font-size:clamp(1.65rem,8vw,2.2rem)!important;
+    line-height:1.02!important;
+  }
+  .story-role .role-story p,
+  .project p{
+    font-size:.98rem!important;
+    line-height:1.7!important;
+  }
+
+  .project{
+    gap:16px!important;
+    padding:30px 0!important;
+    transform:none!important;
+  }
+  .project:hover{transform:none!important}
+  .project-meta{margin-bottom:8px!important}
+  .tags{
+    gap:7px!important;
+    margin-top:18px!important;
+  }
+  .tags span{
+    min-height:36px;
+    display:inline-flex;
+    align-items:center;
+    padding:6px 9px!important;
+    font-size:.72rem!important;
+  }
+  .project a,
+  .project-repo{
+    min-height:44px;
+    display:inline-flex!important;
+    align-items:center;
+  }
+
+  /* Toolkit / campus surfaces */
+  .tools,.campus-grid{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+  }
+  .tool{
+    padding:26px 0!important;
+  }
+  .tool::before{margin-bottom:14px!important}
+
+  /* Closing message remains spacious rather than becoming another card. */
+  .keep-moving{
+    padding-top:84px!important;
+    padding-bottom:88px!important;
+  }
+  .keep-moving h2{
+    font-size:clamp(3rem,15vw,4.8rem)!important;
+    max-width:none!important;
+  }
+
+  /* Footer/contact links need real finger targets. */
+  footer a,
+  .contact a{
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+  }
+}
+
+/* Small phones */
+@media (max-width:390px){
+  :root{--mobile-gutter:17px}
+  .hero{padding-top:88px!important}
+  .hero-copy h1{font-size:clamp(3.65rem,20vw,4.6rem)!important}
+  section:not(.hero){padding-top:62px!important;padding-bottom:62px!important}
+  .hero-photo.editorial-photo{width:calc(100% - 10px)!important;padding-left:10px!important}
+  .hero-photo.editorial-photo::before{top:10px!important;width:calc(100% - 10px)!important;height:calc(100% - 10px)!important}
+}
+
+/* Landscape phone: keep the hero usable without forcing a giant scroll. */
+@media (max-width:900px) and (orientation:landscape) and (max-height:520px){
+  .hero{padding-top:84px!important}
+  .hero-layout{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(230px,.65fr)!important;
+    gap:30px!important;
+    align-items:center!important;
+  }
+  .hero-copy h1{font-size:clamp(3.6rem,10vw,5rem)!important}
+  .hero-photo.editorial-photo{width:100%!important;max-width:300px!important}
+}
+
+/* Respect the visitor's motion setting across all river + interaction layers. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -789,7 +1236,10 @@ section h2{max-width:13ch}
   <path class="mark-cut" d="M11 31c8-9 15-13 25-18"/>
   <path class="mark-river" d="M7 35c7-3 12-3 18 0 5 2 8 2 13-1"/>
 </svg>
-</a><div class="links"><a href="#education">Where it started</a><a href="#work">What I learned</a><a href="#projects">What I built</a><a href="#campus">Beyond the work</a><a href="#skills">Toolkit</a><a href="#contact">Contact</a><a class="resume" href="Resume_Ha_Tran_.pdf" download>Resume</a></div></div></nav>
+</a><button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+  <span></span><span></span>
+</button>
+<div class="links" id="mobile-nav"><a href="#education">Where it started</a><a href="#work">What I learned</a><a href="#projects">What I built</a><a href="#campus">Beyond the work</a><a href="#skills">Toolkit</a><a href="#contact">Contact</a><a class="resume" href="Resume_Ha_Tran_.pdf" download>Resume</a></div></div></nav>
 
 <header class="hero" id="top">
 <div class="wrap hero-layout">
@@ -914,4 +1364,31 @@ const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.class
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
 </script>
+
+<script>
+(() => {
+  const button = document.querySelector('.mobile-menu-toggle');
+  const links = document.querySelector('.links');
+  if (!button || !links) return;
+
+  const closeMenu = () => {
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Open navigation');
+    document.body.classList.remove('menu-open');
+  };
+
+  button.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    button.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+    document.body.classList.toggle('menu-open', !open);
+  });
+
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) closeMenu();
+  });
+})();
+</script>
+
 </body></html>
