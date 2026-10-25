@@ -82,7 +82,7 @@ nav.on{background:rgba(255,253,244,.88)}
 
 .hero-person{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:18px}
 .hero-text{flex:1}
-.hero-photo{width:128px;aspect-ratio:4/5;border-radius:12px;overflow:hidden;transform:rotate(2.5deg);box-shadow:0 14px 32px rgba(18,55,47,.18);border:5px solid rgba(255,253,244,.9)}
+.hero-photo{width:clamp(280px,30vw,410px);aspect-ratio:4/5;border-radius:12px;overflow:hidden;transform:rotate(2.5deg);box-shadow:0 14px 32px rgba(18,55,47,.18);border:5px solid rgba(255,253,244,.9)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .campus{background:transparent}
 .campus .wrap{background:rgba(255,253,244,.82);backdrop-filter:blur(8px);border-radius:16px;padding:54px;box-shadow:0 18px 60px rgba(35,95,81,.08)}
@@ -92,7 +92,7 @@ nav.on{background:rgba(255,253,244,.88)}
 .campus-card p{color:#4a6c63;margin:0}
 @media(max-width:820px){
  .hero-person{align-items:center}
- .hero-photo{width:100px}
+ .hero-photo{width:min(76vw,320px);margin-top:24px}
  .campus-grid{grid-template-columns:1fr}
  .campus .wrap{padding:28px}
 }
@@ -101,6 +101,50 @@ nav.on{background:rgba(255,253,244,.88)}
 .resume-bullets{margin:0;padding:0;list-style:none;display:grid;gap:15px;max-width:72ch}
 .resume-bullets li{position:relative;padding-left:19px;line-height:1.65}
 .resume-bullets li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--aqua)}
+
+
+.education-photo{margin:30px 0 0;width:min(100%,390px);aspect-ratio:4/3;overflow:hidden;border-radius:14px;box-shadow:0 18px 38px rgba(18,55,47,.14);transform:rotate(-1deg)}
+.education-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 24%}
+@media(max-width:760px){.education-photo{width:100%;max-width:420px;margin-top:24px}}
+
+
+/* NYC hero photo: non-destructive mid-shin crop */
+.hero-photo{aspect-ratio:4/4.65;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 34%}
+@media(max-width:760px){
+  .hero-photo{aspect-ratio:4/4.7}
+  .hero-photo img{object-position:50% 34%}
+}
+
+
+/* Education story: preserve the graduation photo's original portrait composition */
+.edu .edu-grid{
+  grid-template-columns:minmax(300px, .82fr) minmax(420px, 1.18fr);
+  align-items:center;
+  gap:clamp(48px,7vw,110px);
+}
+.edu-intro{display:flex;flex-direction:column;align-items:flex-start}
+.education-photo{
+  width:min(100%,390px);
+  aspect-ratio:auto;
+  margin:28px 0 0;
+  overflow:visible;
+  border-radius:14px;
+  box-shadow:0 18px 38px rgba(18,55,47,.14);
+  transform:rotate(-.6deg);
+}
+.education-photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+  border-radius:14px;
+}
+@media(max-width:860px){
+  .edu .edu-grid{grid-template-columns:1fr;gap:34px}
+  .education-photo{width:min(78vw,390px)}
+}
 
 </style>
 </head>
@@ -123,14 +167,27 @@ nav.on{background:rgba(255,253,244,.88)}
   <div class="hero-text">
     <div class="hero-actions"><a class="btn dark" href="#education">Start here</a><a class="btn" href="#projects">Projects</a></div>
   </div>
-  <div class="hero-photo"><img src="https://raw.githubusercontent.com/HaTranUSF/Portfolio/main/Portfolio_image.jpg" alt="Ha Tran"></div>
+  <div class="hero-photo"><img src="Portfolio_image.jpg" alt="Ha Tran in New York City"></div>
 </div>
 
 </div></div></header>
 
 <div class="flowline"></div>
 
-<section class="edu" id="education"><div class="wrap edu-grid reveal"><div><h2>Where it started.</h2><p class="quiet">University of South Florida · Tampa, Florida<br>May 2026 · 3.98 GPA · Summa Cum Laude</p></div><div><p class="degree">B.S. Artificial Intelligence and Business Analytics</p><p class="degree">B.S. Econometrics and Quantitative Economics</p><p class="quiet">The combination was actually pretty simple for me. I wanted to learn how data and technology could solve business problems, which is what pulled me toward Artificial Intelligence and Business Analytics. I added Econometrics and Quantitative Economics because I loved the extra math and economics it brought to the way I look at analytics.</p></div></div></section>
+<section class="edu" id="education"><div class="wrap edu-grid reveal">
+<div class="edu-intro">
+  <h2>Where it started.</h2>
+  <p class="quiet">University of South Florida · Tampa, Florida<br>May 2026 · 3.98 GPA · Summa Cum Laude</p>
+  <figure class="education-photo">
+    <img src="Graduation_image.jpg" alt="Ha Tran at the University of South Florida after graduation">
+  </figure>
+</div>
+<div>
+  <p class="degree">B.S. Artificial Intelligence and Business Analytics</p>
+  <p class="degree">B.S. Econometrics and Quantitative Economics</p>
+  <p class="quiet">The combination was actually pretty simple for me. I wanted to learn how data and technology could solve business problems, which is what pulled me toward Artificial Intelligence and Business Analytics. I added Econometrics and Quantitative Economics because I loved the extra math and economics it brought to the way I look at analytics.</p>
+</div>
+</div></section>
 
 <section class="work" id="work"><div class="wrap reveal">
 <h2>Learning by doing.</h2><p class="intro">Two internships in very different businesses. Both taught me that the numbers make a lot more sense once you understand the people and the process behind them.</p>
