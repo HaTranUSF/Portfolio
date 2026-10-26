@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ha Tran</title>
+<title>Ha Tran 🛶</title>
 <meta name="description" content="Ha Tran — analytics, data, automation, and curiosity.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap');
@@ -1557,6 +1557,127 @@ a,button{-webkit-touch-callout:none}
   }
 }
 
+
+/* ===== 5-second scan layer: editorial, not dashboard-y ===== */
+.scanline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 16px;
+  margin:14px 0 4px;
+  color:var(--jade);
+  font-size:.69rem;
+  font-weight:800;
+  letter-spacing:.075em;
+  text-transform:uppercase;
+}
+.scanline span{position:relative}
+.scanline span+span::before{
+  content:"";
+  position:absolute;
+  left:-9px;
+  top:50%;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:currentColor;
+  opacity:.55;
+}
+.chapter-summary,.project-summary{
+  font-size:1rem;
+  line-height:1.58;
+  max-width:62ch;
+}
+.chapter h3,.project h3{margin-bottom:8px!important}
+.chapter .where{line-height:1.35}
+.chapter ul{margin-top:16px}
+.chapter li{margin:7px 0}
+.project-meta{margin-bottom:8px}
+.project .tags{margin-top:14px}
+.project p:last-child{margin-top:16px}
+.project a{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  text-decoration:none;
+}
+.project a::after{
+  content:"";
+  width:24px;
+  height:1px;
+  background:currentColor;
+  transition:width .2s ease;
+}
+.project a:hover::after{width:34px}
+
+/* Make the key numbers read like editorial pull facts. */
+.numbers{
+  gap:18px 30px!important;
+  margin-top:20px!important;
+}
+.number b{font-size:1.8rem!important}
+.number span{
+  display:block;
+  max-width:16ch;
+  line-height:1.3;
+  margin-top:4px;
+}
+
+/* Toolkit: quicker category recognition, still typographic. */
+.tool h3{font-size:.72rem!important}
+.tool p{line-height:1.55}
+@media(max-width:820px){
+  .scanline{gap:6px 14px;margin-top:10px}
+  .chapter-summary,.project-summary{font-size:.96rem}
+}
+
+
+/* ===== Toolkit reset: original editorial language, tighter resume-backed content ===== */
+.toolkit-balanced-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,.62fr);
+  gap:clamp(44px,7vw,100px);
+  align-items:center;
+  margin-bottom:42px;
+}
+.toolkit-balanced-head h2{
+  max-width:9.6ch!important;
+  margin:0!important;
+  line-height:.91!important;
+}
+.toolkit-balanced-head .intro{
+  max-width:34ch;
+  margin:0!important;
+  justify-self:start;
+  align-self:center;
+}
+.resume-tool-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:clamp(22px,3vw,44px)!important;
+}
+.resume-tool-grid .tool{
+  min-width:0;
+}
+.resume-tool-grid .tool h3{
+  margin-bottom:10px!important;
+}
+.resume-tool-grid .tool p{
+  margin:0!important;
+  line-height:1.65!important;
+}
+@media(max-width:900px){
+  .toolkit-balanced-head{
+    grid-template-columns:1fr;
+    gap:18px;
+    margin-bottom:34px;
+  }
+  .toolkit-balanced-head h2{max-width:none!important}
+  .resume-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:560px){
+  .resume-tool-grid{grid-template-columns:1fr!important;gap:24px!important}
+}
+
 </style>
 </head>
 <body>
@@ -1601,7 +1722,7 @@ a,button{-webkit-touch-callout:none}
 <div class="hero-kicker">Analytics</div>
 <h1>Ha Tran</h1>
 <p>I like learning how a business works, finding the parts that could be better, and seeing what I can do with the data around them</p>
-<a class="hero-link" href="#work">Selected work <span aria-hidden="true">↘</span></a>
+<a class="hero-link" href="#projects">Selected work <span aria-hidden="true">↘</span></a>
 </div>
 <figure class="hero-photo editorial-photo">
       <div class="photo-mat">
@@ -1616,7 +1737,7 @@ a,button{-webkit-touch-callout:none}
 
 <section class="edu" id="education"><div class="wrap edu-grid reveal">
 <div class="edu-intro">
-  <div class="section-index">01 / EDUCATION</div><h2>Where it started</h2>
+  <div class="section-index">01 / ORIGIN</div><h2>Where it started</h2>
   <p class="quiet">University of South Florida · Tampa, Florida<br>May 2026 · 3.98 GPA · Summa Cum Laude</p>
   <figure class="education-photo">
     <img src="Graduation_image.jpg" alt="Ha Tran at the University of South Florida after graduation">
@@ -1637,7 +1758,7 @@ a,button{-webkit-touch-callout:none}
 <div class="chapter story-role">
   <div>
     <div class="identity-line"><span class="org-mark logo-image princeton-logo" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Princeton_University_Shield.svg" alt=""></span><div class="where">Princeton University · Office of Finance & Treasury</div></div>
-    <h3>Data Analyst Intern</h3>
+    <h3>Data Analyst Intern</h3><div class="scanline"><span>Finance & Treasury</span><span>Jun–Aug 2024</span><span>Princeton, NJ</span></div>
     <p class="quiet">Summer 2024 · Princeton, New Jersey</p>
   </div>
   <div class="role-story">
@@ -1661,9 +1782,9 @@ a,button{-webkit-touch-callout:none}
 
 <section class="projects" id="projects"><div class="river-thread"></div><div class="wrap reveal">
 <div class="section-index">03 / BUILDS</div><h2>Then I started building</h2><p class="intro">These are the projects where I had room to follow my own questions, make the calls myself, and see how far I could take an idea</p>
-<div class="project"><div><div class="project-meta">Player scouting & decision support</div><h3>Soccer Analytics & Scouting</h3></div><div><p>Player stats are easy to find, but they are not always easy to compare. A midfielder and a striker are judged differently, and raw totals can be misleading when players have different minutes or play in different leagues. I built this project to make those comparisons more useful, from cleaning and modeling the data to creating per-90 and position-aware metrics and a scouting app for comparing 4,500+ players</p><div class="tags"><span>Python</span><span>DuckDB</span><span>dbt</span><span>Databricks</span><span>Power BI</span><span>Streamlit</span></div><p><a href="https://github.com/hquantran/soccer-analytics" target="_blank">Open project →</a></p></div></div>
-<div class="project"><div><div class="project-meta">Workforce demand & market visibility</div><h3>Data Jobs Market</h3></div><div><p>I started this because I wanted a clearer picture of the data job market than I could get from scrolling through individual postings. I collected and cleaned 5,500+ USAJOBS postings across 12 role categories, then built a Power BI dashboard to compare demand, salary, location, and work arrangement. I also moved the project from Snowflake to PostgreSQL after realizing the simpler setup made more sense for what I was actually building</p><div class="tags"><span>Python</span><span>PostgreSQL</span><span>Power BI</span><span>ETL</span></div><p><a href="https://hatranusf.github.io/Job-Market-Analysis/" target="_blank">Open project →</a></p></div></div>
-<div class="project"><div><div class="project-meta">Targeting efficiency & marketing cost</div><h3>Coupon Acceptance</h3></div><div><p>The question here was not just whether I could predict coupon acceptance. I wanted to know whether the model could make targeting more useful for the business. I worked with 12,700+ records, built features around customer behavior and context, and evaluated the model with the cost of different mistakes in mind. The final approach was estimated to cut distribution costs by 3.1% compared with sending coupons without targeting</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>MLflow</span><span>Cost-sensitive evaluation</span></div><p><a href="https://github.com/HaTranUSF/coupon-acceptance-prediction_mlops" target="_blank" rel="noopener">Open project →</a></p></div></div>
+<div class="project"><div><div class="project-meta">Player scouting & decision support</div><h3>Soccer Analytics & Scouting</h3><div class="scanline"><span>4,500+ players</span><span>5 leagues</span><span>Scouting app</span></div></div><div><p>Player stats are easy to find, but they are not always easy to compare. A midfielder and a striker are judged differently, and raw totals can be misleading when players have different minutes or play in different leagues. I built this project to make those comparisons more useful, from cleaning and modeling the data to creating per-90 and position-aware metrics and a scouting app for comparing 4,500+ players</p><div class="tags"><span>Python</span><span>DuckDB</span><span>dbt</span><span>Databricks</span><span>Power BI</span><span>Streamlit</span></div><p><a href="https://github.com/hquantran/soccer-analytics" target="_blank">View project</a></p></div></div>
+<div class="project"><div><div class="project-meta">Workforce demand & market visibility</div><h3>Data Jobs Market</h3><div class="scanline"><span>5,500+ postings</span><span>12 role categories</span><span>Power BI</span></div></div><div><p>I started this because I wanted a clearer picture of the data job market than I could get from scrolling through individual postings. I collected and cleaned 5,500+ USAJOBS postings across 12 role categories, then built a Power BI dashboard to compare demand, salary, location, and work arrangement. I also moved the project from Snowflake to PostgreSQL after realizing the simpler setup made more sense for what I was actually building</p><div class="tags"><span>Python</span><span>PostgreSQL</span><span>Power BI</span><span>ETL</span></div><p><a href="https://hatranusf.github.io/Job-Market-Analysis/" target="_blank">View project</a></p></div></div>
+<div class="project"><div><div class="project-meta">Targeting efficiency & marketing cost</div><h3>Coupon Acceptance</h3><div class="scanline"><span>12,700+ records</span><span>Cost-sensitive ML</span><span>3.1% lower distribution cost</span></div></div><div><p>The question here was not just whether I could predict coupon acceptance. I wanted to know whether the model could make targeting more useful for the business. I worked with 12,700+ records, built features around customer behavior and context, and evaluated the model with the cost of different mistakes in mind. The final approach was estimated to cut distribution costs by 3.1% compared with sending coupons without targeting</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>MLflow</span><span>Cost-sensitive evaluation</span></div><p><a href="https://github.com/HaTranUSF/coupon-acceptance-prediction_mlops" target="_blank" rel="noopener">View project</a></p></div></div>
 </div></section>
 
 <section class="campus" id="campus"><div class="wrap reveal">
@@ -1682,8 +1803,18 @@ a,button{-webkit-touch-callout:none}
   </article>
 </div></div></section>
 
-<section class="toolkit" id="skills"><div class="wrap reveal"><div class="section-index">05 / TOOLKIT</div><h2>What I bring with me</h2><p class="intro">A growing toolkit from internships, coursework, side projects, and a lot of learning things when I actually needed them</p>
-<div class="tool-grid"><div class="tool"><h3>Analysis</h3><p>Python · pandas · NumPy · R · econometrics · statistics · time series · experimentation</p></div><div class="tool"><h3>Data</h3><p>SQL · PostgreSQL · BigQuery · DuckDB · dbt · Databricks · dimensional modeling</p></div><div class="tool"><h3>Reporting</h3><p>Power BI · Tableau · Streamlit · Excel · KPI design · semantic metrics</p></div><div class="tool"><h3>Automation</h3><p>Power Automate · Power Query · VBA · REST APIs · Git</p></div></div>
+<section class="toolkit" id="skills"><div class="wrap reveal">
+  <div class="section-index">05 / TOOLKIT</div>
+  <div class="toolkit-balanced-head">
+    <h2>What I bring with me</h2>
+    <p class="intro">The tools I use most across analytics, reporting, data work, and automation.</p>
+  </div>
+  <div class="tool-grid resume-tool-grid">
+    <div class="tool"><h3>Analysis</h3><p>Python · SQL · R · Excel</p></div>
+    <div class="tool"><h3>BI & Reporting</h3><p>Power BI · Tableau · Streamlit</p></div>
+    <div class="tool"><h3>Data</h3><p>PostgreSQL · DuckDB · dbt · Databricks</p></div>
+    <div class="tool"><h3>Automation</h3><p>Power Automate · Power Query · VBA</p></div>
+  </div>
 </div></section>
 
 
